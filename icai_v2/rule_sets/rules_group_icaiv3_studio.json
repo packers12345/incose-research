@@ -1,0 +1,145 @@
+[
+  {
+    "criterion": "A4",
+    "criterion_name": "",
+    "rule_text": "Prefer quantified limits over qualitative language for objective compliance assessment.",
+    "method": "icai_v2",
+    "evidence": [],
+    "support_count": 26,
+    "direction": "",
+    "sub_rule_id": "A4.1",
+    "extra": {
+      "net": 17,
+      "relevance": 0.549,
+      "accuracy": 0.627,
+      "correct": 42,
+      "incorrect": 25,
+      "seeds_found": 4,
+      "variants": [
+        "Prefer measurable leak rate limits over absolute prevention claims.",
+        "Prefer measurable parameters over vague terms; 'any particulates' is unverifiable.",
+        "Prefer quantified limits over qualitative language for objective compliance assessment.",
+        "Prefer quantified limits over vague exclusions; enables verification and acceptance criteria."
+      ],
+      "source_criterion": "A10",
+      "content_criterion": "A4",
+      "classification_scope": "detection",
+      "classification_confidence": 0.95,
+      "classification_rationale": "The rule identifies qualitative language in requirements and advocates for quantified limits to enable objective compliance assessment, which directly addresses whether qualitative descriptors have measurable definitions.",
+      "reclassified": true
+    }
+  },
+  {
+    "criterion": "A10",
+    "criterion_name": "",
+    "rule_text": "Prefer active voice 'shall move' over passive 'shall be able to move' construction.",
+    "method": "icai_v2",
+    "evidence": [],
+    "support_count": 16,
+    "direction": "",
+    "sub_rule_id": "A10.3",
+    "extra": {
+      "net": 18,
+      "relevance": 0.459,
+      "accuracy": 0.661,
+      "correct": 37,
+      "incorrect": 19,
+      "seeds_found": 3,
+      "variants": [
+        "Prefer active voice 'shall move' over passive 'shall be able to move' construction.",
+        "Prefer active voice 'shall move' over passive construction 'shall be able to move'."
+      ],
+      "source_criterion": "A10",
+      "content_criterion": "A10",
+      "classification_scope": "detection",
+      "classification_confidence": 0.95,
+      "classification_rationale": "The rule detects passive 'shall be able to' construction in requirements, which A10.3 explicitly identifies as a sentence construction to avoid.",
+      "reclassified": false
+    }
+  },
+  {
+    "criterion": "A4",
+    "criterion_name": "",
+    "rule_text": "Prefer quantified limits over vague negatives like 'not contribute any'.",
+    "method": "icai_v2",
+    "evidence": [],
+    "support_count": 32,
+    "direction": "",
+    "sub_rule_id": "A4.1",
+    "extra": {
+      "net": 16,
+      "relevance": 0.148,
+      "accuracy": 0.944,
+      "correct": 17,
+      "incorrect": 1,
+      "seeds_found": 3,
+      "variants": [
+        "Flag vague absolutes: 'not contribute any' lacks measurable thresholds or units.",
+        "Flag vague terms like 'prevent' and 'leaking' without quantified acceptance criteria.",
+        "Prefer quantified limits over vague negatives like 'not contribute any'."
+      ],
+      "source_criterion": "A10",
+      "content_criterion": "A4",
+      "classification_scope": "detection",
+      "classification_confidence": 0.9,
+      "classification_rationale": "The rule flags vague negative phrases like 'not contribute any' and advocates for quantified limits, addressing the measurability of qualitative descriptors.",
+      "reclassified": true
+    }
+  },
+  {
+    "criterion": "NONE",
+    "criterion_name": "",
+    "rule_text": "Do not replace concise language with longer, more complex alternative phrasings.",
+    "method": "icai_v2",
+    "evidence": [],
+    "support_count": 56,
+    "direction": "",
+    "sub_rule_id": "",
+    "extra": {
+      "net": 30,
+      "relevance": 0.918,
+      "accuracy": 0.634,
+      "correct": 71,
+      "incorrect": 41,
+      "seeds_found": 2,
+      "variants": [
+        "Do not introduce unnecessary complexity when simpler wording suffices.",
+        "Do not replace concise language with longer, more complex alternative phrasings."
+      ],
+      "source_criterion": "A5",
+      "content_criterion": "NONE",
+      "classification_scope": "rewrite",
+      "classification_confidence": 0.85,
+      "classification_rationale": "This rule constrains how replacements should be written (preferring conciseness) rather than identifying a detectable defect in requirement text.",
+      "reclassified": true
+    }
+  },
+  {
+    "criterion": "A10",
+    "criterion_name": "",
+    "rule_text": "Flag modal weakness allowing non-performance; prefer direct obligation without capability hedging",
+    "method": "icai_v2",
+    "evidence": [],
+    "support_count": 12,
+    "direction": "",
+    "sub_rule_id": "A10.3",
+    "extra": {
+      "net": 19,
+      "relevance": 0.516,
+      "accuracy": 0.651,
+      "correct": 41,
+      "incorrect": 22,
+      "seeds_found": 2,
+      "variants": [
+        "Flag modal weakness allowing non-performance; prefer direct obligation without capability hedging",
+        "Flag modal weakness; 'able to' expresses capability, not requirement; use 'shall' instead."
+      ],
+      "source_criterion": "A10",
+      "content_criterion": "A10",
+      "classification_scope": "detection",
+      "classification_confidence": 0.9,
+      "classification_rationale": "The rule detects modal weakness and capability hedging (like 'shall be able to'), which A10.3 addresses by avoiding 'shall be able to' constructions.",
+      "reclassified": false
+    }
+  }
+]

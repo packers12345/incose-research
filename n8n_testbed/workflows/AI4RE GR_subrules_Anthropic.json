@@ -1,0 +1,353 @@
+{
+  "name": "AI4RE GR_subrules_Anthropic",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "seconds",
+              "secondsInterval": 15
+            }
+          ]
+        }
+      },
+      "id": "6f7d19f7-666d-4715-9b2d-883817dc450d",
+      "name": "Every 2 Minutes Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        -32,
+        -160
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "id-1",
+              "name": "executionNumber",
+              "value": "={{ $execution.id }}",
+              "type": "string"
+            },
+            {
+              "id": "id-2",
+              "name": "workflowStartTime",
+              "value": "={{ $now }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "f8907bb4-9078-45af-9242-7138e20cae9b",
+      "name": "Add Execution Number",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        192,
+        -160
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "documentId": {
+          "__rl": true,
+          "value": "17wCwETWnnuAzh1lwo6bCIgh1JfyYotwAaddpm28RsGs",
+          "mode": "list",
+          "cachedResultName": "GR_Matrix_Subrules",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/17wCwETWnnuAzh1lwo6bCIgh1JfyYotwAaddpm28RsGs/edit?usp=drivesdk"
+        },
+        "title": "={{ 'Execution_' + $json.executionNumber }}",
+        "options": {}
+      },
+      "id": "0e1e7885-22c6-4cec-ac37-18eb99656cc3",
+      "name": "Create New Sheet",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        416,
+        -160
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "8HciU0qC5IriYDAP",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1UjY9S12ayk-oP5HkZ2wIWAMGFL39S6yenqtsJtaqN28",
+          "mode": "list",
+          "cachedResultName": "Project Specifications",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1UjY9S12ayk-oP5HkZ2wIWAMGFL39S6yenqtsJtaqN28/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "GPS System Requirements",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1UjY9S12ayk-oP5HkZ2wIWAMGFL39S6yenqtsJtaqN28/edit#gid=0"
+        },
+        "options": {}
+      },
+      "id": "2f055174-279c-4341-a3be-0b4558ed9f7e",
+      "name": "Get row(s) in sheet",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        640,
+        -160
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "8HciU0qC5IriYDAP",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\n\nconst result = {\n  projectContext: '',\n  conOps: '',\n  requirements: [],\n  imageUrl: '',\n  executionNumber: items[0].json.executionNumber\n};\n\nitems.forEach(item => {\n  const section = item.json.Section || '';\n  const content = item.json.Content || '';\n\n  if (section.toLowerCase().includes('project context')) {\n    result.projectContext = content;\n  }\n\n  if (section.toLowerCase().includes('conops')) {\n    result.conOps = content;\n  }\n\n  if (section.toLowerCase().includes('image')) {\n    result.imageUrl = content;\n  }\n\n  if (section.match(/\\b(FR|PR|ER|RR)\\./i)) {\n    result.requirements.push({\n      requirementId: section,\n      requirementText: content\n    });\n  }\n});\n\nreturn [{ json: result }];"
+      },
+      "id": "dc11ad1e-6e3e-4f48-942a-1e077b99b0cf",
+      "name": "Process Sheet Data",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        864,
+        -160
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{\n'Project Context: ' + $json.projectContext +\n\n'\\n\\nConcept of Operations: ' + $json.conOps +\n\n($json.imageUrl ? '\\n\\nReference Image (if relevant): ' + $json.imageUrl : '') +\n\n'\\n\\nRequirements to evaluate:\\n' +\n$json.requirements.map(r => r.requirementId + ': ' + r.requirementText).join('\\n')\n}}",
+        "options": {
+          "systemMessage": "You are a requirements quality evaluator. You will receive a list of requirements with their IDs, along with Project Context, Concept of Operations (ConOps) information, and a reference image of the ConOps.\n\nWhen completing the following tasks, carefully consider the provided Project Context, Concept of Operations, and reference image to determine if requirements align with the project goals, needs, and operational constraints.\n\n\nYour task is to perform evaluations in TWO parts:\n\n## PART 1: INDIVIDUAL REQUIREMENT EVALUATION\n\nEvaluate each requirement individually against ALL of these quality criteria (A1-A11). Be CRITICAL and THOROUGH in identifying issues.\n\nIMPORTANT: Criterion A1 means NO issues. Criteria A2-A11 mean issues EXIST. For each requirement, include the number of criteria that apply. Be thorough and critical - if there is an issue, mark it. If issues exist, return one object per issue criterion, including:\n•\tcriterion ID\n•\tcriterion name\n•\tshort explanation on why the issue exists (1–2 sentences)\n\nThe criteria are as follows:\nA1- No issues: No issues found with the requirement (mark ONLY if the requirement has NO problems)\nA2-Necessary: The requirement statement defines a capability, characteristic, constraint, or quality factor needed to satisfy a life cycle concept, need, source, or parent requirement.\nA3-Appropriate: The specific intent and amount of detail of the requirement statement is appropriate to the level (e.g., the level of abstraction, organization, or system architecture) of the entity to which it refers.\nA4-Unambiguous: The requirement statement is stated such that the intent is clear and the requirement can be interpreted in only one way by all the intended stakeholders.\nA5-Complete: The requirement statement sufficiently describes the necessary capability, characteristic, constraint, conditions, or quality factor to meet the need, source, or higher-level requirement from which it was transformed.\nA6-Singular: The requirement statement states a single capability, characteristic, constraint, or quality factor.\nA9-Correct: The requirement statement is an accurate representation of the need, source, or higher-level requirement from which it was transformed.\nA10-Conforming: The requirement statement conforms to an approved standard pattern and style guide or standard for writing and managing requirements.\nA11-Unsure of Category (ISSUE EXISTS if you cannot categorize the problem)\n\n## PART 2: SET-LEVEL EVALUATION\n\nEvaluate groups of requirements together against the following Criteria (B1-B7).\nPerform set-level evaluation for:\n•\tFunctional Requirements (FR)\n•\tPerformance Requirements (PR)\n•\tEnvironmental Requirements (ER)\n•\tResource Requirements (RR)\nAlso, evaluate the entire requirement set as a whole.\n\nIMPORTANT: Criterion B1 means NO issues. Criteria B2-B7 mean issues EXIST. For each requirement set and for the entire requirement set (ALL), include the number of criteria that apply. Be thorough and critical - if there is an issue, mark it. If issues exist, return one object per issue criterion, including:\n•\tcriterion ID\n•\tcriterion name\n•\tshort explanation on why the issue exists (1–2 sentences)\n\nThe criteria are as follows:\nB1- No issues: No issues found with the requirement set (mark ONLY if the requirement set has NO problems)\nB2-Complete: The requirement set for a given SOI should stand alone such that it sufficiently describes the necessary capabilities, characteristics, functionality, performance, drivers, constraints, conditions, interactions, standards, regulations, and/or quality characteristics without requiring other sets of requirements at the appropriate level of abstraction.\nB3-Consistent: The requirement set contains individual requirements that are unique, do not conflict with or overlap with others in the set, and the units and measurement systems they use are homogeneous. The language used within the sets is consistent and all terms used within the requirement statements align with the architectural model, project glossary, and project data dictionary.\nB4-Feasible: The requirement set can be realized within entity constraints (e.g., cost, schedule, technical) with acceptable risk.\nB5-Comprehensible: The requirement set is written such that it is clear what is expected of the entity and its relation to the macro system of which it is a part.\nB7-Correct: The requirement set is an accurate representation of the needs, sources, or higher-level requirements from which it was transformed.\n\n\n## OUTPUT FORMAT\n\nReturn ONLY valid JSON.\n{\n  \"individualEvaluations\": {\n    \"FR.1\": [\n      {\n        \"criterion\": \"A3\",\n        \"name\": \"Unambiguous\",\n        \"explanation\": \"The requirement uses subjective wording that allows multiple interpretations.\"\n      }\n    ],\n    \"FR.2\": []\n  },\n\n  \"setEvaluations\": {\n    \"FR\": {\n      \"issues\": [\n        {\n          \"criterion\": \"B2\",\n          \"name\": \"Singular\",\n          \"explanation\": \"Several functional requirements combine multiple behaviors within a single requirement statement.\"\n        }\n      ]\n    },\n\n    \"PR\": {\n      \"issues\": []\n    },\n\n    \"ER\": {\n      \"issues\": []\n    },\n\n    \"RR\": {\n      \"issues\": []\n    }\n  },\n\n  \"overallEvaluation\": {\n    \"issues\": [\n      {\n        \"criterion\": \"B1\",\n        \"name\": \"Complete\",\n        \"explanation\": \"Some operational scenarios described in the ConOps are not represented in the requirement set.\"\n      }\n    ]\n  }\n}\n"
+        }
+      },
+      "id": "08eaeb3a-6db8-4eb7-91ab-09f917c6ba0e",
+      "name": "Evaluate Requirements",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        1088,
+        -160
+      ]
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "claude-sonnet-4-6",
+          "cachedResultName": "Claude Sonnet 4.6"
+        },
+        "options": {
+          "temperature": 0.7
+        }
+      },
+      "id": "a09aae9f-4cc5-48b3-a84f-17d0993d15db",
+      "name": "Anthropic Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.5,
+      "position": [
+        1168,
+        80
+      ],
+      "credentials": {
+        "anthropicApi": {
+          "id": "vH1qZe3RKcDeyH3W",
+          "name": "Anthropic account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse the AI agent's text output as JSON.\n// Handles cases where Claude adds preamble text or wraps JSON in a code fence.\nconst items = $input.all();\n\nlet aiOutput =\n  items[0]?.json?.output ??\n  items[0]?.json?.text ??\n  items[0]?.json ??\n  \"\";\n\nlet parsedData = {};\nif (typeof aiOutput === \"object\" && aiOutput !== null) {\n  parsedData = aiOutput;\n} else if (typeof aiOutput === \"string\") {\n  // Extract the outermost JSON object: from first { to last }\n  // This safely skips any preamble text or code fence wrappers.\n  const braceStart = aiOutput.indexOf(\"{\");\n  const braceEnd = aiOutput.lastIndexOf(\"}\");\n\n  if (braceStart === -1 || braceEnd === -1 || braceStart >= braceEnd) {\n    console.error(\"No JSON object found in AI output\");\n    return [{ json: {} }];\n  }\n\n  const jsonStr = aiOutput.slice(braceStart, braceEnd + 1);\n\n  try {\n    parsedData = JSON.parse(jsonStr);\n  } catch (error) {\n    console.error(\"Failed to parse AI output:\", error);\n    console.error(\"Attempted to parse:\", jsonStr.slice(0, 500));\n    return [{ json: {} }];\n  }\n}\n\nconst individualEvaluations = parsedData.individualEvaluations || {};\nconst setEvaluations = parsedData.setEvaluations || {};\nconst overallEvaluation = parsedData.overallEvaluation || {};\n\nreturn [{ json: { individualEvaluations, setEvaluations, overallEvaluation } }];"
+      },
+      "id": "1923bcc7-fd2f-4e63-9589-d9d55f73ed36",
+      "name": "Parse AI Output",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1440,
+        -160
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Transform AI evaluation output into matrix format\nconst items = $input.all();\nconst data = items[0]?.json || {};\n\nconst individualEvaluations = data.individualEvaluations || {};\nconst setEvaluations = data.setEvaluations || {};\nconst overallEvaluation = data.overallEvaluation || {};\n\nconst criteriaA = [\n  { id: \"A1\", description: \"No issues found with the requirement (mark ONLY if the requirement has NO problems)\" },\n  { id: \"A2\", description: \"Necessary: Defines a capability/characteristic/constraint/quality factor needed to satisfy a life cycle concept, need, source, or parent requirement.\" },\n  { id: \"A3\", description: \"Appropriate: Level of detail is appropriate to the level of the entity.\" },\n  { id: \"A4\", description: \"Unambiguous: Can be interpreted in only one way by intended stakeholders.\" },\n  { id: \"A5\", description: \"Complete: Sufficiently describes necessary capability/conditions/quality factor to meet the source or higher-level requirement.\" },\n  { id: \"A6\", description: \"Singular: States a single capability/characteristic/constraint/quality factor.\" },\n  { id: \"A9\", description: \"Correct: Accurate representation of the need/source/higher-level requirement from which it was transformed.\" },\n  { id: \"A10\", description: \"Conforming: Conforms to approved standard pattern/style guide for requirements.\" },\n  { id: \"A11\", description: \"Unsure of Category: Issue exists if you cannot categorize the problem.\" },\n];\n\nconst criteriaB = [\n  { id: \"B1\", description: \"No issues found with the requirement set (mark ONLY if the requirement set has NO problems)\" },\n  { id: \"B2\", description: \"Complete: The set stands alone and sufficiently describes necessary capabilities/constraints/conditions/standards/etc. at the appropriate abstraction level.\" },\n  { id: \"B3\", description: \"Consistent: Requirements are unique, non-conflicting, homogeneous units/measurements, consistent language/terms aligned with architecture/glossary/dictionary.\" },\n  { id: \"B4\", description: \"Feasible: The set can be realized within constraints with acceptable risk.\" },\n  { id: \"B5\", description: \"Comprehensible: Clear what is expected of the entity and its relation to the macro system.\" },\n  { id: \"B7\", description: \"Correct: Accurate representation of needs/sources/higher-level requirements from which it was transformed.\" },\n];\n\nfunction getPrefix(reqId) {\n  return (reqId.split(\".\")[0] || \"\").toUpperCase();\n}\n\nfunction sortRequirementIds(ids) {\n  const order = [\"FR\", \"PR\", \"ER\", \"RR\"];\n  return ids.sort((a, b) => {\n    const prefixA = getPrefix(a);\n    const prefixB = getPrefix(b);\n    const orderA = order.indexOf(prefixA);\n    const orderB = order.indexOf(prefixB);\n    const safeA = orderA === -1 ? 999 : orderA;\n    const safeB = orderB === -1 ? 999 : orderB;\n    if (safeA !== safeB) return safeA - safeB;\n    const numA = parseInt(a.split(\".\")[1], 10) || 0;\n    const numB = parseInt(b.split(\".\")[1], 10) || 0;\n    return numA - numB;\n  });\n}\n\nconst requirementIds = sortRequirementIds(Object.keys(individualEvaluations));\n\nfunction normalizeAIssues(issueObjs) {\n  const issues = Array.isArray(issueObjs) ? issueObjs : [];\n  const hasA1 = issues.some(i => i?.criterion === \"A1\");\n  return hasA1 ? issues.filter(i => i?.criterion === \"A1\") : issues;\n}\n\nfunction normalizeBIssues(issueObjs) {\n  const issues = Array.isArray(issueObjs) ? issueObjs : [];\n  const hasB1 = issues.some(i => i?.criterion === \"B1\");\n  return hasB1 ? issues.filter(i => i?.criterion === \"B1\") : issues;\n}\n\nfunction requirementHasACriterion(reqId, criterionId) {\n  const issues = normalizeAIssues(individualEvaluations[reqId] || []);\n  return issues.some(i => i?.criterion === criterionId);\n}\n\nfunction setHasBCriterion(setKey, criterionId) {\n  if (setKey === \"ALL\") {\n    const issues = normalizeBIssues(overallEvaluation?.issues || []);\n    return issues.some(i => i?.criterion === criterionId);\n  }\n  const issues = normalizeBIssues(setEvaluations?.[setKey]?.issues || []);\n  return issues.some(i => i?.criterion === criterionId);\n}\n\nconst output = [];\n\nfor (const crit of criteriaA) {\n  const row = { \"Issue ID\": crit.id, \"Issue Description\": crit.description };\n  for (const reqId of requirementIds) {\n    row[reqId] = requirementHasACriterion(reqId, crit.id) ? \"x\" : \"\";\n  }\n  output.push({ json: row });\n}\n\nconst blankRow1 = { \"Issue ID\": \"\", \"Issue Description\": \"\" };\nfor (const reqId of requirementIds) { blankRow1[reqId] = \"\"; }\nblankRow1[\"FR\"] = \"\"; blankRow1[\"PR\"] = \"\"; blankRow1[\"ER\"] = \"\"; blankRow1[\"RR\"] = \"\"; blankRow1[\"ALL\"] = \"\";\noutput.push({ json: blankRow1 });\n\nconst setColumns = [\"FR\", \"PR\", \"ER\", \"RR\", \"ALL\"];\n\nfor (const crit of criteriaB) {\n  const row = { \"Issue ID\": crit.id, \"Issue Description\": crit.description };\n  for (const reqId of requirementIds) { row[reqId] = \"\"; }\n  for (const setKey of setColumns) {\n    row[setKey] = setHasBCriterion(setKey, crit.id) ? \"x\" : \"\";\n  }\n  output.push({ json: row });\n}\n\nconst blankRow2 = { \"Issue ID\": \"\", \"Issue Description\": \"\" };\nfor (const reqId of requirementIds) { blankRow2[reqId] = \"\"; }\nfor (const setKey of setColumns) { blankRow2[setKey] = \"\"; }\noutput.push({ json: blankRow2 });\n\ntry {\n  const startTime = new Date($(\"Add Execution Number\").first().json.workflowStartTime).getTime();\n  const durationSeconds = ((Date.now() - startTime) / 1000).toFixed(2);\n  const executionTimeRow = { \"Issue ID\": \"Execution Time: \" + durationSeconds + \" seconds\", \"Issue Description\": durationSeconds };\n  for (const reqId of requirementIds) { executionTimeRow[reqId] = \"\"; }\n  for (const setKey of setColumns) { executionTimeRow[setKey] = \"\"; }\n  output.push({ json: executionTimeRow });\n} catch (e) {\n  const executionTimeRow = { \"Issue ID\": \"Execution Time: (unavailable)\", \"Issue Description\": \"\" };\n  for (const reqId of requirementIds) { executionTimeRow[reqId] = \"\"; }\n  for (const setKey of setColumns) { executionTimeRow[setKey] = \"\"; }\n  output.push({ json: executionTimeRow });\n}\n\nreturn output;"
+      },
+      "id": "957416c3-06ea-4839-a91e-6e8c745fbf99",
+      "name": "Transform to Matrix",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1664,
+        -160
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "17wCwETWnnuAzh1lwo6bCIgh1JfyYotwAaddpm28RsGs",
+          "mode": "list",
+          "cachedResultName": "GR_Matrix_Subrules",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/17wCwETWnnuAzh1lwo6bCIgh1JfyYotwAaddpm28RsGs/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "={{ $('Create New Sheet').first().json.sheetId }}",
+          "mode": "id"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {},
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "id": "4a14146e-e785-4a38-9601-c0e23c98eee5",
+      "name": "Append to Google Sheet",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1888,
+        -160
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "8HciU0qC5IriYDAP",
+          "name": "Google Sheets account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Every 2 Minutes Trigger": {
+      "main": [
+        [
+          {
+            "node": "Add Execution Number",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add Execution Number": {
+      "main": [
+        [
+          {
+            "node": "Create New Sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create New Sheet": {
+      "main": [
+        [
+          {
+            "node": "Get row(s) in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet": {
+      "main": [
+        [
+          {
+            "node": "Process Sheet Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Process Sheet Data": {
+      "main": [
+        [
+          {
+            "node": "Evaluate Requirements",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Evaluate Requirements": {
+      "main": [
+        [
+          {
+            "node": "Parse AI Output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Evaluate Requirements",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse AI Output": {
+      "main": [
+        [
+          {
+            "node": "Transform to Matrix",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Transform to Matrix": {
+      "main": [
+        [
+          {
+            "node": "Append to Google Sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "db5fcfe0-0601-4191-bafa-e207ba01ecc8",
+  "meta": {
+    "instanceId": "54c0b1809665feb08ceabf49cca1905c65873ff2f2d11f7aa5547328468cb384"
+  },
+  "nodeGroups": [],
+  "id": "iMCjNj1vgazds0zX",
+  "tags": []
+}

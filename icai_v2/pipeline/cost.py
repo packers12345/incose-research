@@ -37,6 +37,8 @@ MODELS: List[Model] = [
           "Newer and cheaper than Sonnet 4.5 — the sensible default."),
     Model("claude-sonnet-4-5", "Sonnet 4.5", 3.0, 15.0,
           "What every checked-in rule set was induced with."),
+    Model("claude-sonnet-4-6", "Sonnet 4.6", 3.0, 15.0,
+          "Same price as Sonnet 4.5. What the n8n testbed arms were scored with."),
     Model("claude-opus-5", "Opus 5", 5.0, 25.0,
           "For a final run where rule quality matters more than spend."),
 ]

@@ -43,8 +43,21 @@ GT_PATH = GT_DIR / "Point_Mass_v5_GroundTruth.xlsx"
 OUTPUT_DIR = output_dir("reviewer_reliability")
 PLOT_DIR = OUTPUT_DIR / "plots" / "notebook_style"
 
-REVIEWERS = ["cf9c5ba6", "aee204f7", "6e1e38fc", "9dc74a53", "ffd92981"]
+REVIEWERS = ["cf9c5ba6", "aee204f7", "6e1e38fc", "9dc74a53", "ffd92981",
+             "d566d756"]
 LABEL = {r: f"SME {i}" for i, r in enumerate(REVIEWERS, start=1)}
+
+# Reviewer affiliation. Supplied by the study lead, not derivable from the
+# exports — the feedback files carry no identity beyond the session id.
+AFFILIATION = {
+    "cf9c5ba6": "NNSA",       # SME 1
+    "aee204f7": "NNSA",       # SME 2
+    "6e1e38fc": "External",   # SME 3
+    "9dc74a53": "External",   # SME 4
+    "ffd92981": "External",   # SME 5
+    "d566d756": "NNSA",       # SME 6
+}
+GROUPS = ["NNSA", "External"]
 
 REQ_TO_PM = {1: "FR.1", 2: "FR.2", 3: "PR.1", 4: "PR.2", 5: "PR.3", 6: "PR.4",
              7: "PR.5", 8: "PR.6", 9: "PR.7", 10: "ER.1", 11: "ER.2",
@@ -60,15 +73,44 @@ MUTED = "#6b7280"
 # Human adjudication of every `modify`, decided case by case against the
 # criterion, the AI's suggestion, the SME's final text and their note.
 # Keyed (session, violation_id). This is the authoritative labelling; the
-# mechanical rule below exists for reproducibility and agreed with 7 of these 9.
+# mechanical rule below exists for reproducibility and agrees with 12 of these 19.
 #
-# The two rejects are worth reading:
+# The test applied throughout: does the reviewer's edit accept the premise of
+# the flag AS CATEGORISED? Adopting the AI's words for a different reason than
+# the AI gave is not an endorsement.
+#
+# The rejects are the ones worth reading.
+#
 #   6e1e38fc 10-A2  the SME's fix ("less than [x]% relative humidity") addresses
 #                   ambiguity, not necessity - the flag was miscategorised, so
 #                   adopting the rewrite is not endorsement of A2.
 #   ffd92981 12-A5  the SME deleted content rather than supplying the missing
 #                   detail; their note is a style objection to "to prevent",
 #                   not agreement that the requirement was incomplete.
+#   d566d756 10-A2  same ER.1 x A2 cell as 6e1e38fc above, same conclusion, but
+#                   this time the reviewer documented it: their 10-A4 entry says
+#                   the humidity fix was "incorporated into A2 for correct
+#                   display in the summary preview". The A2 modify is partly a
+#                   tool artefact; the substantive agreement was with A4.
+#   d566d756 3-A2   \  three instances of one pattern: the AI flags A2 and
+#   d566d756 4-A2    ) proposes expanding a bare "FR1"/"FR2" cross-reference
+#   d566d756 8-A2   /  into explicit action language. The SME adopts the
+#                   phrasing but for concision ("would produce a more concise
+#                   requirement"), and their accompanying edits are A10.3 style
+#                   fixes ("execute", "be able to"), not necessity arguments.
+#   d566d756 4-A5   the SME did not carry over the AI's actual proposal (an
+#                   ending condition, "upon completion of the return
+#                   operation"); they substituted their own A2-style rewrite and
+#                   their note is about deleting "accurately". High token
+#                   overlap here is shared vocabulary, not adoption.
+#
+# CAVEAT on the d566d756 block: unlike the original nine, these ten were
+# adjudicated with each item's ground-truth status visible to the adjudicator.
+# They came out perfectly aligned with GT (all five GT-violation modifies
+# endorsed, all five GT-clean modifies rejected), which is also what anchoring
+# would produce. The original nine show no such alignment (5 of 7 GT-clean
+# modifies were endorsed). Treat SME 6's TNR/TPR as provisional until the block
+# is re-labelled blind. See docs and PM_modify_adjudication.txt.
 ADJUDICATED = {
     ("aee204f7", "9-A4"): "endorse",
     ("aee204f7", "10-A2"): "endorse",
@@ -79,6 +121,16 @@ ADJUDICATED = {
     ("ffd92981", "6-A2"): "endorse",
     ("ffd92981", "9-A5"): "endorse",
     ("ffd92981", "12-A5"): "reject",
+    ("d566d756", "3-A2"): "reject",
+    ("d566d756", "4-A2"): "reject",
+    ("d566d756", "4-A5"): "reject",
+    ("d566d756", "5-A10"): "endorse",
+    ("d566d756", "6-A10"): "endorse",
+    ("d566d756", "7-A10"): "endorse",
+    ("d566d756", "8-A2"): "reject",
+    ("d566d756", "8-A10"): "endorse",
+    ("d566d756", "10-A2"): "reject",
+    ("d566d756", "11-A4"): "endorse",
 }
 
 _PUNCT = re.compile(r"[^a-z0-9\[\]% ]+")
@@ -188,6 +240,13 @@ def score(modify: str = "split", verbose: bool = True) -> pd.DataFrame:
             "tnr": tn / (tn + fp) if tn + fp else np.nan,
             "fpr": fp / (fp + tn) if fp + tn else np.nan,
             "fnr": fn / (fn + tp) if fn + tp else np.nan,
+            # Same confusion matrix, the three summary metrics the model arms
+            # report. Denominators are this reviewer's OWN decisions, not 91
+            # cells, so accuracy here means "of what they were asked, how much
+            # did they get right".
+            "accuracy": (tp + tn) / (tp + tn + fp + fn) if tp + tn + fp + fn else np.nan,
+            "precision": tp / (tp + fp) if tp + fp else np.nan,
+            "f1": 2 * tp / (2 * tp + fp + fn) if 2 * tp + fp + fn else np.nan,
             **{f"n_{k}": v for k, v in counts.items()},
         })
 

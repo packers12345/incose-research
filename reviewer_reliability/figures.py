@@ -40,6 +40,32 @@ def reviewer_rate_figure(modify: str = "adjudicated",
     return final
 
 
+def scorecard_figure(out_dir: Path = DOCS_FIGURE_DIR) -> Path:
+    """Per-reviewer TPR/TNR/FPR/FNR/Accuracy/Precision as a shaded scorecard.
+
+    The boxplot's counterpart: same data and the same `adjudicated` policy, but
+    it names each reviewer instead of hiding them in a distribution.
+    """
+    from . import scorecard
+    rows, n_core = scorecard.build()
+    counts = ["n", "n_core", "tp", "tn", "fp", "fn"]
+    header = ["reviewer", "session"] + counts + scorecard.KEYS
+    print("".join(c.rjust(10) for c in header))
+    for r in rows:
+        print("".join(
+            (r[c] if c in ("reviewer", "session")
+             else scorecard._fmt(r[c], c in counts)).rjust(10)
+            for c in header))
+    print(f"\ncommon core: {n_core} cells flagged in every session")
+
+    produced = scorecard.plot(rows, n_core)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    final = out_dir / produced.name
+    shutil.copyfile(produced, final)
+    print(f"\nwrote {final}")
+    return final
+
+
 def reliability_pdf() -> None:
     """Per-reviewer reliability report (PDF) — stays in outputs/, not docs/."""
     from . import reviewer_reliability
@@ -54,6 +80,7 @@ def consistency_pdf() -> None:
 
 RECIPES = {
     "reviewer_rates": "PM_reviewer_rates_<policy>.png - SME agreement with ground truth",
+    "scorecard": "PM_reviewer_scorecard.png - the same rates named per reviewer",
     "reliability": "reviewer_reliability_PM.pdf - per-reviewer reliability report",
     "consistency": "ai_flagging_consistency_PM.pdf - AI flag stability across sessions",
 }
@@ -77,6 +104,8 @@ def main() -> None:
         print(f"\n=== {name} ===")
         if name == "reviewer_rates":
             reviewer_rate_figure(a.modify, a.out_dir)
+        elif name == "scorecard":
+            scorecard_figure(a.out_dir)
         elif name == "reliability":
             reliability_pdf()
         else:

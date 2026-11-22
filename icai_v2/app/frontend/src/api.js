@@ -29,6 +29,10 @@ export const publishRules = (runId) =>
   api.post(`/runs/${runId}/publish`).then((r) => r.data)
 
 export const rulesUrl = (runId) => `/api/runs/${runId}/rules.json`
+// Same run, no re-extraction: `all` serves the run's own ranked pool before the
+// stability_min / n_constitution cuts, so the rejected principles are visible
+// with the numbers that rejected them.
+export const allRulesUrl = (runId) => `/api/runs/${runId}/rules.json?scope=all`
 
 // Server errors carry the real reason in `detail`; surfacing the axios message
 // instead ("Request failed with status code 400") tells the operator nothing.

@@ -1,0 +1,3245 @@
+{
+  "compiled_at": "2026-08-26T02:48:59+00:00",
+  "description": "The six Point Mass SME review sessions, concatenated verbatim. Each entry's `feedback` object is the original export byte-for-byte in content; nothing is normalised, merged or deduplicated.",
+  "source_dir": "data/sme_feedback/",
+  "session_count": 6,
+  "totals": {
+    "requirements": 78,
+    "violations": 243,
+    "accept": 168,
+    "reject": 56,
+    "modify": 19
+  },
+  "sessions": [
+    {
+      "reviewer": "SME 1",
+      "affiliation": "NNSA",
+      "source_file": "feedback_cf9c5ba6.json",
+      "feedback": {
+        "requirement_feedback": [
+          {
+            "req_id": "1",
+            "original_text": "The System shall be able to move a point mass from an origin point to a fixed destination point. Note 1: The path is notional; the actual path is to be determined. Note 2: Assume that a link between the system output and the point mass will be designed separately (by someone else) and will match the needs of your design. Note 3: The origin point is (X, Y, Z) = (0 mm, 0 mm, 101.6 mm) or [0”, 0”, 4”]. Note 4: The destination point is (X, Y, Z) = (71.84 mm, 0 mm, -71.84 mm) or [2.82”, 0”, -2.82”].",
+            "violation_feedback": [
+              {
+                "violation_id": "1-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "accept",
+                "ai_suggestion": "shall move",
+                "user_text": "shall move",
+                "notes": ""
+              }
+            ],
+            "final_text": "The System shall move a point mass from an origin point to a fixed destination point. Note 1: The path is notional; the actual path is to be determined. Note 2: Assume that a link between the system output and the point mass will be designed separately (by someone else) and will match the needs of your design. Note 3: The origin point is (X, Y, Z) = (0 mm, 0 mm, 101.6 mm) or [0”, 0”, 4”]. Note 4: The destination point is (X, Y, Z) = (71.84 mm, 0 mm, -71.84 mm) or [2.82”, 0”, -2.82”].",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "2",
+            "original_text": "The System shall be able to move the point mass from the destination point back to the origin point. Note 1: The path is notional; the actual path is to be determined. Note 2: Assume that a link between the system output and the point mass will be designed separately (by someone else) and will match the needs of your design. Note 3: The origin point is (X, Y, Z) = (0 mm, 0 mm, 101.6 mm) or [0”, 0”, 4”]. Note 4: The destination point is (X, Y, Z) = (71.84 mm, 0 mm, -71.84 mm) or [2.82”, 0”, -2.82”].",
+            "violation_feedback": [
+              {
+                "violation_id": "2-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "accept",
+                "ai_suggestion": "shall move",
+                "user_text": "shall move",
+                "notes": ""
+              }
+            ],
+            "final_text": "The System shall move the point mass from the destination point back to the origin point. Note 1: The path is notional; the actual path is to be determined. Note 2: Assume that a link between the system output and the point mass will be designed separately (by someone else) and will match the needs of your design. Note 3: The origin point is (X, Y, Z) = (0 mm, 0 mm, 101.6 mm) or [0”, 0”, 4”]. Note 4: The destination point is (X, Y, Z) = (71.84 mm, 0 mm, -71.84 mm) or [2.82”, 0”, -2.82”].",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "3",
+            "original_text": "The system shall execute FR1 accurately with +/- 2.5mm [0.1”] accuracy in every Cartesian direction.",
+            "violation_feedback": [
+              {
+                "violation_id": "3-A2",
+                "rule_id": "A2",
+                "criterion_name": "Necessary",
+                "user_action": "accept",
+                "ai_suggestion": "the displacement of the center of mass from origin to destination",
+                "user_text": "the displacement of the center of mass from origin to destination",
+                "notes": ""
+              },
+              {
+                "violation_id": "3-A4",
+                "rule_id": "A4",
+                "criterion_name": "Unambiguous",
+                "user_action": "accept",
+                "ai_suggestion": "with +/- 2.5mm [0.1\"] accuracy",
+                "user_text": "with +/- 2.5mm [0.1\"] accuracy",
+                "notes": ""
+              },
+              {
+                "violation_id": "3-A9",
+                "rule_id": "A9",
+                "criterion_name": "Correct",
+                "user_action": "accept",
+                "ai_suggestion": "[value traceable to stakeholder need]",
+                "user_text": "[value traceable to stakeholder need]",
+                "notes": ""
+              }
+            ],
+            "final_text": "The system shall execute the displacement of the center of mass from origin to destination accurately with +/- 2.5mm [0.1”] accuracy in every Cartesian direction.",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "4",
+            "original_text": "The system shall execute FR2 accurately with +/- 2.5mm [0.1”] accuracy in every Cartesian direction.",
+            "violation_feedback": [
+              {
+                "violation_id": "4-A2",
+                "rule_id": "A2",
+                "criterion_name": "Necessary",
+                "user_action": "accept",
+                "ai_suggestion": "the operation to return the center of mass back to its origin point",
+                "user_text": "the operation to return the center of mass back to its origin point",
+                "notes": ""
+              },
+              {
+                "violation_id": "4-A4",
+                "rule_id": "A4",
+                "criterion_name": "Unambiguous",
+                "user_action": "accept",
+                "ai_suggestion": "with +/- 2.5mm [0.1\"] accuracy",
+                "user_text": "with +/- 2.5mm [0.1\"] accuracy",
+                "notes": ""
+              },
+              {
+                "violation_id": "4-A5",
+                "rule_id": "A5",
+                "criterion_name": "Complete",
+                "user_action": "accept",
+                "ai_suggestion": "return the center of mass to the origin point with +/- 2.5mm [0.1\"] accuracy in every Cartesian direction from the specified origin coordinates",
+                "user_text": "return the center of mass to the origin point with +/- 2.5mm [0.1\"] accuracy in every Cartesian direction from the specified origin coordinates",
+                "notes": "English in the suggested rewrite is a bit awkward."
+              },
+              {
+                "violation_id": "4-A9",
+                "rule_id": "A9",
+                "criterion_name": "Correct",
+                "user_action": "accept",
+                "ai_suggestion": "[value traceable to stakeholder requirement]",
+                "user_text": "[value traceable to stakeholder requirement]",
+                "notes": ""
+              }
+            ],
+            "final_text": "The system shall execute the operation to return the center of mass back to its origin point accurately with +/- 2.5mm [0.1”] accuracy in every Cartesian direction.",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "5",
+            "original_text": "The System shall be able to execute FR1 in no more than 30 seconds.",
+            "violation_feedback": [
+              {
+                "violation_id": "5-A2",
+                "rule_id": "A2",
+                "criterion_name": "Necessary",
+                "user_action": "accept",
+                "ai_suggestion": "[value traceable to stakeholder need or mission requirement]",
+                "user_text": "[value traceable to stakeholder need or mission requirement]",
+                "notes": ""
+              },
+              {
+                "violation_id": "5-A9",
+                "rule_id": "A9",
+                "criterion_name": "Correct",
+                "user_action": "accept",
+                "ai_suggestion": "[time value derived from stakeholder need X]",
+                "user_text": "[time value derived from stakeholder need X]",
+                "notes": ""
+              },
+              {
+                "violation_id": "5-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "accept",
+                "ai_suggestion": "shall execute FR1 within",
+                "user_text": "shall execute FR1 within",
+                "notes": ""
+              }
+            ],
+            "final_text": "The System shall execute FR1 within [value traceable to stakeholder need or mission requirement].",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "6",
+            "original_text": "The System shall be able to execute FR1 in no less than 5 seconds.",
+            "violation_feedback": [
+              {
+                "violation_id": "6-A2",
+                "rule_id": "A2",
+                "criterion_name": "Necessary",
+                "user_action": "accept",
+                "ai_suggestion": "[value traceable to stakeholder need or mission requirement]",
+                "user_text": "[value traceable to stakeholder need or mission requirement]",
+                "notes": ""
+              },
+              {
+                "violation_id": "6-A4",
+                "rule_id": "A4",
+                "criterion_name": "Unambiguous",
+                "user_action": "accept",
+                "ai_suggestion": "complete the displacement of the center of mass from origin to destination",
+                "user_text": "complete the displacement of the center of mass from origin to destination",
+                "notes": ""
+              },
+              {
+                "violation_id": "6-A5",
+                "rule_id": "A5",
+                "criterion_name": "Complete",
+                "user_action": "accept",
+                "ai_suggestion": "complete the displacement of the center of mass from origin to destination with a minimum execution time of 5 seconds under [specified conditions]",
+                "user_text": "complete the displacement of the center of mass from origin to destination with a minimum execution time of 5 seconds under [specified conditions]",
+                "notes": ""
+              },
+              {
+                "violation_id": "6-A9",
+                "rule_id": "A9",
+                "criterion_name": "Correct",
+                "user_action": "accept",
+                "ai_suggestion": "[time constraint with traceable justification]",
+                "user_text": "[time constraint with traceable justification]",
+                "notes": ""
+              },
+              {
+                "violation_id": "6-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "accept",
+                "ai_suggestion": "shall complete FR1 with a minimum duration of 5 seconds",
+                "user_text": "shall complete FR1 with a minimum duration of 5 seconds",
+                "notes": ""
+              }
+            ],
+            "final_text": "The System shall be able to complete the displacement of the center of mass from origin to destination in no less than [value traceable to stakeholder need or mission requirement].",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "7",
+            "original_text": "The System shall be able to execute FR2 in no more than 30 seconds.",
+            "violation_feedback": [
+              {
+                "violation_id": "7-A2",
+                "rule_id": "A2",
+                "criterion_name": "Necessary",
+                "user_action": "accept",
+                "ai_suggestion": "the operation to return the center of mass from the destination point back to the origin point",
+                "user_text": "the operation to return the center of mass from the destination point back to the origin point",
+                "notes": ""
+              },
+              {
+                "violation_id": "7-A5",
+                "rule_id": "A5",
+                "criterion_name": "Complete",
+                "user_action": "accept",
+                "ai_suggestion": "return the center of mass from the destination point (71.84 mm, 0 mm, -71.84 mm) to the origin point (0 mm, 0 mm, 101.6 mm)",
+                "user_text": "return the center of mass from the destination point (71.84 mm, 0 mm, -71.84 mm) to the origin point (0 mm, 0 mm, 101.6 mm)",
+                "notes": ""
+              },
+              {
+                "violation_id": "7-A9",
+                "rule_id": "A9",
+                "criterion_name": "Correct",
+                "user_action": "accept",
+                "ai_suggestion": "[value traceable to stakeholder need or ConOps]",
+                "user_text": "[value traceable to stakeholder need or ConOps]",
+                "notes": ""
+              },
+              {
+                "violation_id": "7-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "accept",
+                "ai_suggestion": "shall execute FR2 within 30 seconds",
+                "user_text": "shall execute FR2 within 30 seconds",
+                "notes": ""
+              }
+            ],
+            "final_text": "The System shall be able to execute the operation to return the center of mass from the destination point back to the origin point in no more than [value traceable to stakeholder need or ConOps].",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "8",
+            "original_text": "The System shall be able to execute FR2 in no less than 5 seconds.",
+            "violation_feedback": [
+              {
+                "violation_id": "8-A2",
+                "rule_id": "A2",
+                "criterion_name": "Necessary",
+                "user_action": "accept",
+                "ai_suggestion": "return the center of mass from the destination point back to the origin point",
+                "user_text": "return the center of mass from the destination point back to the origin point",
+                "notes": ""
+              },
+              {
+                "violation_id": "8-A5",
+                "rule_id": "A5",
+                "criterion_name": "Complete",
+                "user_action": "accept",
+                "ai_suggestion": "return the center of mass from the destination point back to the origin point",
+                "user_text": "return the center of mass from the destination point back to the origin point",
+                "notes": ""
+              },
+              {
+                "violation_id": "8-A9",
+                "rule_id": "A9",
+                "criterion_name": "Correct",
+                "user_action": "accept",
+                "ai_suggestion": "[X seconds, where X is derived from mission requirements]",
+                "user_text": "[X seconds, where X is derived from mission requirements]",
+                "notes": ""
+              },
+              {
+                "violation_id": "8-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "accept",
+                "ai_suggestion": "in a minimum of 5 seconds",
+                "user_text": "in a minimum of 5 seconds",
+                "notes": ""
+              }
+            ],
+            "final_text": "The System shall be able to execute return the center of mass from the destination point back to the origin point in no less than [X seconds, where X is derived from mission requirements].",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "9",
+            "original_text": "The system shall be able to move a point mass of 3.6 kg perpendicularly to normal gravity (9.81 m/s2).",
+            "violation_feedback": [
+              {
+                "violation_id": "9-A2",
+                "rule_id": "A2",
+                "criterion_name": "Necessary",
+                "user_action": "accept",
+                "ai_suggestion": "in the microgravity environment of the ISS",
+                "user_text": "in the microgravity environment of the ISS",
+                "notes": ""
+              },
+              {
+                "violation_id": "9-A4",
+                "rule_id": "A4",
+                "criterion_name": "Unambiguous",
+                "user_action": "accept",
+                "ai_suggestion": "along the specified trajectory from origin (0, 0, 101.6 mm) to destination (71.84, 0, -71.84 mm)",
+                "user_text": "along the specified trajectory from origin (0, 0, 101.6 mm) to destination (71.84, 0, -71.84 mm)",
+                "notes": ""
+              },
+              {
+                "violation_id": "9-A5",
+                "rule_id": "A5",
+                "criterion_name": "Complete",
+                "user_action": "accept",
+                "ai_suggestion": "move a point mass of 3.6 kg from the origin point to the destination point and return it to the origin point",
+                "user_text": "move a point mass of 3.6 kg from the origin point to the destination point and return it to the origin point",
+                "notes": ""
+              },
+              {
+                "violation_id": "9-A9",
+                "rule_id": "A9",
+                "criterion_name": "Correct",
+                "user_action": "accept",
+                "ai_suggestion": "between the specified origin and destination points in the ISS microgravity environment",
+                "user_text": "between the specified origin and destination points in the ISS microgravity environment",
+                "notes": ""
+              },
+              {
+                "violation_id": "9-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "accept",
+                "ai_suggestion": "shall move",
+                "user_text": "shall move",
+                "notes": ""
+              }
+            ],
+            "final_text": "The system shall move a point mass of 3.6 kg in the microgravity environment of the ISS.",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "10",
+            "original_text": "The System shall operate in an atmosphere comparable to that of Earth. Assume 21 degrees centigrade [70 degrees Fahrenheit], with low humidity, and pressurized to 100 kPA [750 mm Hg, 14.5 psi].",
+            "violation_feedback": [
+              {
+                "violation_id": "10-A2",
+                "rule_id": "A2",
+                "criterion_name": "Necessary",
+                "user_action": "accept",
+                "ai_suggestion": "The System shall operate in the ISS cabin environment at 21 degrees centigrade [70 degrees Fahrenheit], with low humidity, and pressurized to 100 kPA [750 mm Hg, 14.5 psi].",
+                "user_text": "The System shall operate in the ISS cabin environment at 21 degrees centigrade [70 degrees Fahrenheit], with low humidity, and pressurized to 100 kPA [750 mm Hg, 14.5 psi].",
+                "notes": ""
+              },
+              {
+                "violation_id": "10-A4",
+                "rule_id": "A4",
+                "criterion_name": "Unambiguous",
+                "user_action": "accept",
+                "ai_suggestion": "relative humidity between 25% and 75%",
+                "user_text": "relative humidity between 25% and 75%",
+                "notes": "The suggested re-write is adding details that do not exist in the context."
+              },
+              {
+                "violation_id": "10-A5",
+                "rule_id": "A5",
+                "criterion_name": "Complete",
+                "user_action": "accept",
+                "ai_suggestion": "at 21 degrees centigrade [70 degrees Fahrenheit] ± 2 degrees, with relative humidity between 25% and 75%",
+                "user_text": "at 21 degrees centigrade [70 degrees Fahrenheit] ± 2 degrees, with relative humidity between 25% and 75%",
+                "notes": ""
+              },
+              {
+                "violation_id": "10-A6",
+                "rule_id": "A6",
+                "criterion_name": "Singular",
+                "user_action": "accept",
+                "ai_suggestion": "21 degrees centigrade [70 degrees Fahrenheit] ± 2 degrees",
+                "user_text": "21 degrees centigrade [70 degrees Fahrenheit] ± 2 degrees",
+                "notes": ""
+              },
+              {
+                "violation_id": "10-A9",
+                "rule_id": "A9",
+                "criterion_name": "Correct",
+                "user_action": "accept",
+                "ai_suggestion": "The System shall operate in the ISS cabin environment conditions as specified in [reference document].",
+                "user_text": "The System shall operate in the ISS cabin environment conditions as specified in [reference document].",
+                "notes": ""
+              },
+              {
+                "violation_id": "10-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "accept",
+                "ai_suggestion": "at 21 degrees centigrade",
+                "user_text": "at 21 degrees centigrade",
+                "notes": ""
+              }
+            ],
+            "final_text": "The System shall operate in an atmosphere comparable to that of Earth. at 21 degrees centigrade [70 degrees Fahrenheit], with relative humidity between 25% and 75%, and pressurized to 100 kPA [750 mm Hg, 14.5 psi].",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "11",
+            "original_text": "The System shall not contribute any particulates (e.g. dust) to the ISS atmosphere.",
+            "violation_feedback": [
+              {
+                "violation_id": "11-A4",
+                "rule_id": "A4",
+                "criterion_name": "Unambiguous",
+                "user_action": "accept",
+                "ai_suggestion": "not release particulates greater than [X] micrometers in diameter or exceed [Y] particles per cubic meter",
+                "user_text": "not release particulates greater than [X] micrometers in diameter or exceed [Y] particles per cubic meter",
+                "notes": ""
+              },
+              {
+                "violation_id": "11-A5",
+                "rule_id": "A5",
+                "criterion_name": "Complete",
+                "user_action": "accept",
+                "ai_suggestion": "not release particulates greater than [X] micrometers in diameter at concentrations exceeding [Y] particles per cubic meter to the ISS atmosphere during operation",
+                "user_text": "not release particulates greater than [X] micrometers in diameter at concentrations exceeding [Y] particles per cubic meter to the ISS atmosphere during operation",
+                "notes": ""
+              },
+              {
+                "violation_id": "11-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "accept",
+                "ai_suggestion": "shall maintain particulate emissions below [threshold value]",
+                "user_text": "shall maintain particulate emissions below [threshold value]",
+                "notes": ""
+              }
+            ],
+            "final_text": "The System shall not release particulates greater than [X] micrometers in diameter or exceed [Y] particles per cubic meter to the ISS atmosphere.",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "12",
+            "original_text": "The System shall enclose all lubricated components to prevent lubricants from leaking into the atmosphere of the ISS.",
+            "violation_feedback": [
+              {
+                "violation_id": "12-A4",
+                "rule_id": "A4",
+                "criterion_name": "Unambiguous",
+                "user_action": "accept",
+                "ai_suggestion": "contain all lubricated components within sealed enclosures that limit lubricant leakage to less than [X] mg per [time period]",
+                "user_text": "contain all lubricated components within sealed enclosures that limit lubricant leakage to less than [X] mg per [time period]",
+                "notes": ""
+              },
+              {
+                "violation_id": "12-A5",
+                "rule_id": "A5",
+                "criterion_name": "Complete",
+                "user_action": "accept",
+                "ai_suggestion": "limit lubricant leakage into the atmosphere of the ISS to less than [X] mg over [Y] operational hours under normal operating conditions",
+                "user_text": "limit lubricant leakage into the atmosphere of the ISS to less than [X] mg over [Y] operational hours under normal operating conditions",
+                "notes": ""
+              }
+            ],
+            "final_text": "The System shall enclose all lubricated components to limit lubricant leakage into the atmosphere of the ISS to less than [X] mg over [Y] operational hours under normal operating conditions.",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "13",
+            "original_text": "The System shall not use more than 1.5 Watt-hours to support all operations. Note: Assume a maximum of 1 minute of operations.",
+            "violation_feedback": [
+              {
+                "violation_id": "13-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "accept",
+                "ai_suggestion": "consume a maximum of 1.5 Watt-hours",
+                "user_text": "consume a maximum of 1.5 Watt-hours",
+                "notes": ""
+              }
+            ],
+            "final_text": "The System shall consume a maximum of 1.5 Watt-hours to support all operations. Note: Assume a maximum of 1 minute of operations.",
+            "overall_notes": ""
+          }
+        ],
+        "session_id": "cf9c5ba6",
+        "timestamp": "2026-07-01T15:32:37.725995Z",
+        "summary_statistics": {
+          "total_requirements": 13,
+          "total_violations": 42,
+          "actions": {
+            "accept": 42,
+            "reject": 0,
+            "modify": 0
+          },
+          "acceptance_rate_by_rule": {
+            "A10": {
+              "accept": 10,
+              "reject": 0,
+              "modify": 0,
+              "rate": 1.0
+            },
+            "A2": {
+              "accept": 8,
+              "reject": 0,
+              "modify": 0,
+              "rate": 1.0
+            },
+            "A4": {
+              "accept": 7,
+              "reject": 0,
+              "modify": 0,
+              "rate": 1.0
+            },
+            "A9": {
+              "accept": 8,
+              "reject": 0,
+              "modify": 0,
+              "rate": 1.0
+            },
+            "A5": {
+              "accept": 8,
+              "reject": 0,
+              "modify": 0,
+              "rate": 1.0
+            },
+            "A6": {
+              "accept": 1,
+              "reject": 0,
+              "modify": 0,
+              "rate": 1.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "reviewer": "SME 2",
+      "affiliation": "NNSA",
+      "source_file": "feedback_aee204f7.json",
+      "feedback": {
+        "requirement_feedback": [
+          {
+            "req_id": "1",
+            "original_text": "The System shall be able to move a point mass from an origin point to a fixed destination point. Note 1: The path is notional; the actual path is to be determined. Note 2: Assume that a link between the system output and the point mass will be designed separately (by someone else) and will match the needs of your design. Note 3: The origin point is (X, Y, Z) = (0 mm, 0 mm, 101.6 mm) or [0”, 0”, 4”]. Note 4: The destination point is (X, Y, Z) = (71.84 mm, 0 mm, -71.84 mm) or [2.82”, 0”, -2.82”].",
+            "violation_feedback": [
+              {
+                "violation_id": "1-A5",
+                "rule_id": "A5",
+                "criterion_name": "Complete",
+                "user_action": "accept",
+                "ai_suggestion": "The System shall, upon receiving an electrical control signal, move a point mass from an origin point to a fixed destination point within the ISS operational environment",
+                "user_text": "The System shall, upon receiving an electrical control signal, move a point mass from an origin point to a fixed destination point within the ISS operational environment",
+                "notes": "The electrical control signal is an entry condition of the requirement, so it would be fine to place in front of the shall. This improves readability. As a personal practice, I like to reference the source and version information for external info, like the ISS environment. This is a good CM practice for requirements."
+              },
+              {
+                "violation_id": "1-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "accept",
+                "ai_suggestion": "shall move",
+                "user_text": "shall move",
+                "notes": ""
+              }
+            ],
+            "final_text": "The System shall move a point mass from an origin point to a fixed destination point. Note 1: The path is notional; the actual path is to be determined. Note 2: Assume that a link between the system output and the point mass will be designed separately (by someone else) and will match the needs of your design. Note 3: The origin point is (X, Y, Z) = (0 mm, 0 mm, 101.6 mm) or [0”, 0”, 4”]. Note 4: The destination point is (X, Y, Z) = (71.84 mm, 0 mm, -71.84 mm) or [2.82”, 0”, -2.82”].",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "2",
+            "original_text": "The System shall be able to move the point mass from the destination point back to the origin point. Note 1: The path is notional; the actual path is to be determined. Note 2: Assume that a link between the system output and the point mass will be designed separately (by someone else) and will match the needs of your design. Note 3: The origin point is (X, Y, Z) = (0 mm, 0 mm, 101.6 mm) or [0”, 0”, 4”]. Note 4: The destination point is (X, Y, Z) = (71.84 mm, 0 mm, -71.84 mm) or [2.82”, 0”, -2.82”].",
+            "violation_feedback": [
+              {
+                "violation_id": "2-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "accept",
+                "ai_suggestion": "shall move",
+                "user_text": "shall move",
+                "notes": ""
+              }
+            ],
+            "final_text": "The System shall move the point mass from the destination point back to the origin point. Note 1: The path is notional; the actual path is to be determined. Note 2: Assume that a link between the system output and the point mass will be designed separately (by someone else) and will match the needs of your design. Note 3: The origin point is (X, Y, Z) = (0 mm, 0 mm, 101.6 mm) or [0”, 0”, 4”]. Note 4: The destination point is (X, Y, Z) = (71.84 mm, 0 mm, -71.84 mm) or [2.82”, 0”, -2.82”].",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "3",
+            "original_text": "The system shall execute FR1 accurately with +/- 2.5mm [0.1”] accuracy in every Cartesian direction.",
+            "violation_feedback": [
+              {
+                "violation_id": "3-A2",
+                "rule_id": "A2",
+                "criterion_name": "Necessary",
+                "user_action": "accept",
+                "ai_suggestion": "the displacement of the center of mass from origin to destination",
+                "user_text": "the displacement of the center of mass from origin to destination",
+                "notes": "The performance statement could be made part of requirement 1. The verification test to measure performance also provides fact of function."
+              },
+              {
+                "violation_id": "3-A9",
+                "rule_id": "A9",
+                "criterion_name": "Correct",
+                "user_action": "reject",
+                "ai_suggestion": "+/- [TBD based on stakeholder accuracy requirements]",
+                "user_text": "+/- 2.5mm [0.1\"]",
+                "notes": "That is a problem with the program, not with the requirement statement. Refine the value during requirement feasibility validation, but don't remove the value with empty text of low impact."
+              }
+            ],
+            "final_text": "The system shall execute the displacement of the center of mass from origin to destination accurately with +/- 2.5mm [0.1”] accuracy in every Cartesian direction.",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "4",
+            "original_text": "The system shall execute FR2 accurately with +/- 2.5mm [0.1”] accuracy in every Cartesian direction.",
+            "violation_feedback": [
+              {
+                "violation_id": "4-A2",
+                "rule_id": "A2",
+                "criterion_name": "Necessary",
+                "user_action": "accept",
+                "ai_suggestion": "the operation to return the center of mass back to its origin",
+                "user_text": "the operation to return the center of mass back to its origin",
+                "notes": "This also could be combined as a performance criteria for the function in requirement 2, verified with a single test. "
+              },
+              {
+                "violation_id": "4-A4",
+                "rule_id": "A4",
+                "criterion_name": "Unambiguous",
+                "user_action": "accept",
+                "ai_suggestion": "within +/- 2.5mm [0.1\"] tolerance",
+                "user_text": "within +/- 2.5mm [0.1\"] tolerance",
+                "notes": "Preview isn't populating correctly."
+              },
+              {
+                "violation_id": "4-A9",
+                "rule_id": "A9",
+                "criterion_name": "Correct",
+                "user_action": "reject",
+                "ai_suggestion": "[value traceable to stakeholder need]",
+                "user_text": "+/- 2.5mm [0.1\"]",
+                "notes": "Just add a TBR and a note, don't remove the value. This may be the only place the information was captured, and it may as easily be correct as incorrect."
+              },
+              {
+                "violation_id": "4-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "accept",
+                "ai_suggestion": "return the center of mass to its origin within +/- 2.5mm [0.1\"] tolerance",
+                "user_text": "return the center of mass to its origin within +/- 2.5mm [0.1\"] tolerance",
+                "notes": ""
+              }
+            ],
+            "final_text": "The system shall execute the operation to return the center of mass back to its origin accurately with +/- 2.5mm [0.1”] accuracy in every Cartesian direction.",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "5",
+            "original_text": "The System shall be able to execute FR1 in no more than 30 seconds.",
+            "violation_feedback": [
+              {
+                "violation_id": "5-A2",
+                "rule_id": "A2",
+                "criterion_name": "Necessary",
+                "user_action": "reject",
+                "ai_suggestion": "[value traceable to stakeholder need or mission requirement]",
+                "user_text": "30 seconds",
+                "notes": ""
+              },
+              {
+                "violation_id": "5-A4",
+                "rule_id": "A4",
+                "criterion_name": "Unambiguous",
+                "user_action": "accept",
+                "ai_suggestion": "displace the center of mass from origin to destination (FR1)",
+                "user_text": "displace the center of mass from origin to destination (FR1)",
+                "notes": ""
+              },
+              {
+                "violation_id": "5-A9",
+                "rule_id": "A9",
+                "criterion_name": "Correct",
+                "user_action": "reject",
+                "ai_suggestion": "[time value derived from stakeholder need]",
+                "user_text": "30 seconds",
+                "notes": ""
+              },
+              {
+                "violation_id": "5-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "accept",
+                "ai_suggestion": "shall execute FR1 within 30 seconds",
+                "user_text": "shall execute FR1 within 30 seconds",
+                "notes": ""
+              }
+            ],
+            "final_text": "The System shall be able to execute displace the center of mass from origin to destination (FR1) in no more than 30 seconds.",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "6",
+            "original_text": "The System shall be able to execute FR1 in no less than 5 seconds.",
+            "violation_feedback": [
+              {
+                "violation_id": "6-A2",
+                "rule_id": "A2",
+                "criterion_name": "Necessary",
+                "user_action": "accept",
+                "ai_suggestion": "the displacement of the center of mass from origin to destination",
+                "user_text": "the displacement of the center of mass from origin to destination",
+                "notes": ""
+              },
+              {
+                "violation_id": "6-A4",
+                "rule_id": "A4",
+                "criterion_name": "Unambiguous",
+                "user_action": "accept",
+                "ai_suggestion": "the displacement of the center of mass from origin point (0 mm, 0 mm, 101.6 mm) to destination point (71.84 mm, 0 mm, -71.84 mm)",
+                "user_text": "the displacement of the center of mass from origin point (0 mm, 0 mm, 101.6 mm) to destination point (71.84 mm, 0 mm, -71.84 mm)",
+                "notes": ""
+              },
+              {
+                "violation_id": "6-A5",
+                "rule_id": "A5",
+                "criterion_name": "Complete",
+                "user_action": "accept",
+                "ai_suggestion": "displace the center of mass from the origin point to the destination point",
+                "user_text": "displace the center of mass from the origin point to the destination point",
+                "notes": ""
+              },
+              {
+                "violation_id": "6-A9",
+                "rule_id": "A9",
+                "criterion_name": "Correct",
+                "user_action": "reject",
+                "ai_suggestion": "[value traceable to stakeholder need] seconds",
+                "user_text": "no less than 5 seconds",
+                "notes": ""
+              },
+              {
+                "violation_id": "6-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "accept",
+                "ai_suggestion": "shall execute the displacement of the center of mass from origin to destination in a minimum of 5 seconds",
+                "user_text": "shall execute the displacement of the center of mass from origin to destination in a minimum of 5 seconds",
+                "notes": ""
+              }
+            ],
+            "final_text": "The System shall be able to execute the displacement of the center of mass from origin to destination in no less than 5 seconds.",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "7",
+            "original_text": "The System shall be able to execute FR2 in no more than 30 seconds.",
+            "violation_feedback": [
+              {
+                "violation_id": "7-A2",
+                "rule_id": "A2",
+                "criterion_name": "Necessary",
+                "user_action": "accept",
+                "ai_suggestion": "return the center of mass from the destination point back to the origin point",
+                "user_text": "return the center of mass from the destination point back to the origin point",
+                "notes": ""
+              },
+              {
+                "violation_id": "7-A5",
+                "rule_id": "A5",
+                "criterion_name": "Complete",
+                "user_action": "accept",
+                "ai_suggestion": "return the center of mass from the destination point back to the origin point",
+                "user_text": "return the center of mass from the destination point back to the origin point",
+                "notes": ""
+              },
+              {
+                "violation_id": "7-A9",
+                "rule_id": "A9",
+                "criterion_name": "Correct",
+                "user_action": "reject",
+                "ai_suggestion": "[value traceable to stakeholder need]",
+                "user_text": "30 seconds",
+                "notes": ""
+              },
+              {
+                "violation_id": "7-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "accept",
+                "ai_suggestion": "shall execute FR2 within",
+                "user_text": "shall execute FR2 within",
+                "notes": ""
+              }
+            ],
+            "final_text": "The System shall be able to execute return the center of mass from the destination point back to the origin point in no more than 30 seconds.",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "8",
+            "original_text": "The System shall be able to execute FR2 in no less than 5 seconds.",
+            "violation_feedback": [
+              {
+                "violation_id": "8-A2",
+                "rule_id": "A2",
+                "criterion_name": "Necessary",
+                "user_action": "accept",
+                "ai_suggestion": "return the center of mass from the destination point back to the origin point",
+                "user_text": "return the center of mass from the destination point back to the origin point",
+                "notes": ""
+              },
+              {
+                "violation_id": "8-A5",
+                "rule_id": "A5",
+                "criterion_name": "Complete",
+                "user_action": "accept",
+                "ai_suggestion": "return the center of mass from the destination point back to the origin point",
+                "user_text": "return the center of mass from the destination point back to the origin point",
+                "notes": ""
+              },
+              {
+                "violation_id": "8-A9",
+                "rule_id": "A9",
+                "criterion_name": "Correct",
+                "user_action": "reject",
+                "ai_suggestion": "[value traceable to stakeholder need or ConOps]",
+                "user_text": "5 seconds",
+                "notes": ""
+              },
+              {
+                "violation_id": "8-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "accept",
+                "ai_suggestion": "shall execute FR2 in a minimum of 5 seconds",
+                "user_text": "shall execute FR2 in a minimum of 5 seconds",
+                "notes": ""
+              }
+            ],
+            "final_text": "The System shall be able to execute return the center of mass from the destination point back to the origin point in no less than 5 seconds.",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "9",
+            "original_text": "The system shall be able to move a point mass of 3.6 kg perpendicularly to normal gravity (9.81 m/s2).",
+            "violation_feedback": [
+              {
+                "violation_id": "9-A2",
+                "rule_id": "A2",
+                "criterion_name": "Necessary",
+                "user_action": "reject",
+                "ai_suggestion": "in the microgravity environment of the ISS",
+                "user_text": "perpendicularly to normal gravity (9.81 m/s2)",
+                "notes": "You can't perform verification tests in microgravity before employment of the system. The requirement holds true even if the final environment is less severe. "
+              },
+              {
+                "violation_id": "9-A4",
+                "rule_id": "A4",
+                "criterion_name": "Unambiguous",
+                "user_action": "modify",
+                "ai_suggestion": "in any direction within the ISS microgravity environment",
+                "user_text": "in any direction within the ISS microgravity environment",
+                "notes": "I don't know the correct wording, either way you have to test on Earth."
+              },
+              {
+                "violation_id": "9-A5",
+                "rule_id": "A5",
+                "criterion_name": "Complete",
+                "user_action": "accept",
+                "ai_suggestion": "move a point mass of 3.6 kg from the origin point (0 mm, 0 mm, 101.6 mm) to the destination point (71.84 mm, 0 mm, -71.84 mm) and return to origin",
+                "user_text": "move a point mass of 3.6 kg from the origin point (0 mm, 0 mm, 101.6 mm) to the destination point (71.84 mm, 0 mm, -71.84 mm) and return to origin",
+                "notes": ""
+              },
+              {
+                "violation_id": "9-A9",
+                "rule_id": "A9",
+                "criterion_name": "Correct",
+                "user_action": "reject",
+                "ai_suggestion": "between the specified origin and destination points in the ISS microgravity environment",
+                "user_text": "perpendicularly to normal gravity (9.81 m/s2)",
+                "notes": ""
+              },
+              {
+                "violation_id": "9-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "accept",
+                "ai_suggestion": "shall move",
+                "user_text": "shall move",
+                "notes": ""
+              }
+            ],
+            "final_text": "The system shall move a point mass of 3.6 kg in any direction within the ISS microgravity environment.",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "10",
+            "original_text": "The System shall operate in an atmosphere comparable to that of Earth. Assume 21 degrees centigrade [70 degrees Fahrenheit], with low humidity, and pressurized to 100 kPA [750 mm Hg, 14.5 psi].",
+            "violation_feedback": [
+              {
+                "violation_id": "10-A2",
+                "rule_id": "A2",
+                "criterion_name": "Necessary",
+                "user_action": "modify",
+                "ai_suggestion": "The System shall operate in the ISS cabin environment as specified in [reference to ISS environmental specifications].",
+                "user_text": "The System shall operate in the ISS cabin environment as specified in [reference to ISS environmental specifications].",
+                "notes": "The test environment may be more severe than the employed environment, there may need to be two verification tests for full coverage. "
+              },
+              {
+                "violation_id": "10-A9",
+                "rule_id": "A9",
+                "criterion_name": "Correct",
+                "user_action": "accept",
+                "ai_suggestion": "the environmental conditions specified in [ISS Environmental Control and Life Support System specifications]",
+                "user_text": "the environmental conditions specified in [ISS Environmental Control and Life Support System specifications]",
+                "notes": ""
+              },
+              {
+                "violation_id": "10-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "accept",
+                "ai_suggestion": "at 21 degrees centigrade [70 degrees Fahrenheit], with low humidity, and pressurized to 100 kPA [750 mm Hg, 14.5 psi].",
+                "user_text": "at 21 degrees centigrade [70 degrees Fahrenheit], with low humidity, and pressurized to 100 kPA [750 mm Hg, 14.5 psi].",
+                "notes": ""
+              }
+            ],
+            "final_text": "The System shall operate in an atmosphere comparable to that of Earth. Assume the environmental conditions specified in [ISS Environmental Control and Life Support System specifications].",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "11",
+            "original_text": "The System shall not contribute any particulates (e.g. dust) to the ISS atmosphere.",
+            "violation_feedback": [
+              {
+                "violation_id": "11-A4",
+                "rule_id": "A4",
+                "criterion_name": "Unambiguous",
+                "user_action": "accept",
+                "ai_suggestion": "generate or release particulates greater than [X] microns in size at a rate exceeding [Y] particles per [time unit]",
+                "user_text": "generate or release particulates greater than [X] microns in size at a rate exceeding [Y] particles per [time unit]",
+                "notes": ""
+              },
+              {
+                "violation_id": "11-A5",
+                "rule_id": "A5",
+                "criterion_name": "Complete",
+                "user_action": "accept",
+                "ai_suggestion": "not generate or release particulates greater than [X] microns in size at a rate exceeding [Y] particles per [time unit] to the ISS atmosphere during normal operation and maintenance",
+                "user_text": "not generate or release particulates greater than [X] microns in size at a rate exceeding [Y] particles per [time unit] to the ISS atmosphere during normal operation and maintenance",
+                "notes": ""
+              },
+              {
+                "violation_id": "11-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "accept",
+                "ai_suggestion": "shall maintain particulate generation below [X] microns at rates not exceeding [Y] particles per [time unit]",
+                "user_text": "shall maintain particulate generation below [X] microns at rates not exceeding [Y] particles per [time unit]",
+                "notes": ""
+              }
+            ],
+            "final_text": "The System shall not generate or release particulates greater than [X] microns in size at a rate exceeding [Y] particles per [time unit] to the ISS atmosphere.",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "12",
+            "original_text": "The System shall enclose all lubricated components to prevent lubricants from leaking into the atmosphere of the ISS.",
+            "violation_feedback": [
+              {
+                "violation_id": "12-A4",
+                "rule_id": "A4",
+                "criterion_name": "Unambiguous",
+                "user_action": "accept",
+                "ai_suggestion": "contain all lubricated components such that lubricant leakage does not exceed [X mg/hour] into the atmosphere",
+                "user_text": "contain all lubricated components such that lubricant leakage does not exceed [X mg/hour] into the atmosphere",
+                "notes": ""
+              },
+              {
+                "violation_id": "12-A5",
+                "rule_id": "A5",
+                "criterion_name": "Complete",
+                "user_action": "accept",
+                "ai_suggestion": "prevent lubricants from leaking into the atmosphere of the ISS at rates exceeding [X mg/hour] per NASA-STD-6001 requirements during all operational and non-operational states",
+                "user_text": "prevent lubricants from leaking into the atmosphere of the ISS at rates exceeding [X mg/hour] per NASA-STD-6001 requirements during all operational and non-operational states",
+                "notes": ""
+              }
+            ],
+            "final_text": "The System shall enclose all lubricated components to prevent lubricants from leaking into the atmosphere of the ISS at rates exceeding [X mg/hour] per NASA-STD-6001 requirements during all operational and non-operational states.",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "13",
+            "original_text": "The System shall not use more than 1.5 Watt-hours to support all operations. Note: Assume a maximum of 1 minute of operations.",
+            "violation_feedback": [
+              {
+                "violation_id": "13-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "accept",
+                "ai_suggestion": "consume 1.5 Watt-hours or less",
+                "user_text": "consume 1.5 Watt-hours or less",
+                "notes": ""
+              }
+            ],
+            "final_text": "The System shall consume 1.5 Watt-hours or less to support all operations. Note: Assume a maximum of 1 minute of operations.",
+            "overall_notes": ""
+          }
+        ],
+        "session_id": "aee204f7",
+        "timestamp": "2026-07-20T19:30:34.069285Z",
+        "summary_statistics": {
+          "total_requirements": 13,
+          "total_violations": 40,
+          "actions": {
+            "accept": 29,
+            "reject": 9,
+            "modify": 2
+          },
+          "acceptance_rate_by_rule": {
+            "A5": {
+              "accept": 7,
+              "reject": 0,
+              "modify": 0,
+              "rate": 1.0
+            },
+            "A10": {
+              "accept": 11,
+              "reject": 0,
+              "modify": 0,
+              "rate": 1.0
+            },
+            "A2": {
+              "accept": 5,
+              "reject": 2,
+              "modify": 1,
+              "rate": 0.75
+            },
+            "A9": {
+              "accept": 1,
+              "reject": 7,
+              "modify": 0,
+              "rate": 0.125
+            },
+            "A4": {
+              "accept": 5,
+              "reject": 0,
+              "modify": 1,
+              "rate": 1.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "reviewer": "SME 3",
+      "affiliation": "External",
+      "source_file": "feedback_6e1e38fc.json",
+      "feedback": {
+        "requirement_feedback": [
+          {
+            "req_id": "1",
+            "original_text": "The System shall be able to move a point mass from an origin point to a fixed destination point. Note 1: The path is notional; the actual path is to be determined. Note 2: Assume that a link between the system output and the point mass will be designed separately (by someone else) and will match the needs of your design. Note 3: The origin point is (X, Y, Z) = (0 mm, 0 mm, 101.6 mm) or [0”, 0”, 4”]. Note 4: The destination point is (X, Y, Z) = (71.84 mm, 0 mm, -71.84 mm) or [2.82”, 0”, -2.82”].",
+            "violation_feedback": [
+              {
+                "violation_id": "1-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "modify",
+                "ai_suggestion": "shall move",
+                "user_text": "The System ⟪shall move⟫ a point mass from an origin point to a fixed destination point. Note 1: The path is notional; the actual path is to be determined in subsequent design activity. Note 2: Assume that a link between the system output and the point mass will be designed separately (by someone else) and will match the needs of your design. Note 3: The origin point is (X, Y, Z) = (0 mm, 0 mm, 101.6 mm) or [0”, 0”, 4”]. Note 4: The destination point is (X, Y, Z) = (71.84 mm, 0 mm, -71.84 mm) or [2.82”, 0”, -2.82”].",
+                "notes": "The notes in this requirement are confusing when they should provide clarity. Specifically the first note specifies a \"TBD\" which is a bad engineering practice. It should specify how the TBD will be resolved."
+              }
+            ],
+            "suggestion_feedback": [],
+            "final_text": "The System The System ⟪shall move⟫ a point mass from an origin point to a fixed destination point. Note 1: The path is notional; the actual path is to be determined in subsequent design activity. Note 2: Assume that a link between the system output and the point mass will be designed separately (by someone else) and will match the needs of your design. Note 3: The origin point is (X, Y, Z) = (0 mm, 0 mm, 101.6 mm) or [0”, 0”, 4”]. Note 4: The destination point is (X, Y, Z) = (71.84 mm, 0 mm, -71.84 mm) or [2.82”, 0”, -2.82”]. a point mass from an origin point to a fixed destination point. Note 1: The path is notional; the actual path is to be determined. Note 2: Assume that a link between the system output and the point mass will be designed separately (by someone else) and will match the needs of your design. Note 3: The origin point is (X, Y, Z) = (0 mm, 0 mm, 101.6 mm) or [0”, 0”, 4”]. Note 4: The destination point is (X, Y, Z) = (71.84 mm, 0 mm, -71.84 mm) or [2.82”, 0”, -2.82”].",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "2",
+            "original_text": "The System shall be able to move the point mass from the destination point back to the origin point. Note 1: The path is notional; the actual path is to be determined. Note 2: Assume that a link between the system output and the point mass will be designed separately (by someone else) and will match the needs of your design. Note 3: The origin point is (X, Y, Z) = (0 mm, 0 mm, 101.6 mm) or [0”, 0”, 4”]. Note 4: The destination point is (X, Y, Z) = (71.84 mm, 0 mm, -71.84 mm) or [2.82”, 0”, -2.82”].",
+            "violation_feedback": [
+              {
+                "violation_id": "2-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "modify",
+                "ai_suggestion": "shall move",
+                "user_text": "The System ⟪shall move⟫ the point mass from the destination point back to the origin point. Note 1: The path is notional; the actual path is to be determined in a subsequent design activity. Note 2: Assume that a link between the system output and the point mass will be designed separately (by someone else) and will match the needs of your design. Note 3: The origin point is (X, Y, Z) = (0 mm, 0 mm, 101.6 mm) or [0”, 0”, 4”]. Note 4: The destination point is (X, Y, Z) = (71.84 mm, 0 mm, -71.84 mm) or [2.82”, 0”, -2.82”].",
+                "notes": "Same concern as noted for requirement 1."
+              }
+            ],
+            "suggestion_feedback": [],
+            "final_text": "The System The System ⟪shall move⟫ the point mass from the destination point back to the origin point. Note 1: The path is notional; the actual path is to be determined in a subsequent design activity. Note 2: Assume that a link between the system output and the point mass will be designed separately (by someone else) and will match the needs of your design. Note 3: The origin point is (X, Y, Z) = (0 mm, 0 mm, 101.6 mm) or [0”, 0”, 4”]. Note 4: The destination point is (X, Y, Z) = (71.84 mm, 0 mm, -71.84 mm) or [2.82”, 0”, -2.82”]. the point mass from the destination point back to the origin point. Note 1: The path is notional; the actual path is to be determined. Note 2: Assume that a link between the system output and the point mass will be designed separately (by someone else) and will match the needs of your design. Note 3: The origin point is (X, Y, Z) = (0 mm, 0 mm, 101.6 mm) or [0”, 0”, 4”]. Note 4: The destination point is (X, Y, Z) = (71.84 mm, 0 mm, -71.84 mm) or [2.82”, 0”, -2.82”].",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "3",
+            "original_text": "The system shall execute FR1 accurately with +/- 2.5mm [0.1”] accuracy in every Cartesian direction.",
+            "violation_feedback": [
+              {
+                "violation_id": "3-A2",
+                "rule_id": "A2",
+                "criterion_name": "Necessary",
+                "user_action": "accept",
+                "ai_suggestion": "the displacement of the center of mass from origin to destination",
+                "user_text": "the displacement of the center of mass from origin to destination",
+                "notes": ""
+              },
+              {
+                "violation_id": "3-A5",
+                "rule_id": "A5",
+                "criterion_name": "Complete",
+                "user_action": "accept",
+                "ai_suggestion": "The system shall execute FR1 with +/- 2.5mm [0.1\"] accuracy in every Cartesian direction at the destination point.",
+                "user_text": "The system shall execute FR1 with +/- 2.5mm [0.1\"] accuracy in every Cartesian direction at the destination point.",
+                "notes": ""
+              },
+              {
+                "violation_id": "3-A9",
+                "rule_id": "A9",
+                "criterion_name": "Correct",
+                "user_action": "reject",
+                "ai_suggestion": "+/- [value traceable to stakeholder need]",
+                "user_text": "+/- 2.5mm [0.1\"]",
+                "notes": "The preview does not match the suggested change. I understand why it was flagged but specificity of the requirement tolerance is needed."
+              },
+              {
+                "violation_id": "3-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "accept",
+                "ai_suggestion": "execute FR1 with",
+                "user_text": "execute FR1 with",
+                "notes": ""
+              }
+            ],
+            "suggestion_feedback": [],
+            "final_text": "The system shall execute the displacement of the center of mass from origin to destination accurately with +/- 2.5mm [0.1”] accuracy in every Cartesian direction.",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "4",
+            "original_text": "The system shall execute FR2 accurately with +/- 2.5mm [0.1”] accuracy in every Cartesian direction.",
+            "violation_feedback": [
+              {
+                "violation_id": "4-A2",
+                "rule_id": "A2",
+                "criterion_name": "Necessary",
+                "user_action": "accept",
+                "ai_suggestion": "the return of the center of mass from the destination point back to the origin point",
+                "user_text": "the return of the center of mass from the destination point back to the origin point",
+                "notes": ""
+              },
+              {
+                "violation_id": "4-A9",
+                "rule_id": "A9",
+                "criterion_name": "Correct",
+                "user_action": "reject",
+                "ai_suggestion": "+/- [value TBD based on stakeholder need]",
+                "user_text": "+/- 2.5mm [0.1\"]",
+                "notes": ""
+              }
+            ],
+            "suggestion_feedback": [
+              {
+                "suggestion_id": "4-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "suggest",
+                "user_text": "The system shall execute the return of the center of mass from the destination point back to the origin point with +/- 2.5mm [0.1”] accuracy in every Cartesian direction.",
+                "notes": ""
+              }
+            ],
+            "final_text": "The system shall execute the return of the center of mass from the destination point back to the origin point accurately with +/- 2.5mm [0.1”] accuracy in every Cartesian direction.",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "5",
+            "original_text": "The System shall be able to execute FR1 in no more than 30 seconds.",
+            "violation_feedback": [
+              {
+                "violation_id": "5-A2",
+                "rule_id": "A2",
+                "criterion_name": "Necessary",
+                "user_action": "reject",
+                "ai_suggestion": "[value traceable to stakeholder need or mission requirement]",
+                "user_text": "30 seconds",
+                "notes": "Timing constraints/limits should be part of the specification. Otherwise, if there is no requirement it should be deleted entirely. It is logical to believe there is a time constraint."
+              },
+              {
+                "violation_id": "5-A4",
+                "rule_id": "A4",
+                "criterion_name": "Unambiguous",
+                "user_action": "accept",
+                "ai_suggestion": "displace the center of mass of the system from its origin to the set destination",
+                "user_text": "displace the center of mass of the system from its origin to the set destination",
+                "notes": ""
+              },
+              {
+                "violation_id": "5-A9",
+                "rule_id": "A9",
+                "criterion_name": "Correct",
+                "user_action": "reject",
+                "ai_suggestion": "[value derived from stakeholder need or mission requirement]",
+                "user_text": "30 seconds",
+                "notes": ""
+              },
+              {
+                "violation_id": "5-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "accept",
+                "ai_suggestion": "within 30 seconds",
+                "user_text": "within 30 seconds",
+                "notes": ""
+              }
+            ],
+            "suggestion_feedback": [],
+            "final_text": "The System shall be able to execute displace the center of mass of the system from its origin to the set destination within 30 seconds.",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "6",
+            "original_text": "The System shall be able to execute FR1 in no less than 5 seconds.",
+            "violation_feedback": [
+              {
+                "violation_id": "6-A2",
+                "rule_id": "A2",
+                "criterion_name": "Necessary",
+                "user_action": "accept",
+                "ai_suggestion": "the displacement of the center of mass from origin to destination",
+                "user_text": "the displacement of the center of mass from origin to destination",
+                "notes": ""
+              },
+              {
+                "violation_id": "6-A4",
+                "rule_id": "A4",
+                "criterion_name": "Unambiguous",
+                "user_action": "reject",
+                "ai_suggestion": "the displacement of the center of mass from origin point (0 mm, 0 mm, 101.6 mm) to destination point (71.84 mm, 0 mm, -71.84 mm)",
+                "user_text": "FR1",
+                "notes": "The suggested change would produce unnecessary redundancy in the requirement set."
+              },
+              {
+                "violation_id": "6-A5",
+                "rule_id": "A5",
+                "criterion_name": "Complete",
+                "user_action": "accept",
+                "ai_suggestion": "the displacement of the center of mass from origin to destination",
+                "user_text": "the displacement of the center of mass from origin to destination",
+                "notes": ""
+              },
+              {
+                "violation_id": "6-A9",
+                "rule_id": "A9",
+                "criterion_name": "Correct",
+                "user_action": "reject",
+                "ai_suggestion": "within [X] seconds",
+                "user_text": "no less than 5 seconds",
+                "notes": ""
+              },
+              {
+                "violation_id": "6-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "accept",
+                "ai_suggestion": "shall execute the displacement of the center of mass from origin to destination in a minimum of 5 seconds",
+                "user_text": "shall execute the displacement of the center of mass from origin to destination in a minimum of 5 seconds",
+                "notes": "A better practice would combine this requirement with the preceding one so that there is one execution time requirement between 5 and 30 seconds."
+              }
+            ],
+            "suggestion_feedback": [],
+            "final_text": "The System shall be able to execute the displacement of the center of mass from origin to destination in no less than 5 seconds.",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "7",
+            "original_text": "The System shall be able to execute FR2 in no more than 30 seconds.",
+            "violation_feedback": [
+              {
+                "violation_id": "7-A2",
+                "rule_id": "A2",
+                "criterion_name": "Necessary",
+                "user_action": "accept",
+                "ai_suggestion": "return the center of mass from the destination point back to the origin point",
+                "user_text": "return the center of mass from the destination point back to the origin point",
+                "notes": ""
+              },
+              {
+                "violation_id": "7-A5",
+                "rule_id": "A5",
+                "criterion_name": "Complete",
+                "user_action": "accept",
+                "ai_suggestion": "return the center of mass from the destination point back to the origin point",
+                "user_text": "return the center of mass from the destination point back to the origin point",
+                "notes": ""
+              },
+              {
+                "violation_id": "7-A9",
+                "rule_id": "A9",
+                "criterion_name": "Correct",
+                "user_action": "reject",
+                "ai_suggestion": "[value traceable to stakeholder need] seconds",
+                "user_text": "30 seconds",
+                "notes": ""
+              },
+              {
+                "violation_id": "7-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "accept",
+                "ai_suggestion": "complete the return of the center of mass from the destination point to the origin point within 30 seconds",
+                "user_text": "complete the return of the center of mass from the destination point to the origin point within 30 seconds",
+                "notes": ""
+              }
+            ],
+            "suggestion_feedback": [],
+            "final_text": "The System shall be able to execute return the center of mass from the destination point back to the origin point in no more than 30 seconds.",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "8",
+            "original_text": "The System shall be able to execute FR2 in no less than 5 seconds.",
+            "violation_feedback": [
+              {
+                "violation_id": "8-A2",
+                "rule_id": "A2",
+                "criterion_name": "Necessary",
+                "user_action": "reject",
+                "ai_suggestion": "[value traceable to stakeholder need or ConOps]",
+                "user_text": "5 seconds",
+                "notes": ""
+              },
+              {
+                "violation_id": "8-A4",
+                "rule_id": "A4",
+                "criterion_name": "Unambiguous",
+                "user_action": "accept",
+                "ai_suggestion": "return the center of mass back to its origin",
+                "user_text": "return the center of mass back to its origin",
+                "notes": ""
+              },
+              {
+                "violation_id": "8-A9",
+                "rule_id": "A9",
+                "criterion_name": "Correct",
+                "user_action": "reject",
+                "ai_suggestion": "[value traceable to source requirement]",
+                "user_text": "5 seconds",
+                "notes": ""
+              },
+              {
+                "violation_id": "8-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "accept",
+                "ai_suggestion": "in a minimum of 5 seconds",
+                "user_text": "in a minimum of 5 seconds",
+                "notes": "Same note as before, this requirement should be combined with the preceding one for a single execution time requirement."
+              }
+            ],
+            "suggestion_feedback": [],
+            "final_text": "The System shall be able to execute return the center of mass back to its origin in a minimum of 5 seconds.",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "9",
+            "original_text": "The system shall be able to move a point mass of 3.6 kg perpendicularly to normal gravity (9.81 m/s2).",
+            "violation_feedback": [
+              {
+                "violation_id": "9-A2",
+                "rule_id": "A2",
+                "criterion_name": "Necessary",
+                "user_action": "accept",
+                "ai_suggestion": "in the microgravity environment of the ISS",
+                "user_text": "in the microgravity environment of the ISS",
+                "notes": ""
+              },
+              {
+                "violation_id": "9-A4",
+                "rule_id": "A4",
+                "criterion_name": "Unambiguous",
+                "user_action": "accept",
+                "ai_suggestion": "along the specified path from origin (0, 0, 101.6 mm) to destination (71.84, 0, -71.84 mm)",
+                "user_text": "along the specified path from origin (0, 0, 101.6 mm) to destination (71.84, 0, -71.84 mm)",
+                "notes": ""
+              },
+              {
+                "violation_id": "9-A5",
+                "rule_id": "A5",
+                "criterion_name": "Complete",
+                "user_action": "accept",
+                "ai_suggestion": "move a point mass of 3.6 kg from the origin point (0, 0, 101.6 mm) to the destination point (71.84, 0, -71.84 mm) and return it to the origin",
+                "user_text": "move a point mass of 3.6 kg from the origin point (0, 0, 101.6 mm) to the destination point (71.84, 0, -71.84 mm) and return it to the origin",
+                "notes": ""
+              },
+              {
+                "violation_id": "9-A9",
+                "rule_id": "A9",
+                "criterion_name": "Correct",
+                "user_action": "accept",
+                "ai_suggestion": "in the ISS microgravity environment",
+                "user_text": "in the ISS microgravity environment",
+                "notes": ""
+              },
+              {
+                "violation_id": "9-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "accept",
+                "ai_suggestion": "shall move",
+                "user_text": "shall move",
+                "notes": ""
+              }
+            ],
+            "suggestion_feedback": [],
+            "final_text": "The system shall move a point mass of 3.6 kg in the microgravity environment of the ISS.",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "10",
+            "original_text": "The System shall operate in an atmosphere comparable to that of Earth. Assume 21 degrees centigrade [70 degrees Fahrenheit], with low humidity, and pressurized to 100 kPA [750 mm Hg, 14.5 psi].",
+            "violation_feedback": [
+              {
+                "violation_id": "10-A2",
+                "rule_id": "A2",
+                "criterion_name": "Necessary",
+                "user_action": "modify",
+                "ai_suggestion": "The System shall operate in the ISS internal atmosphere (nominal conditions: 21 degrees centigrade [70 degrees Fahrenheit], low humidity, 100 kPA [750 mm Hg, 14.5 psi]).",
+                "user_text": "The System shall operate in the ISS internal atmosphere (nominal conditions: 21 degrees centigrade [70 degrees Fahrenheit], less than [x]% relative humidity humidity, 100 kPA [750 mm Hg, 14.5 psi]).",
+                "notes": "\"low humidity\" is ambiguous"
+              },
+              {
+                "violation_id": "10-A4",
+                "rule_id": "A4",
+                "criterion_name": "Unambiguous",
+                "user_action": "accept",
+                "ai_suggestion": "with the following environmental parameters",
+                "user_text": "with the following environmental parameters",
+                "notes": ""
+              },
+              {
+                "violation_id": "10-A5",
+                "rule_id": "A5",
+                "criterion_name": "Complete",
+                "user_action": "accept",
+                "ai_suggestion": "relative humidity between 25% and 75%",
+                "user_text": "relative humidity between 25% and 75%",
+                "notes": ""
+              },
+              {
+                "violation_id": "10-A6",
+                "rule_id": "A6",
+                "criterion_name": "Singular",
+                "user_action": "accept",
+                "ai_suggestion": "21 degrees centigrade [70 degrees Fahrenheit] (split into separate requirements for humidity and pressure)",
+                "user_text": "21 degrees centigrade [70 degrees Fahrenheit] (split into separate requirements for humidity and pressure)",
+                "notes": ""
+              },
+              {
+                "violation_id": "10-A9",
+                "rule_id": "A9",
+                "criterion_name": "Correct",
+                "user_action": "accept",
+                "ai_suggestion": "[values traceable to ISS environmental specifications or stakeholder needs]",
+                "user_text": "[values traceable to ISS environmental specifications or stakeholder needs]",
+                "notes": ""
+              },
+              {
+                "violation_id": "10-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "accept",
+                "ai_suggestion": "at 21 degrees centigrade [70 degrees Fahrenheit], relative humidity between 25% and 75%, and pressure of 100 kPA [750 mm Hg, 14.5 psi].",
+                "user_text": "at 21 degrees centigrade [70 degrees Fahrenheit], relative humidity between 25% and 75%, and pressure of 100 kPA [750 mm Hg, 14.5 psi].",
+                "notes": ""
+              }
+            ],
+            "suggestion_feedback": [],
+            "final_text": "The System shall operate in an atmosphere with the following environmental parameters. Assume 21 degrees centigrade [70 degrees Fahrenheit], with relative humidity between 25% and 75%, and pressurized to 100 kPA [750 mm Hg, 14.5 psi].",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "11",
+            "original_text": "The System shall not contribute any particulates (e.g. dust) to the ISS atmosphere.",
+            "violation_feedback": [
+              {
+                "violation_id": "11-A4",
+                "rule_id": "A4",
+                "criterion_name": "Unambiguous",
+                "user_action": "accept",
+                "ai_suggestion": "not release particulates greater than [X] microns in size or exceeding [Y] particles per cubic meter",
+                "user_text": "not release particulates greater than [X] microns in size or exceeding [Y] particles per cubic meter",
+                "notes": ""
+              },
+              {
+                "violation_id": "11-A5",
+                "rule_id": "A5",
+                "criterion_name": "Complete",
+                "user_action": "reject",
+                "ai_suggestion": "The System shall not contribute any particulates (e.g. dust) to the ISS atmosphere during normal operation and maintenance activities.",
+                "user_text": "The System shall not contribute any particulates (e.g. dust) to the ISS atmosphere.",
+                "notes": ""
+              },
+              {
+                "violation_id": "11-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "accept",
+                "ai_suggestion": "shall maintain particulate emissions below [threshold] to the ISS atmosphere",
+                "user_text": "shall maintain particulate emissions below [threshold] to the ISS atmosphere",
+                "notes": ""
+              }
+            ],
+            "suggestion_feedback": [],
+            "final_text": "The System shall not release particulates greater than [X] microns in size or exceeding [Y] particles per cubic meter to the ISS atmosphere.",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "12",
+            "original_text": "The System shall enclose all lubricated components to prevent lubricants from leaking into the atmosphere of the ISS.",
+            "violation_feedback": [
+              {
+                "violation_id": "12-A4",
+                "rule_id": "A4",
+                "criterion_name": "Unambiguous",
+                "user_action": "accept",
+                "ai_suggestion": "contain all lubricant-bearing components such that no lubricant can escape",
+                "user_text": "contain all lubricant-bearing components such that no lubricant can escape",
+                "notes": "Use of term \"all\" is discouraged. An actual leakage value should be specified or the conditions under which there is no leakage should be specified."
+              },
+              {
+                "violation_id": "12-A5",
+                "rule_id": "A5",
+                "criterion_name": "Complete",
+                "user_action": "modify",
+                "ai_suggestion": "to prevent lubricants from escaping into the ISS atmosphere during all operational and non-operational states with a leak rate not exceeding [X] mg/hour",
+                "user_text": "to prevent lubricants from leaking into the ISS atmosphere with a leak rate not exceeding [x] mg/hour.",
+                "notes": "If no operational state is specified, it is assumed to apply to all states.  Otherwise the specify permissible value adds clarity."
+              }
+            ],
+            "suggestion_feedback": [],
+            "final_text": "The System shall contain all lubricant-bearing components such that no lubricant can escape to prevent lubricants from leaking into the ISS atmosphere with a leak rate not exceeding [x] mg/hour..",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "13",
+            "original_text": "The System shall not use more than 1.5 Watt-hours to support all operations. Note: Assume a maximum of 1 minute of operations.",
+            "violation_feedback": [
+              {
+                "violation_id": "13-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "accept",
+                "ai_suggestion": "consume less than or equal to",
+                "user_text": "consume less than or equal to",
+                "notes": ""
+              }
+            ],
+            "suggestion_feedback": [],
+            "final_text": "The System shall consume less than or equal to 1.5 Watt-hours to support all operations. Note: Assume a maximum of 1 minute of operations.",
+            "overall_notes": ""
+          }
+        ],
+        "session_id": "6e1e38fc",
+        "timestamp": "2026-07-24T15:29:27.837595Z",
+        "summary_statistics": {
+          "total_requirements": 13,
+          "total_violations": 42,
+          "total_suggestions": 1,
+          "actions": {
+            "accept": 28,
+            "reject": 10,
+            "modify": 4
+          },
+          "acceptance_rate_by_rule": {
+            "A10": {
+              "accept": 9,
+              "reject": 0,
+              "modify": 2,
+              "rate": 1.0
+            },
+            "A2": {
+              "accept": 5,
+              "reject": 2,
+              "modify": 1,
+              "rate": 0.75
+            },
+            "A5": {
+              "accept": 5,
+              "reject": 1,
+              "modify": 1,
+              "rate": 0.8571428571428571
+            },
+            "A9": {
+              "accept": 2,
+              "reject": 6,
+              "modify": 0,
+              "rate": 0.25
+            },
+            "A4": {
+              "accept": 6,
+              "reject": 1,
+              "modify": 0,
+              "rate": 0.8571428571428571
+            },
+            "A6": {
+              "accept": 1,
+              "reject": 0,
+              "modify": 0,
+              "rate": 1.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "reviewer": "SME 4",
+      "affiliation": "External",
+      "source_file": "feedback_9dc74a53.json",
+      "feedback": {
+        "requirement_feedback": [
+          {
+            "req_id": "1",
+            "original_text": "The System shall be able to move a point mass from an origin point to a fixed destination point. Note 1: The path is notional; the actual path is to be determined. Note 2: Assume that a link between the system output and the point mass will be designed separately (by someone else) and will match the needs of your design. Note 3: The origin point is (X, Y, Z) = (0 mm, 0 mm, 101.6 mm) or [0”, 0”, 4”]. Note 4: The destination point is (X, Y, Z) = (71.84 mm, 0 mm, -71.84 mm) or [2.82”, 0”, -2.82”].",
+            "violation_feedback": [
+              {
+                "violation_id": "1-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "accept",
+                "ai_suggestion": "shall move",
+                "user_text": "shall move",
+                "notes": ""
+              }
+            ],
+            "suggestion_feedback": [],
+            "final_text": "The System shall move a point mass from an origin point to a fixed destination point. Note 1: The path is notional; the actual path is to be determined. Note 2: Assume that a link between the system output and the point mass will be designed separately (by someone else) and will match the needs of your design. Note 3: The origin point is (X, Y, Z) = (0 mm, 0 mm, 101.6 mm) or [0”, 0”, 4”]. Note 4: The destination point is (X, Y, Z) = (71.84 mm, 0 mm, -71.84 mm) or [2.82”, 0”, -2.82”].",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "2",
+            "original_text": "The System shall be able to move the point mass from the destination point back to the origin point. Note 1: The path is notional; the actual path is to be determined. Note 2: Assume that a link between the system output and the point mass will be designed separately (by someone else) and will match the needs of your design. Note 3: The origin point is (X, Y, Z) = (0 mm, 0 mm, 101.6 mm) or [0”, 0”, 4”]. Note 4: The destination point is (X, Y, Z) = (71.84 mm, 0 mm, -71.84 mm) or [2.82”, 0”, -2.82”].",
+            "violation_feedback": [
+              {
+                "violation_id": "2-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "accept",
+                "ai_suggestion": "shall move",
+                "user_text": "shall move",
+                "notes": ""
+              }
+            ],
+            "suggestion_feedback": [],
+            "final_text": "The System shall move the point mass from the destination point back to the origin point. Note 1: The path is notional; the actual path is to be determined. Note 2: Assume that a link between the system output and the point mass will be designed separately (by someone else) and will match the needs of your design. Note 3: The origin point is (X, Y, Z) = (0 mm, 0 mm, 101.6 mm) or [0”, 0”, 4”]. Note 4: The destination point is (X, Y, Z) = (71.84 mm, 0 mm, -71.84 mm) or [2.82”, 0”, -2.82”].",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "3",
+            "original_text": "The system shall execute FR1 accurately with +/- 2.5mm [0.1”] accuracy in every Cartesian direction.",
+            "violation_feedback": [
+              {
+                "violation_id": "3-A2",
+                "rule_id": "A2",
+                "criterion_name": "Necessary",
+                "user_action": "reject",
+                "ai_suggestion": "the displacement of the center of mass from origin to destination",
+                "user_text": "FR1",
+                "notes": "Agree with FR1 issue, but not explanation of replacement wording. Additional notes - is '+-2.5mm in every Cartesian direction' ambiguous? if 2.5mm out in x axis and 2.5mm out in y axis, then it is ~3.54mm out. Also, the word 'accurately' here appears redundant a total of "
+              },
+              {
+                "violation_id": "3-A9",
+                "rule_id": "A9",
+                "criterion_name": "Correct",
+                "user_action": "reject",
+                "ai_suggestion": "the displacement of the center of mass from origin to destination",
+                "user_text": "FR1",
+                "notes": ""
+              }
+            ],
+            "suggestion_feedback": [],
+            "final_text": "The system shall execute FR1 accurately with +/- 2.5mm [0.1”] accuracy in every Cartesian direction.",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "4",
+            "original_text": "The system shall execute FR2 accurately with +/- 2.5mm [0.1”] accuracy in every Cartesian direction.",
+            "violation_feedback": [
+              {
+                "violation_id": "4-A2",
+                "rule_id": "A2",
+                "criterion_name": "Necessary",
+                "user_action": "reject",
+                "ai_suggestion": "the return of the center of mass from the destination point back to the origin point",
+                "user_text": "FR2",
+                "notes": "If FR2 is not defined, how does it know what the appropriate replacement text is? Some explanation required here."
+              },
+              {
+                "violation_id": "4-A9",
+                "rule_id": "A9",
+                "criterion_name": "Correct",
+                "user_action": "accept",
+                "ai_suggestion": "+/- [value TBD based on stakeholder requirements]",
+                "user_text": "+/- [value TBD based on stakeholder requirements]",
+                "notes": "Good point - but why didn't this flag for the previous requirement?"
+              }
+            ],
+            "suggestion_feedback": [],
+            "final_text": "The system shall execute FR2 accurately with +/- 2.5mm [0.1”] accuracy in every Cartesian direction.",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "5",
+            "original_text": "The System shall be able to execute FR1 in no more than 30 seconds.",
+            "violation_feedback": [
+              {
+                "violation_id": "5-A2",
+                "rule_id": "A2",
+                "criterion_name": "Necessary",
+                "user_action": "accept",
+                "ai_suggestion": "[TBD based on stakeholder need or mission requirement]",
+                "user_text": "[TBD based on stakeholder need or mission requirement]",
+                "notes": ""
+              },
+              {
+                "violation_id": "5-A4",
+                "rule_id": "A4",
+                "criterion_name": "Unambiguous",
+                "user_action": "reject",
+                "ai_suggestion": "the displacement of the center of mass from origin to destination",
+                "user_text": "FR1",
+                "notes": "Same reasoning as above - Referencing FR1 is an issue, but no explanation for replacemebnt wording provided"
+              },
+              {
+                "violation_id": "5-A9",
+                "rule_id": "A9",
+                "criterion_name": "Correct",
+                "user_action": "accept",
+                "ai_suggestion": "[value traceable to stakeholder need]",
+                "user_text": "[value traceable to stakeholder need]",
+                "notes": ""
+              },
+              {
+                "violation_id": "5-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "accept",
+                "ai_suggestion": "within 30 seconds",
+                "user_text": "within 30 seconds",
+                "notes": ""
+              }
+            ],
+            "suggestion_feedback": [],
+            "final_text": "The System shall be able to execute FR1 in no more than [TBD based on stakeholder need or mission requirement].",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "6",
+            "original_text": "The System shall be able to execute FR1 in no less than 5 seconds.",
+            "violation_feedback": [
+              {
+                "violation_id": "6-A2",
+                "rule_id": "A2",
+                "criterion_name": "Necessary",
+                "user_action": "accept",
+                "ai_suggestion": "[time value traceable to stakeholder need or safety constraint]",
+                "user_text": "[time value traceable to stakeholder need or safety constraint]",
+                "notes": ""
+              },
+              {
+                "violation_id": "6-A4",
+                "rule_id": "A4",
+                "criterion_name": "Unambiguous",
+                "user_action": "reject",
+                "ai_suggestion": "the displacement of the center of mass from origin to destination (FR1)",
+                "user_text": "FR1",
+                "notes": "same reasoning as above"
+              },
+              {
+                "violation_id": "6-A9",
+                "rule_id": "A9",
+                "criterion_name": "Correct",
+                "user_action": "accept",
+                "ai_suggestion": "[time value with traceable justification]",
+                "user_text": "[time value with traceable justification]",
+                "notes": ""
+              },
+              {
+                "violation_id": "6-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "accept",
+                "ai_suggestion": "shall execute FR1 in a minimum of 5 seconds",
+                "user_text": "shall execute FR1 in a minimum of 5 seconds",
+                "notes": ""
+              }
+            ],
+            "suggestion_feedback": [],
+            "final_text": "The System shall be able to execute FR1 in [time value traceable to stakeholder need or safety constraint].",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "7",
+            "original_text": "The System shall be able to execute FR2 in no more than 30 seconds.",
+            "violation_feedback": [
+              {
+                "violation_id": "7-A2",
+                "rule_id": "A2",
+                "criterion_name": "Necessary",
+                "user_action": "reject",
+                "ai_suggestion": "return the center of mass from the destination point back to the origin point",
+                "user_text": "FR2",
+                "notes": ""
+              },
+              {
+                "violation_id": "7-A5",
+                "rule_id": "A5",
+                "criterion_name": "Complete",
+                "user_action": "reject",
+                "ai_suggestion": "return the center of mass from the destination point back to the origin point",
+                "user_text": "FR2",
+                "notes": ""
+              },
+              {
+                "violation_id": "7-A9",
+                "rule_id": "A9",
+                "criterion_name": "Correct",
+                "user_action": "accept",
+                "ai_suggestion": "[value traceable to stakeholder need]",
+                "user_text": "[value traceable to stakeholder need]",
+                "notes": ""
+              },
+              {
+                "violation_id": "7-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "accept",
+                "ai_suggestion": "shall execute FR2 within",
+                "user_text": "shall execute FR2 within",
+                "notes": ""
+              }
+            ],
+            "suggestion_feedback": [],
+            "final_text": "The System shall execute FR2 within [value traceable to stakeholder need].",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "8",
+            "original_text": "The System shall be able to execute FR2 in no less than 5 seconds.",
+            "violation_feedback": [
+              {
+                "violation_id": "8-A2",
+                "rule_id": "A2",
+                "criterion_name": "Necessary",
+                "user_action": "reject",
+                "ai_suggestion": "return the center of mass from the destination point back to the origin point",
+                "user_text": "FR2",
+                "notes": ""
+              },
+              {
+                "violation_id": "8-A5",
+                "rule_id": "A5",
+                "criterion_name": "Complete",
+                "user_action": "reject",
+                "ai_suggestion": "return the center of mass from the destination point back to the origin point",
+                "user_text": "FR2",
+                "notes": ""
+              },
+              {
+                "violation_id": "8-A9",
+                "rule_id": "A9",
+                "criterion_name": "Correct",
+                "user_action": "accept",
+                "ai_suggestion": "[TBD based on stakeholder need] seconds",
+                "user_text": "[TBD based on stakeholder need] seconds",
+                "notes": ""
+              },
+              {
+                "violation_id": "8-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "accept",
+                "ai_suggestion": "shall execute FR2 in a minimum of 5 seconds",
+                "user_text": "shall execute FR2 in a minimum of 5 seconds",
+                "notes": ""
+              }
+            ],
+            "suggestion_feedback": [],
+            "final_text": "The System shall be able to execute FR2 in no less than [TBD based on stakeholder need] seconds.",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "9",
+            "original_text": "The system shall be able to move a point mass of 3.6 kg perpendicularly to normal gravity (9.81 m/s2).",
+            "violation_feedback": [
+              {
+                "violation_id": "9-A2",
+                "rule_id": "A2",
+                "criterion_name": "Necessary",
+                "user_action": "reject",
+                "ai_suggestion": "in the microgravity environment of the ISS",
+                "user_text": "perpendicularly to normal gravity (9.81 m/s2)",
+                "notes": "reasoning behind this requirement unclear - it does not trace to the system context, but lack of evidence of traceability is not evidence of lack of traceability.. Requirement needs to be reviewed, but not convinced the suggested change is correct."
+              },
+              {
+                "violation_id": "9-A4",
+                "rule_id": "A4",
+                "criterion_name": "Unambiguous",
+                "user_action": "reject",
+                "ai_suggestion": "along the specified path from origin (0, 0, 101.6 mm) to destination (71.84, 0, -71.84 mm)",
+                "user_text": "perpendicularly to normal gravity (9.81 m/s2)",
+                "notes": "Same note as above"
+              },
+              {
+                "violation_id": "9-A5",
+                "rule_id": "A5",
+                "criterion_name": "Complete",
+                "user_action": "reject",
+                "ai_suggestion": "move a point mass of 3.6 kg from the origin point (0, 0, 101.6 mm) to the destination point (71.84, 0, -71.84 mm) and return it to the origin",
+                "user_text": "move a point mass of 3.6 kg perpendicularly to normal gravity (9.81 m/s2)",
+                "notes": "The note says: \"The requirement lacks critical information such as the distance of movement, speed, acceleration limits, or how this relates to the specified origin and destination points in the system context.\" So does the revision (no speed, acceleration limites)"
+              },
+              {
+                "violation_id": "9-A9",
+                "rule_id": "A9",
+                "criterion_name": "Correct",
+                "user_action": "reject",
+                "ai_suggestion": "in the ISS microgravity environment",
+                "user_text": "perpendicularly to normal gravity (9.81 m/s2)",
+                "notes": "Same note as above"
+              },
+              {
+                "violation_id": "9-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "accept",
+                "ai_suggestion": "shall move",
+                "user_text": "shall move",
+                "notes": ""
+              }
+            ],
+            "suggestion_feedback": [],
+            "final_text": "The system shall move a point mass of 3.6 kg perpendicularly to normal gravity (9.81 m/s2).",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "10",
+            "original_text": "The System shall operate in an atmosphere comparable to that of Earth. Assume 21 degrees centigrade [70 degrees Fahrenheit], with low humidity, and pressurized to 100 kPA [750 mm Hg, 14.5 psi].",
+            "violation_feedback": [
+              {
+                "violation_id": "10-A2",
+                "rule_id": "A2",
+                "criterion_name": "Necessary",
+                "user_action": "accept",
+                "ai_suggestion": "The System shall operate in the ISS internal atmosphere (nominal conditions: 21 degrees centigrade [70 degrees Fahrenheit], low humidity, and 100 kPA [750 mm Hg, 14.5 psi]).",
+                "user_text": "The System shall operate in the ISS internal atmosphere (nominal conditions: 21 degrees centigrade [70 degrees Fahrenheit], low humidity, and 100 kPA [750 mm Hg, 14.5 psi]).",
+                "notes": ""
+              },
+              {
+                "violation_id": "10-A4",
+                "rule_id": "A4",
+                "criterion_name": "Unambiguous",
+                "user_action": "accept",
+                "ai_suggestion": "with the following environmental parameters",
+                "user_text": "with the following environmental parameters",
+                "notes": ""
+              },
+              {
+                "violation_id": "10-A5",
+                "rule_id": "A5",
+                "criterion_name": "Complete",
+                "user_action": "accept",
+                "ai_suggestion": "relative humidity between 25% and 75%",
+                "user_text": "relative humidity between 25% and 75%",
+                "notes": ""
+              },
+              {
+                "violation_id": "10-A6",
+                "rule_id": "A6",
+                "criterion_name": "Singular",
+                "user_action": "accept",
+                "ai_suggestion": "21 degrees centigrade [70 degrees Fahrenheit]",
+                "user_text": "21 degrees centigrade [70 degrees Fahrenheit]",
+                "notes": ""
+              },
+              {
+                "violation_id": "10-A9",
+                "rule_id": "A9",
+                "criterion_name": "Correct",
+                "user_action": "accept",
+                "ai_suggestion": "The environmental parameters shall be as specified in [reference to ISS environmental control specifications].",
+                "user_text": "The environmental parameters shall be as specified in [reference to ISS environmental control specifications].",
+                "notes": ""
+              },
+              {
+                "violation_id": "10-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "accept",
+                "ai_suggestion": "at 21 degrees centigrade [70 degrees Fahrenheit], with low humidity, and pressurized to 100 kPA [750 mm Hg, 14.5 psi].",
+                "user_text": "at 21 degrees centigrade [70 degrees Fahrenheit], with low humidity, and pressurized to 100 kPA [750 mm Hg, 14.5 psi].",
+                "notes": ""
+              }
+            ],
+            "suggestion_feedback": [],
+            "final_text": "The System shall operate in an atmosphere with the following environmental parameters. Assume 21 degrees centigrade [70 degrees Fahrenheit], with relative humidity between 25% and 75%, and pressurized to 100 kPA [750 mm Hg, 14.5 psi].",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "11",
+            "original_text": "The System shall not contribute any particulates (e.g. dust) to the ISS atmosphere.",
+            "violation_feedback": [
+              {
+                "violation_id": "11-A4",
+                "rule_id": "A4",
+                "criterion_name": "Unambiguous",
+                "user_action": "accept",
+                "ai_suggestion": "generate or release particulates greater than [X] particles of size [Y] μm or larger",
+                "user_text": "generate or release particulates greater than [X] particles of size [Y] μm or larger",
+                "notes": ""
+              },
+              {
+                "violation_id": "11-A5",
+                "rule_id": "A5",
+                "criterion_name": "Complete",
+                "user_action": "accept",
+                "ai_suggestion": "shall not generate or release particulates greater than [X] particles per [time period] of size [Y] μm or larger to the ISS atmosphere during normal operations and maintenance",
+                "user_text": "shall not generate or release particulates greater than [X] particles per [time period] of size [Y] μm or larger to the ISS atmosphere during normal operations and maintenance",
+                "notes": ""
+              },
+              {
+                "violation_id": "11-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "accept",
+                "ai_suggestion": "shall limit particulate generation to less than [X] particles",
+                "user_text": "shall limit particulate generation to less than [X] particles",
+                "notes": ""
+              }
+            ],
+            "suggestion_feedback": [],
+            "final_text": "The System shall not generate or release particulates greater than [X] particles of size [Y] μm or larger (e.g. dust) to the ISS atmosphere.",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "12",
+            "original_text": "The System shall enclose all lubricated components to prevent lubricants from leaking into the atmosphere of the ISS.",
+            "violation_feedback": [
+              {
+                "violation_id": "12-A4",
+                "rule_id": "A4",
+                "criterion_name": "Unambiguous",
+                "user_action": "accept",
+                "ai_suggestion": "contain all lubricant-bearing components with sealed enclosures",
+                "user_text": "contain all lubricant-bearing components with sealed enclosures",
+                "notes": ""
+              },
+              {
+                "violation_id": "12-A5",
+                "rule_id": "A5",
+                "criterion_name": "Complete",
+                "user_action": "accept",
+                "ai_suggestion": "to prevent lubricants from leaking into the atmosphere of the ISS during all operational and non-operational states with a leak rate not exceeding [X] mg/hour",
+                "user_text": "to prevent lubricants from leaking into the atmosphere of the ISS during all operational and non-operational states with a leak rate not exceeding [X] mg/hour",
+                "notes": ""
+              }
+            ],
+            "suggestion_feedback": [],
+            "final_text": "The System shall contain all lubricant-bearing components with sealed enclosures to prevent lubricants from leaking into the atmosphere of the ISS during all operational and non-operational states with a leak rate not exceeding [X] mg/hour.",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "13",
+            "original_text": "The System shall not use more than 1.5 Watt-hours to support all operations. Note: Assume a maximum of 1 minute of operations.",
+            "violation_feedback": [
+              {
+                "violation_id": "13-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "accept",
+                "ai_suggestion": "consume 1.5 Watt-hours or less",
+                "user_text": "consume 1.5 Watt-hours or less",
+                "notes": ""
+              }
+            ],
+            "suggestion_feedback": [],
+            "final_text": "The System shall consume 1.5 Watt-hours or less to support all operations. Note: Assume a maximum of 1 minute of operations.",
+            "overall_notes": ""
+          }
+        ],
+        "session_id": "9dc74a53",
+        "timestamp": "2026-08-01T17:30:33.367188Z",
+        "summary_statistics": {
+          "total_requirements": 13,
+          "total_violations": 39,
+          "total_suggestions": 0,
+          "actions": {
+            "accept": 26,
+            "reject": 13,
+            "modify": 0
+          },
+          "acceptance_rate_by_rule": {
+            "A10": {
+              "accept": 10,
+              "reject": 0,
+              "modify": 0,
+              "rate": 1.0
+            },
+            "A2": {
+              "accept": 3,
+              "reject": 5,
+              "modify": 0,
+              "rate": 0.375
+            },
+            "A9": {
+              "accept": 6,
+              "reject": 2,
+              "modify": 0,
+              "rate": 0.75
+            },
+            "A4": {
+              "accept": 3,
+              "reject": 3,
+              "modify": 0,
+              "rate": 0.5
+            },
+            "A5": {
+              "accept": 3,
+              "reject": 3,
+              "modify": 0,
+              "rate": 0.5
+            },
+            "A6": {
+              "accept": 1,
+              "reject": 0,
+              "modify": 0,
+              "rate": 1.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "reviewer": "SME 5",
+      "affiliation": "External",
+      "source_file": "feedback_ffd92981.json",
+      "feedback": {
+        "requirement_feedback": [
+          {
+            "req_id": "1",
+            "original_text": "The System shall be able to move a point mass from an origin point to a fixed destination point. Note 1: The path is notional; the actual path is to be determined. Note 2: Assume that a link between the system output and the point mass will be designed separately (by someone else) and will match the needs of your design. Note 3: The origin point is (X, Y, Z) = (0 mm, 0 mm, 101.6 mm) or [0â, 0â, 4â]. Note 4: The destination point is (X, Y, Z) = (71.84 mm, 0 mm, -71.84 mm) or [2.82â, 0â, -2.82â].",
+            "violation_feedback": [
+              {
+                "violation_id": "1-A5",
+                "rule_id": "A5",
+                "criterion_name": "Complete",
+                "user_action": "reject",
+                "ai_suggestion": "The System shall, upon receiving an electrical control signal, move a point mass from an origin point to a fixed destination point while operating on board the ISS.",
+                "user_text": "The System shall be able to move a point mass from an origin point to a fixed destination point.",
+                "notes": ""
+              },
+              {
+                "violation_id": "1-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "accept",
+                "ai_suggestion": "shall move",
+                "user_text": "shall move",
+                "notes": ""
+              }
+            ],
+            "suggestion_feedback": [],
+            "final_text": "The System shall move a point mass from an origin point to a fixed destination point. Note 1: The path is notional; the actual path is to be determined. Note 2: Assume that a link between the system output and the point mass will be designed separately (by someone else) and will match the needs of your design. Note 3: The origin point is (X, Y, Z) = (0 mm, 0 mm, 101.6 mm) or [0â, 0â, 4â]. Note 4: The destination point is (X, Y, Z) = (71.84 mm, 0 mm, -71.84 mm) or [2.82â, 0â, -2.82â].",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "2",
+            "original_text": "The System shall be able to move the point mass from the destination point back to the origin point. Note 1: The path is notional; the actual path is to be determined. Note 2: Assume that a link between the system output and the point mass will be designed separately (by someone else) and will match the needs of your design. Note 3: The origin point is (X, Y, Z) = (0 mm, 0 mm, 101.6 mm) or [0â, 0â, 4â]. Note 4: The destination point is (X, Y, Z) = (71.84 mm, 0 mm, -71.84 mm) or [2.82â, 0â, -2.82â].",
+            "violation_feedback": [
+              {
+                "violation_id": "2-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "accept",
+                "ai_suggestion": "shall move",
+                "user_text": "shall move",
+                "notes": ""
+              }
+            ],
+            "suggestion_feedback": [],
+            "final_text": "The System shall move the point mass from the destination point back to the origin point. Note 1: The path is notional; the actual path is to be determined. Note 2: Assume that a link between the system output and the point mass will be designed separately (by someone else) and will match the needs of your design. Note 3: The origin point is (X, Y, Z) = (0 mm, 0 mm, 101.6 mm) or [0â, 0â, 4â]. Note 4: The destination point is (X, Y, Z) = (71.84 mm, 0 mm, -71.84 mm) or [2.82â, 0â, -2.82â].",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "3",
+            "original_text": "The system shall execute FR1 accurately with +/- 2.5mm [0.1â] accuracy in every Cartesian direction.",
+            "violation_feedback": [
+              {
+                "violation_id": "3-A2",
+                "rule_id": "A2",
+                "criterion_name": "Necessary",
+                "user_action": "accept",
+                "ai_suggestion": "the displacement of the center of mass from origin to destination",
+                "user_text": "the displacement of the center of mass from origin to destination",
+                "notes": ""
+              },
+              {
+                "violation_id": "3-A9",
+                "rule_id": "A9",
+                "criterion_name": "Correct",
+                "user_action": "accept",
+                "ai_suggestion": "+/- [TBD based on stakeholder accuracy requirements]",
+                "user_text": "+/- [TBD based on stakeholder accuracy requirements]",
+                "notes": ""
+              }
+            ],
+            "suggestion_feedback": [],
+            "final_text": "The system shall execute the displacement of the center of mass from origin to destination accurately with +/- 2.5mm [0.1â] accuracy in every Cartesian direction.",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "4",
+            "original_text": "The system shall execute FR2 accurately with +/- 2.5mm [0.1â] accuracy in every Cartesian direction.",
+            "violation_feedback": [
+              {
+                "violation_id": "4-A2",
+                "rule_id": "A2",
+                "criterion_name": "Necessary",
+                "user_action": "accept",
+                "ai_suggestion": "the return of the center of mass from the destination point back to the origin point",
+                "user_text": "the return of the center of mass from the destination point back to the origin point",
+                "notes": ""
+              },
+              {
+                "violation_id": "4-A9",
+                "rule_id": "A9",
+                "criterion_name": "Correct",
+                "user_action": "accept",
+                "ai_suggestion": "+/- [TBD based on stakeholder requirements]",
+                "user_text": "+/- [TBD based on stakeholder requirements]",
+                "notes": ""
+              }
+            ],
+            "suggestion_feedback": [],
+            "final_text": "The system shall execute the return of the center of mass from the destination point back to the origin point accurately with +/- 2.5mm [0.1â] accuracy in every Cartesian direction.",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "5",
+            "original_text": "The System shall be able to execute FR1 in no more than 30 seconds.",
+            "violation_feedback": [
+              {
+                "violation_id": "5-A2",
+                "rule_id": "A2",
+                "criterion_name": "Necessary",
+                "user_action": "accept",
+                "ai_suggestion": "[value traceable to stakeholder need or mission requirement]",
+                "user_text": "[value traceable to stakeholder need or mission requirement]",
+                "notes": ""
+              },
+              {
+                "violation_id": "5-A4",
+                "rule_id": "A4",
+                "criterion_name": "Unambiguous",
+                "user_action": "accept",
+                "ai_suggestion": "displace the center of mass of the system from its origin to the set destination",
+                "user_text": "displace the center of mass of the system from its origin to the set destination",
+                "notes": ""
+              },
+              {
+                "violation_id": "5-A9",
+                "rule_id": "A9",
+                "criterion_name": "Correct",
+                "user_action": "accept",
+                "ai_suggestion": "[value derived from stakeholder need or mission requirement]",
+                "user_text": "[value derived from stakeholder need or mission requirement]",
+                "notes": ""
+              },
+              {
+                "violation_id": "5-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "accept",
+                "ai_suggestion": "shall execute FR1 within 30 seconds",
+                "user_text": "shall execute FR1 within 30 seconds",
+                "notes": ""
+              }
+            ],
+            "suggestion_feedback": [],
+            "final_text": "The System shall be able to execute displace the center of mass of the system from its origin to the set destination in no more than [value traceable to stakeholder need or mission requirement].",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "6",
+            "original_text": "The System shall be able to execute FR1 in no less than 5 seconds.",
+            "violation_feedback": [
+              {
+                "violation_id": "6-A2",
+                "rule_id": "A2",
+                "criterion_name": "Necessary",
+                "user_action": "modify",
+                "ai_suggestion": "within [X] seconds, where X is derived from [source requirement or stakeholder need]",
+                "user_text": "in no less than [X] seconds, where X is  derived from [source requirement or stakeholder need]",
+                "notes": "\"within\" inverts the meaning, and most implementers would interpret it as a maximum time allowance."
+              },
+              {
+                "violation_id": "6-A5",
+                "rule_id": "A5",
+                "criterion_name": "Complete",
+                "user_action": "accept",
+                "ai_suggestion": "the displacement of the center of mass from origin to destination (FR1)",
+                "user_text": "the displacement of the center of mass from origin to destination (FR1)",
+                "notes": ""
+              },
+              {
+                "violation_id": "6-A9",
+                "rule_id": "A9",
+                "criterion_name": "Correct",
+                "user_action": "reject",
+                "ai_suggestion": "within 5 seconds maximum",
+                "user_text": "in no less than 5 seconds",
+                "notes": "Modification inverted the requirement meaning"
+              },
+              {
+                "violation_id": "6-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "accept",
+                "ai_suggestion": "shall execute FR1 within a minimum of 5 seconds",
+                "user_text": "shall execute FR1 within a minimum of 5 seconds",
+                "notes": ""
+              }
+            ],
+            "suggestion_feedback": [],
+            "final_text": "The System shall be able to execute the displacement of the center of mass from origin to destination (FR1) in no less than [X] seconds, where X is  derived from [source requirement or stakeholder need].",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "7",
+            "original_text": "The System shall be able to execute FR2 in no more than 30 seconds.",
+            "violation_feedback": [
+              {
+                "violation_id": "7-A2",
+                "rule_id": "A2",
+                "criterion_name": "Necessary",
+                "user_action": "accept",
+                "ai_suggestion": "return the center of mass from the destination point back to the origin point",
+                "user_text": "return the center of mass from the destination point back to the origin point",
+                "notes": ""
+              },
+              {
+                "violation_id": "7-A5",
+                "rule_id": "A5",
+                "criterion_name": "Complete",
+                "user_action": "accept",
+                "ai_suggestion": "the operation of returning the center of mass from the destination point to the origin point",
+                "user_text": "the operation of returning the center of mass from the destination point to the origin point",
+                "notes": ""
+              },
+              {
+                "violation_id": "7-A9",
+                "rule_id": "A9",
+                "criterion_name": "Correct",
+                "user_action": "accept",
+                "ai_suggestion": "[value traceable to stakeholder need]",
+                "user_text": "[value traceable to stakeholder need]",
+                "notes": ""
+              },
+              {
+                "violation_id": "7-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "accept",
+                "ai_suggestion": "shall execute FR2 within",
+                "user_text": "shall execute FR2 within",
+                "notes": ""
+              }
+            ],
+            "suggestion_feedback": [],
+            "final_text": "The System shall be able to execute return the center of mass from the destination point back to the origin point in no more than [value traceable to stakeholder need].",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "8",
+            "original_text": "The System shall be able to execute FR2 in no less than 5 seconds.",
+            "violation_feedback": [
+              {
+                "violation_id": "8-A2",
+                "rule_id": "A2",
+                "criterion_name": "Necessary",
+                "user_action": "accept",
+                "ai_suggestion": "return the center of mass from the destination point back to the origin point",
+                "user_text": "return the center of mass from the destination point back to the origin point",
+                "notes": ""
+              },
+              {
+                "violation_id": "8-A5",
+                "rule_id": "A5",
+                "criterion_name": "Complete",
+                "user_action": "accept",
+                "ai_suggestion": "return the center of mass from the destination point back to the origin point",
+                "user_text": "return the center of mass from the destination point back to the origin point",
+                "notes": ""
+              },
+              {
+                "violation_id": "8-A9",
+                "rule_id": "A9",
+                "criterion_name": "Correct",
+                "user_action": "accept",
+                "ai_suggestion": "return the center of mass from the destination point back to the origin point",
+                "user_text": "return the center of mass from the destination point back to the origin point",
+                "notes": ""
+              },
+              {
+                "violation_id": "8-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "accept",
+                "ai_suggestion": "in a minimum of 5 seconds",
+                "user_text": "in a minimum of 5 seconds",
+                "notes": ""
+              }
+            ],
+            "suggestion_feedback": [],
+            "final_text": "The System shall be able to execute return the center of mass from the destination point back to the origin point in a minimum of 5 seconds.",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "9",
+            "original_text": "The system shall be able to move a point mass of 3.6 kg perpendicularly to normal gravity (9.81 m/s2).",
+            "violation_feedback": [
+              {
+                "violation_id": "9-A2",
+                "rule_id": "A2",
+                "criterion_name": "Necessary",
+                "user_action": "accept",
+                "ai_suggestion": "in the microgravity environment of the ISS",
+                "user_text": "in the microgravity environment of the ISS",
+                "notes": ""
+              },
+              {
+                "violation_id": "9-A4",
+                "rule_id": "A4",
+                "criterion_name": "Unambiguous",
+                "user_action": "accept",
+                "ai_suggestion": "along the specified path between origin and destination points",
+                "user_text": "along the specified path between origin and destination points",
+                "notes": ""
+              },
+              {
+                "violation_id": "9-A5",
+                "rule_id": "A5",
+                "criterion_name": "Complete",
+                "user_action": "modify",
+                "ai_suggestion": "move a point mass of 3.6 kg from the origin point (0, 0, 101.6 mm) to the destination point (71.84, 0, -71.84 mm) and return to origin",
+                "user_text": "move a point mass of 3.6 kg from the origin point to the destination point and return to origin",
+                "notes": ""
+              },
+              {
+                "violation_id": "9-A9",
+                "rule_id": "A9",
+                "criterion_name": "Correct",
+                "user_action": "accept",
+                "ai_suggestion": "in the ISS microgravity environment",
+                "user_text": "in the ISS microgravity environment",
+                "notes": ""
+              },
+              {
+                "violation_id": "9-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "accept",
+                "ai_suggestion": "shall move",
+                "user_text": "shall move",
+                "notes": ""
+              }
+            ],
+            "suggestion_feedback": [],
+            "final_text": "The system shall move a point mass of 3.6 kg in the microgravity environment of the ISS.",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "10",
+            "original_text": "The System shall operate in an atmosphere comparable to that of Earth. Assume 21 degrees centigrade [70 degrees Fahrenheit], with low humidity, and pressurized to 100 kPA [750 mm Hg, 14.5 psi].",
+            "violation_feedback": [
+              {
+                "violation_id": "10-A2",
+                "rule_id": "A2",
+                "criterion_name": "Necessary",
+                "user_action": "accept",
+                "ai_suggestion": "The System shall operate in the ISS habitable module environment at 21 degrees centigrade [70 degrees Fahrenheit], with low humidity, and pressurized to 100 kPA [750 mm Hg, 14.5 psi] per [reference to ISS environmental specification].",
+                "user_text": "The System shall operate in the ISS habitable module environment at 21 degrees centigrade [70 degrees Fahrenheit], with low humidity, and pressurized to 100 kPA [750 mm Hg, 14.5 psi] per [reference to ISS environmental specification].",
+                "notes": ""
+              },
+              {
+                "violation_id": "10-A4",
+                "rule_id": "A4",
+                "criterion_name": "Unambiguous",
+                "user_action": "accept",
+                "ai_suggestion": "at 21 degrees centigrade [70 degrees Fahrenheit], with relative humidity between X% and Y%",
+                "user_text": "at 21 degrees centigrade [70 degrees Fahrenheit], with relative humidity between X% and Y%",
+                "notes": ""
+              },
+              {
+                "violation_id": "10-A5",
+                "rule_id": "A5",
+                "criterion_name": "Complete",
+                "user_action": "accept",
+                "ai_suggestion": "relative humidity between X% and Y%",
+                "user_text": "relative humidity between X% and Y%",
+                "notes": ""
+              },
+              {
+                "violation_id": "10-A6",
+                "rule_id": "A6",
+                "criterion_name": "Singular",
+                "user_action": "accept",
+                "ai_suggestion": "21 degrees centigrade [70 degrees Fahrenheit]",
+                "user_text": "21 degrees centigrade [70 degrees Fahrenheit]",
+                "notes": ""
+              },
+              {
+                "violation_id": "10-A9",
+                "rule_id": "A9",
+                "criterion_name": "Correct",
+                "user_action": "accept",
+                "ai_suggestion": "the environmental conditions specified in [reference to ISS environmental specification or stakeholder requirement]",
+                "user_text": "the environmental conditions specified in [reference to ISS environmental specification or stakeholder requirement]",
+                "notes": ""
+              },
+              {
+                "violation_id": "10-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "reject",
+                "ai_suggestion": "at 21 degrees centigrade",
+                "user_text": "Assume 21 degrees centigrade",
+                "notes": ""
+              }
+            ],
+            "suggestion_feedback": [],
+            "final_text": "The System shall operate in an atmosphere comparable to that of Earth. Assume 21 degrees centigrade [70 degrees Fahrenheit], with relative humidity between X% and Y%, and pressurized to 100 kPA [750 mm Hg, 14.5 psi].",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "11",
+            "original_text": "The System shall not contribute any particulates (e.g. dust) to the ISS atmosphere.",
+            "violation_feedback": [
+              {
+                "violation_id": "11-A4",
+                "rule_id": "A4",
+                "criterion_name": "Unambiguous",
+                "user_action": "accept",
+                "ai_suggestion": "not release particulates greater than [X] microns in size or exceeding [Y] particles per cubic meter",
+                "user_text": "not release particulates greater than [X] microns in size or exceeding [Y] particles per cubic meter",
+                "notes": ""
+              },
+              {
+                "violation_id": "11-A5",
+                "rule_id": "A5",
+                "criterion_name": "Complete",
+                "user_action": "reject",
+                "ai_suggestion": "The System shall not contribute any particulates (e.g. dust) to the ISS atmosphere during normal operation and maintenance activities.",
+                "user_text": "The System shall not contribute any particulates (e.g. dust) to the ISS atmosphere.",
+                "notes": ""
+              },
+              {
+                "violation_id": "11-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "reject",
+                "ai_suggestion": "shall maintain particulate-free operation with respect to particulates",
+                "user_text": "shall not contribute any particulates",
+                "notes": ""
+              }
+            ],
+            "suggestion_feedback": [],
+            "final_text": "The System shall not release particulates greater than [X] microns in size or exceeding [Y] particles per cubic meter to the ISS atmosphere.",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "12",
+            "original_text": "The System shall enclose all lubricated components to prevent lubricants from leaking into the atmosphere of the ISS.",
+            "violation_feedback": [
+              {
+                "violation_id": "12-A4",
+                "rule_id": "A4",
+                "criterion_name": "Unambiguous",
+                "user_action": "accept",
+                "ai_suggestion": "hermetically seal all components containing lubricants",
+                "user_text": "hermetically seal all components containing lubricants",
+                "notes": ""
+              },
+              {
+                "violation_id": "12-A5",
+                "rule_id": "A5",
+                "criterion_name": "Complete",
+                "user_action": "modify",
+                "ai_suggestion": "hermetically seal all components containing lubricants to prevent lubricant leakage exceeding [X] mg/hour during all operational and non-operational conditions",
+                "user_text": "hermetically seal all components containing lubricants",
+                "notes": "\"to prevent\" is a rationale statement that is inappropriate to include."
+              }
+            ],
+            "suggestion_feedback": [],
+            "final_text": "The System shall hermetically seal all components containing lubricants to prevent lubricants from leaking into the atmosphere of the ISS.",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "13",
+            "original_text": "The System shall not use more than 1.5 Watt-hours to support all operations. Note: Assume a maximum of 1 minute of operations.",
+            "violation_feedback": [
+              {
+                "violation_id": "13-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "accept",
+                "ai_suggestion": "shall use a maximum of 1.5 Watt-hours",
+                "user_text": "shall use a maximum of 1.5 Watt-hours",
+                "notes": ""
+              }
+            ],
+            "suggestion_feedback": [],
+            "final_text": "The System shall use a maximum of 1.5 Watt-hours to support all operations. Note: Assume a maximum of 1 minute of operations.",
+            "overall_notes": ""
+          }
+        ],
+        "session_id": "ffd92981",
+        "timestamp": "2026-08-10T21:22:52.289293Z",
+        "summary_statistics": {
+          "total_requirements": 13,
+          "total_violations": 40,
+          "total_suggestions": 0,
+          "actions": {
+            "accept": 32,
+            "reject": 5,
+            "modify": 3
+          },
+          "acceptance_rate_by_rule": {
+            "A5": {
+              "accept": 4,
+              "reject": 2,
+              "modify": 2,
+              "rate": 0.75
+            },
+            "A10": {
+              "accept": 8,
+              "reject": 2,
+              "modify": 0,
+              "rate": 0.8
+            },
+            "A2": {
+              "accept": 7,
+              "reject": 0,
+              "modify": 1,
+              "rate": 1.0
+            },
+            "A9": {
+              "accept": 7,
+              "reject": 1,
+              "modify": 0,
+              "rate": 0.875
+            },
+            "A4": {
+              "accept": 5,
+              "reject": 0,
+              "modify": 0,
+              "rate": 1.0
+            },
+            "A6": {
+              "accept": 1,
+              "reject": 0,
+              "modify": 0,
+              "rate": 1.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "reviewer": "SME 6",
+      "affiliation": "NNSA",
+      "source_file": "feedback_d566d756.json",
+      "feedback": {
+        "requirement_feedback": [
+          {
+            "req_id": "1",
+            "original_text": "The System shall be able to move a point mass from an origin point to a fixed destination point. Note 1: The path is notional; the actual path is to be determined. Note 2: Assume that a link between the system output and the point mass will be designed separately (by someone else) and will match the needs of your design. Note 3: The origin point is (X, Y, Z) = (0 mm, 0 mm, 101.6 mm) or [0â, 0â, 4â]. Note 4: The destination point is (X, Y, Z) = (71.84 mm, 0 mm, -71.84 mm) or [2.82â, 0â, -2.82â].",
+            "violation_feedback": [
+              {
+                "violation_id": "1-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "accept",
+                "ai_suggestion": "shall move",
+                "user_text": "shall move",
+                "notes": ""
+              }
+            ],
+            "suggestion_feedback": [],
+            "final_text": "The System shall move a point mass from an origin point to a fixed destination point. Note 1: The path is notional; the actual path is to be determined. Note 2: Assume that a link between the system output and the point mass will be designed separately (by someone else) and will match the needs of your design. Note 3: The origin point is (X, Y, Z) = (0 mm, 0 mm, 101.6 mm) or [0â, 0â, 4â]. Note 4: The destination point is (X, Y, Z) = (71.84 mm, 0 mm, -71.84 mm) or [2.82â, 0â, -2.82â].",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "2",
+            "original_text": "The System shall be able to move the point mass from the destination point back to the origin point. Note 1: The path is notional; the actual path is to be determined. Note 2: Assume that a link between the system output and the point mass will be designed separately (by someone else) and will match the needs of your design. Note 3: The origin point is (X, Y, Z) = (0 mm, 0 mm, 101.6 mm) or [0â, 0â, 4â]. Note 4: The destination point is (X, Y, Z) = (71.84 mm, 0 mm, -71.84 mm) or [2.82â, 0â, -2.82â].",
+            "violation_feedback": [
+              {
+                "violation_id": "2-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "accept",
+                "ai_suggestion": "shall move",
+                "user_text": "shall move",
+                "notes": ""
+              }
+            ],
+            "suggestion_feedback": [],
+            "final_text": "The System shall move the point mass from the destination point back to the origin point. Note 1: The path is notional; the actual path is to be determined. Note 2: Assume that a link between the system output and the point mass will be designed separately (by someone else) and will match the needs of your design. Note 3: The origin point is (X, Y, Z) = (0 mm, 0 mm, 101.6 mm) or [0â, 0â, 4â]. Note 4: The destination point is (X, Y, Z) = (71.84 mm, 0 mm, -71.84 mm) or [2.82â, 0â, -2.82â].",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "3",
+            "original_text": "The system shall execute FR1 accurately with +/- 2.5mm [0.1â] accuracy in every Cartesian direction.",
+            "violation_feedback": [
+              {
+                "violation_id": "3-A2",
+                "rule_id": "A2",
+                "criterion_name": "Necessary",
+                "user_action": "modify",
+                "ai_suggestion": "the displacement of the center of mass from origin to destination",
+                "user_text": "*remove preceding \"execute\"* displace the center of mass from origin to destination",
+                "notes": "removal of the word \"execute\" and adoption of this modified change would produce a more concise requirement"
+              },
+              {
+                "violation_id": "3-A4",
+                "rule_id": "A4",
+                "criterion_name": "Unambiguous",
+                "user_action": "accept",
+                "ai_suggestion": "displace the center of mass from origin to destination with +/- 2.5mm [0.1\"] accuracy",
+                "user_text": "displace the center of mass from origin to destination with +/- 2.5mm [0.1\"] accuracy",
+                "notes": "The preview is still showing both \"accurately\" and \"accuracy\" in the requirement when the suggested modification is accepted"
+              },
+              {
+                "violation_id": "3-A5",
+                "rule_id": "A5",
+                "criterion_name": "Complete",
+                "user_action": "accept",
+                "ai_suggestion": "with +/- 2.5mm [0.1\"] accuracy in every Cartesian direction at the destination point",
+                "user_text": "with +/- 2.5mm [0.1\"] accuracy in every Cartesian direction at the destination point",
+                "notes": "Once again the preview is not showing the accepted change. It is important to ensure that \"the destination point\" is what was intended to have that accuracy. If the intention was to have the specified accuracy throughout the path, the requirement text would require modification."
+              },
+              {
+                "violation_id": "3-A9",
+                "rule_id": "A9",
+                "criterion_name": "Correct",
+                "user_action": "accept",
+                "ai_suggestion": "[value traceable to stakeholder need or analysis]",
+                "user_text": "[value traceable to stakeholder need or analysis]",
+                "notes": "It is possible that tolerance is necessitated implicitly by verbiage elsewhere. A human who is more familiar with this particular system may be able to provide greater context to determine whether that is true in the acceptance or rejection of this suggested modification. Perhaps analysis has occurred to provide that value but has accidentally been excluded from the documentation. The analysis would then need to be included rather than changing the requirement, though this tool would highlight that missing information. "
+              }
+            ],
+            "suggestion_feedback": [
+              {
+                "suggestion_id": "3-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "suggest",
+                "user_text": "Replace original phrasing with \"shall displace\" as noted in A2",
+                "notes": ""
+              }
+            ],
+            "final_text": "The system shall execute *remove preceding \"execute\"* displace the center of mass from origin to destination accurately with +/- 2.5mm [0.1â] accuracy in every Cartesian direction.",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "4",
+            "original_text": "The system shall execute FR2 accurately with +/- 2.5mm [0.1â] accuracy in every Cartesian direction.",
+            "violation_feedback": [
+              {
+                "violation_id": "4-A2",
+                "rule_id": "A2",
+                "criterion_name": "Necessary",
+                "user_action": "modify",
+                "ai_suggestion": "the return of the center of mass from the destination point back to the origin point",
+                "user_text": "*remove preceding \"execute\"* return the center of mass from the destination point back to the origin point",
+                "notes": "Again, removing the word \"execute\" and inserting the suggested modification would result in a more concise requirement"
+              },
+              {
+                "violation_id": "4-A5",
+                "rule_id": "A5",
+                "criterion_name": "Complete",
+                "user_action": "modify",
+                "ai_suggestion": "position the center of mass at the origin point upon completion of the return operation",
+                "user_text": "return the center of mass from the destination point back to the origin point",
+                "notes": "remove the word \"accurately\" due to redundancy.... Interesting that the tool suggested removal for the previous requirement but not this one"
+              },
+              {
+                "violation_id": "4-A9",
+                "rule_id": "A9",
+                "criterion_name": "Correct",
+                "user_action": "accept",
+                "ai_suggestion": "+/- [TBD based on stakeholder requirements]",
+                "user_text": "+/- [TBD based on stakeholder requirements]",
+                "notes": "Preview is not updating"
+              }
+            ],
+            "suggestion_feedback": [
+              {
+                "suggestion_id": "4-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "suggest",
+                "user_text": "Replace original phrasing with \"shall return\" as noted in A2",
+                "notes": ""
+              }
+            ],
+            "final_text": "The system shall execute *remove preceding \"execute\"* return the center of mass from the destination point back to the origin point accurately with +/- 2.5mm [0.1â] accuracy in every Cartesian direction.",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "5",
+            "original_text": "The System shall be able to execute FR1 in no more than 30 seconds.",
+            "violation_feedback": [
+              {
+                "violation_id": "5-A2",
+                "rule_id": "A2",
+                "criterion_name": "Necessary",
+                "user_action": "reject",
+                "ai_suggestion": "[TBD based on stakeholder need or mission requirement]",
+                "user_text": "30 seconds",
+                "notes": "Addressed elsewhere. This modification suggestion is very similar to that in A9. Interesting that the tool suggested a chang to the value in A2 since it suggests similar changes in A9 for all other requirements."
+              },
+              {
+                "violation_id": "5-A4",
+                "rule_id": "A4",
+                "criterion_name": "Unambiguous",
+                "user_action": "reject",
+                "ai_suggestion": "the displacement of the center of mass from origin to destination",
+                "user_text": "FR1",
+                "notes": "Addressed elsewhere"
+              },
+              {
+                "violation_id": "5-A5",
+                "rule_id": "A5",
+                "criterion_name": "Complete",
+                "user_action": "reject",
+                "ai_suggestion": "complete the displacement of the center of mass from origin to destination within 30 seconds of receiving the electrical control signal",
+                "user_text": "execute FR1 in no more than 30 seconds",
+                "notes": "Addressed elsewhere. This is a good general format but ensure that the 30 seconds was truly intended to be after receiving the electrical control signal, otherwise this is incorrect"
+              },
+              {
+                "violation_id": "5-A9",
+                "rule_id": "A9",
+                "criterion_name": "Correct",
+                "user_action": "reject",
+                "ai_suggestion": "[value traceable to stakeholder need]",
+                "user_text": "30 seconds",
+                "notes": "Addressed elsewhere"
+              },
+              {
+                "violation_id": "5-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "modify",
+                "ai_suggestion": "shall complete FR1 within 30 seconds",
+                "user_text": "shall displace the center of mass from origin to destination a maximum of [value traceable to stakeholder need] seconds from [initialization condition]",
+                "notes": ""
+              }
+            ],
+            "suggestion_feedback": [],
+            "final_text": "The System shall displace the center of mass from origin to destination a maximum of [value traceable to stakeholder need] seconds from [initialization condition].",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "6",
+            "original_text": "The System shall be able to execute FR1 in no less than 5 seconds.",
+            "violation_feedback": [
+              {
+                "violation_id": "6-A2",
+                "rule_id": "A2",
+                "criterion_name": "Necessary",
+                "user_action": "reject",
+                "ai_suggestion": "the displacement of the center of mass from origin to destination",
+                "user_text": "FR1",
+                "notes": "corrected elsewhere"
+              },
+              {
+                "violation_id": "6-A5",
+                "rule_id": "A5",
+                "criterion_name": "Complete",
+                "user_action": "reject",
+                "ai_suggestion": "displace the center of mass from the origin point to the destination point",
+                "user_text": "FR1",
+                "notes": "already corrected in other sections"
+              },
+              {
+                "violation_id": "6-A9",
+                "rule_id": "A9",
+                "criterion_name": "Correct",
+                "user_action": "reject",
+                "ai_suggestion": "[value traceable to stakeholder need] seconds",
+                "user_text": "no less than 5 seconds",
+                "notes": "corrected in other section"
+              },
+              {
+                "violation_id": "6-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "modify",
+                "ai_suggestion": "shall execute the displacement of the center of mass from the origin point to the destination point in a minimum of 5 seconds",
+                "user_text": "shall displace the center of mass from the origin point to the destination point in a minimum of [value traceable to stakeholder need] seconds",
+                "notes": ""
+              }
+            ],
+            "suggestion_feedback": [],
+            "final_text": "The System shall displace the center of mass from the origin point to the destination point in a minimum of [value traceable to stakeholder need] seconds.",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "7",
+            "original_text": "The System shall be able to execute FR2 in no more than 30 seconds.",
+            "violation_feedback": [
+              {
+                "violation_id": "7-A2",
+                "rule_id": "A2",
+                "criterion_name": "Necessary",
+                "user_action": "reject",
+                "ai_suggestion": "return the center of mass from the destination point back to the origin point",
+                "user_text": "FR2",
+                "notes": "Addressed in A10"
+              },
+              {
+                "violation_id": "7-A5",
+                "rule_id": "A5",
+                "criterion_name": "Complete",
+                "user_action": "reject",
+                "ai_suggestion": "return the center of mass from the destination point back to the origin point",
+                "user_text": "FR2",
+                "notes": "Addressed in A10"
+              },
+              {
+                "violation_id": "7-A9",
+                "rule_id": "A9",
+                "criterion_name": "Correct",
+                "user_action": "reject",
+                "ai_suggestion": "return the center of mass from the destination point back to the origin point",
+                "user_text": "FR2",
+                "notes": "Suggested correction did not address the 30 second time mentioned in violation rationale."
+              },
+              {
+                "violation_id": "7-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "modify",
+                "ai_suggestion": "execute FR2 within",
+                "user_text": "return the center of mass from the destination point back to the origin point in a maximum of [value defined by stakeholder need, etc.] seconds *remove the subsequent \"30 seconds\"*",
+                "notes": "Interesting that the \"no more than\" discouragement is only captured in this requirement's suggestion, as preceding requirements had the same issue that the tool did not suggest correcting."
+              }
+            ],
+            "suggestion_feedback": [],
+            "final_text": "The System shall return the center of mass from the destination point back to the origin point in a maximum of [value defined by stakeholder need, etc.] seconds *remove the subsequent \"30 seconds\"* 30 seconds.",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "8",
+            "original_text": "The System shall be able to execute FR2 in no less than 5 seconds.",
+            "violation_feedback": [
+              {
+                "violation_id": "8-A2",
+                "rule_id": "A2",
+                "criterion_name": "Necessary",
+                "user_action": "modify",
+                "ai_suggestion": "return the center of mass from the destination point back to the origin point",
+                "user_text": "*remove preceding \"be able to\"* return the center of mass from the destination point back to the origin point",
+                "notes": ""
+              },
+              {
+                "violation_id": "8-A5",
+                "rule_id": "A5",
+                "criterion_name": "Complete",
+                "user_action": "reject",
+                "ai_suggestion": "return the center of mass from the destination point (71.84 mm, 0 mm, -71.84 mm) back to the origin point (0 mm, 0 mm, 101.6 mm)",
+                "user_text": "FR2",
+                "notes": "I believe the origin and destination points are explicitly defined elsewhere. Interesting that the tool did not make this highly specified correction/suggestion for previous requirements. "
+              },
+              {
+                "violation_id": "8-A9",
+                "rule_id": "A9",
+                "criterion_name": "Correct",
+                "user_action": "reject",
+                "ai_suggestion": "[value traceable to stakeholder need or mission requirement]",
+                "user_text": "5 seconds",
+                "notes": "Addressed in A10"
+              },
+              {
+                "violation_id": "8-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "modify",
+                "ai_suggestion": "in at least 5 seconds",
+                "user_text": "in a minimum of [value traceable to stakeholder need or mission requirement]",
+                "notes": ""
+              }
+            ],
+            "suggestion_feedback": [],
+            "final_text": "The System shall be able to execute *remove preceding \"be able to\"* return the center of mass from the destination point back to the origin point in a minimum of [value traceable to stakeholder need or mission requirement].",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "9",
+            "original_text": "The system shall be able to move a point mass of 3.6 kg perpendicularly to normal gravity (9.81 m/s2).",
+            "violation_feedback": [
+              {
+                "violation_id": "9-A2",
+                "rule_id": "A2",
+                "criterion_name": "Necessary",
+                "user_action": "accept",
+                "ai_suggestion": "in the microgravity environment of the ISS",
+                "user_text": "in the microgravity environment of the ISS",
+                "notes": ""
+              },
+              {
+                "violation_id": "9-A4",
+                "rule_id": "A4",
+                "criterion_name": "Unambiguous",
+                "user_action": "reject",
+                "ai_suggestion": "along the specified path from origin to destination",
+                "user_text": "perpendicularly to normal gravity (9.81 m/s2)",
+                "notes": ""
+              },
+              {
+                "violation_id": "9-A5",
+                "rule_id": "A5",
+                "criterion_name": "Complete",
+                "user_action": "reject",
+                "ai_suggestion": "move a point mass of 3.6 kg from the origin point (0 mm, 0 mm, 101.6 mm) to the destination point (71.84 mm, 0 mm, -71.84 mm) and back to the origin in the microgravity environment of the ISS",
+                "user_text": "move a point mass of 3.6 kg perpendicularly to normal gravity (9.81 m/s2)",
+                "notes": "The 3.6kg should have a tolerance on it or be a min or max so that the system can meet the requirement without requiring an absolutely perfect measurement"
+              },
+              {
+                "violation_id": "9-A9",
+                "rule_id": "A9",
+                "criterion_name": "Correct",
+                "user_action": "reject",
+                "ai_suggestion": "in the microgravity environment",
+                "user_text": "perpendicularly to normal gravity (9.81 m/s2)",
+                "notes": ""
+              },
+              {
+                "violation_id": "9-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "accept",
+                "ai_suggestion": "shall move",
+                "user_text": "shall move",
+                "notes": ""
+              }
+            ],
+            "suggestion_feedback": [],
+            "final_text": "The system shall move a point mass of 3.6 kg in the microgravity environment of the ISS.",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "10",
+            "original_text": "The System shall operate in an atmosphere comparable to that of Earth. Assume 21 degrees centigrade [70 degrees Fahrenheit], with low humidity, and pressurized to 100 kPA [750 mm Hg, 14.5 psi].",
+            "violation_feedback": [
+              {
+                "violation_id": "10-A2",
+                "rule_id": "A2",
+                "criterion_name": "Necessary",
+                "user_action": "modify",
+                "ai_suggestion": "The System shall operate in the ISS internal atmosphere (21 degrees centigrade [70 degrees Fahrenheit], low humidity, pressurized to 100 kPA [750 mm Hg, 14.5 psi]).",
+                "user_text": "The System shall operate in the ISS internal atmosphere (21 degrees centigrade [70 degrees Fahrenheit], relative humidity between 30% and 70%, pressurized to 100 kPA [750 mm Hg, 14.5 psi]).",
+                "notes": ""
+              },
+              {
+                "violation_id": "10-A4",
+                "rule_id": "A4",
+                "criterion_name": "Unambiguous",
+                "user_action": "reject",
+                "ai_suggestion": "relative humidity between 30% and 70%",
+                "user_text": "low humidity",
+                "notes": "Suggestion incorporated into A2 for correct display in the summary preview"
+              },
+              {
+                "violation_id": "10-A9",
+                "rule_id": "A9",
+                "criterion_name": "Correct",
+                "user_action": "reject",
+                "ai_suggestion": "with nominal conditions of",
+                "user_text": "comparable to that of Earth. Assume",
+                "notes": ""
+              }
+            ],
+            "suggestion_feedback": [],
+            "final_text": "The System shall operate in the ISS internal atmosphere (21 degrees centigrade [70 degrees Fahrenheit], relative humidity between 30% and 70%, pressurized to 100 kPA [750 mm Hg, 14.5 psi]).",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "11",
+            "original_text": "The System shall not contribute any particulates (e.g. dust) to the ISS atmosphere.",
+            "violation_feedback": [
+              {
+                "violation_id": "11-A4",
+                "rule_id": "A4",
+                "criterion_name": "Unambiguous",
+                "user_action": "modify",
+                "ai_suggestion": "generate or release particulates greater than [X] particles per [time period] of size [Y] micrometers or larger",
+                "user_text": "generate or release particulates greater than [X] particles per [time period] of size [Y] micrometers or larger",
+                "notes": ""
+              },
+              {
+                "violation_id": "11-A5",
+                "rule_id": "A5",
+                "criterion_name": "Complete",
+                "user_action": "accept",
+                "ai_suggestion": "shall not contribute particulates (e.g. dust) to the ISS atmosphere during [operational modes] exceeding [threshold value with units and particle size specification]",
+                "user_text": "shall not contribute particulates (e.g. dust) to the ISS atmosphere during [operational modes] exceeding [threshold value with units and particle size specification]",
+                "notes": "This is valuable if this restriction only exists in certain modes. However, if the particulate contribution is restricted in all operational modes this additional specification need not be added. "
+              },
+              {
+                "violation_id": "11-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "reject",
+                "ai_suggestion": "shall limit particulate contribution to less than [specified threshold]",
+                "user_text": "shall not contribute any particulates",
+                "notes": ""
+              }
+            ],
+            "suggestion_feedback": [],
+            "final_text": "The System shall not generate or release particulates greater than [X] particles per [time period] of size [Y] micrometers or larger (e.g. dust) to the ISS atmosphere.",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "12",
+            "original_text": "The System shall enclose all lubricated components to prevent lubricants from leaking into the atmosphere of the ISS.",
+            "violation_feedback": [
+              {
+                "violation_id": "12-A4",
+                "rule_id": "A4",
+                "criterion_name": "Unambiguous",
+                "user_action": "accept",
+                "ai_suggestion": "contain all lubricated components such that lubricant leakage does not exceed [X mg/hour]",
+                "user_text": "contain all lubricated components such that lubricant leakage does not exceed [X mg/hour]",
+                "notes": "Could add operational duration/mode (per A5 suggestion) if this leakage restriction is not always present"
+              },
+              {
+                "violation_id": "12-A5",
+                "rule_id": "A5",
+                "criterion_name": "Complete",
+                "user_action": "reject",
+                "ai_suggestion": "prevent lubricants from leaking into the atmosphere of the ISS at rates exceeding [X mg/hour] during [operational lifetime/mission duration]",
+                "user_text": "prevent lubricants from leaking into the atmosphere of the ISS",
+                "notes": ""
+              }
+            ],
+            "suggestion_feedback": [],
+            "final_text": "The System shall contain all lubricated components such that lubricant leakage does not exceed [X mg/hour] into the atmosphere of the ISS.",
+            "overall_notes": ""
+          },
+          {
+            "req_id": "13",
+            "original_text": "The System shall not use more than 1.5 Watt-hours to support all operations. Note: Assume a maximum of 1 minute of operations.",
+            "violation_feedback": [
+              {
+                "violation_id": "13-A10",
+                "rule_id": "A10",
+                "criterion_name": "Conforming",
+                "user_action": "accept",
+                "ai_suggestion": "shall use a maximum of 1.5 Watt-hours",
+                "user_text": "shall use a maximum of 1.5 Watt-hours",
+                "notes": "It may be beneficial to add more detail to what is meant by \"operations\" with respect to the 1 minute time frame, though the tool did not suggest this"
+              }
+            ],
+            "suggestion_feedback": [],
+            "final_text": "The System shall use a maximum of 1.5 Watt-hours to support all operations. Note: Assume a maximum of 1 minute of operations.",
+            "overall_notes": ""
+          }
+        ],
+        "session_id": "d566d756",
+        "timestamp": "2026-08-13T17:54:10.075658Z",
+        "summary_statistics": {
+          "total_requirements": 13,
+          "total_violations": 40,
+          "total_suggestions": 2,
+          "actions": {
+            "accept": 11,
+            "reject": 19,
+            "modify": 10
+          },
+          "acceptance_rate_by_rule": {
+            "A10": {
+              "accept": 4,
+              "reject": 1,
+              "modify": 4,
+              "rate": 0.8888888888888888
+            },
+            "A2": {
+              "accept": 1,
+              "reject": 3,
+              "modify": 4,
+              "rate": 0.625
+            },
+            "A4": {
+              "accept": 2,
+              "reject": 3,
+              "modify": 1,
+              "rate": 0.5
+            },
+            "A5": {
+              "accept": 2,
+              "reject": 6,
+              "modify": 1,
+              "rate": 0.3333333333333333
+            },
+            "A9": {
+              "accept": 2,
+              "reject": 6,
+              "modify": 0,
+              "rate": 0.25
+            }
+          }
+        }
+      }
+    }
+  ]
+}

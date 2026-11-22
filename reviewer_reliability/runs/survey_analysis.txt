@@ -1,0 +1,140 @@
+
+==============================================================================
+SURVEY ANALYSIS - baseline and prototype v1
+==============================================================================
+Baseline  : INCOSE AI Requirements Assistant — Baseline Survey.xlsx  n=6  (from 2026-06-09)
+Prototype : Prototype v1 AI Requirements Assistant Performance Survey.xlsx  n=4  (from 2026-06-10)
+
+Pre-cutoff rows are test submissions (reviewer IDs '3' and 'TT_test1')
+and are excluded. n is small: everything here is descriptive, and no
+significance test is run because none would mean anything at n=4-6.
+
+==============================================================================
+RESPONDENTS
+==============================================================================
+  baseline  : logan_fegenbush_lanl, SNL Reviewer-1, n/a 2026-07-24*, n/a 2026-07-29, n/a 2026-08-01*, Sara
+  prototype : logan_fegenbush_lanl, Keith Rivenbark, n/a 2026-07-24*, n/a 2026-08-01*
+
+  * = identity inferred from same-day timing, not a recorded ID.
+  took both : logan_fegenbush_lanl, n/a 2026-07-24*, n/a 2026-08-01*   -> 3 paired
+
+==============================================================================
+BASELINE - section means (1 = strongly disagree, 5 = strongly agree)
+==============================================================================
+  section                                             logan_fegenbush_lanl  SNL Reviewer-1 n/a 2026-07-24*  n/a 2026-07-29 n/a 2026-08-01*            Sara      mean
+  A. Requirements Engineering Experience                          5.00            4.67            4.00            4.67            2.67            3.33      4.06
+  B. Familiarity with AI Tools                                    5.00            3.67            4.00            3.33            4.33            1.67      3.67
+  C. Attitudes Toward AI in Requirements Engineering              4.75            5.00            4.25            5.00            4.75            3.50      4.54
+  D. Perceived Risks and Concerns                                 4.00            3.33            4.33            4.67            4.33            4.00      4.11   (concern: high = more worried)
+  E. Openness to Adoption                                         5.00            5.00            3.67            4.33            4.00            3.00      4.17
+
+==============================================================================
+PROTOTYPE v1 - section means (1 = strongly disagree, 5 = strongly agree)
+==============================================================================
+  section                  logan_fegenbush_lanl Keith Rivenbark n/a 2026-07-24* n/a 2026-08-01*      mean
+  A. Perceived Usefulness              4.00            3.75            2.75            4.25      3.69
+  B. Trust in AI Verdicts              3.75            4.00            2.50            3.25      3.38
+  C. Ease of Use                       3.33            4.00            2.00            4.00      3.33
+  D. Adoption Intent                   3.33            4.00            2.00            3.67      3.25
+
+==============================================================================
+PROTOTYPE v1 - every item
+==============================================================================
+  item                                                      logan_fegenbush_lanl Keith Rivenbark n/a 2026-07-24* n/a 2026-08-01*
+  A1   The assistant helps me evaluate requirements more th                4               4               2               4
+  A2   The assistant makes it easier to identify which INCO                5               4               4               5
+  A3   The suggested rewrites are useful starting points fo                3               3               3               4
+  A4   Overall, I find the assistant useful for requirement                4               4               2               4
+  B5   I trust the assistant's judgment when it flags a cri                3               4               2               4
+  B6   When the assistant clears a requirement, I am confid                4               4               2               2
+  B7   The assistant's verdicts are consistent enough to re                4               4               2               3
+  B8   I understand the rationale behind the issues the ass                4               4               4               4
+  C9   The interface for reviewing and acting on suggestion                3               4               2               4
+  C10  Learning to work with the assistant required little                 4               4               2               4
+  C11  Findings are presented in a format that is clear and                3               4               2               4
+  D12  I would use this assistant as part of my regular rev                4               4               2               4
+  D13  I would recommend this assistant to colleagues who p                2               4               2               4
+  D14  I would trust this assistant on a real program requi                4               4               2               3
+
+==============================================================================
+PAIRED: prior disposition vs verdict on the tool
+==============================================================================
+  Baseline E (openness to adoption) against prototype D (adoption intent).
+  Same person, before and after using it.
+
+  respondent              baseline E   prototype D   shift
+  logan_fegenbush_lanl          5.00          3.33   -1.67
+  n/a 2026-07-24*               3.67          2.00   -1.67
+  n/a 2026-08-01*               4.00          3.67   -0.33
+
+==============================================================================
+PROTOTYPE v1 - free text
+==============================================================================
+
+  --- logan_fegenbush_lanl ---
+    What capabilities would you be interested in 
+        Decision trees that will allow rules to be applied in specific sequences and possible li
+        ve updates depending on the decisions made to change the requirement. A feature to intro
+        duce verification method should be incorporated. As a best practice all requirements wri
+        tten typically include verification rational and a test plan, and the method selected wi
+        ll inform how the requirement should be written.
+    What did you not like about the prototype?
+        It is very high friction. The current iteration will not be adopted by engineers unless 
+        significant ease of use and installation features can be introduced (understandably diff
+        icult). OpenAI integration didn't work. I didn't test LLama.
+    What did you like about the assistant?
+        The tool did reliably identify good requirement practices. Some of the suggestions were 
+        solid, and even some suggestions brought insight into my own bad practices, like using o
+        verly complex language.
+    Any further comments for the research team?
+        Notes (not generated): I used an AI generated ‘carboat’ requirement set made in ChatGPT 
+        and evaluated with Claude Console. The suggestions to the base requirements were verbose
+         and reasonable. Most seemed to pull from the requirement construct section of the ISO 2
+        9148 standard, which I appreciated. I don’t believe INCOSE itself actually provides any 
+        requirements standards, guidelines, or rules that weren’t first developed under ISO/IEEE
+         as INCOSE is a guidance body rather than a standards body.  Some of the suggestions wer
+        e repetitive with respect to the same requirement. The tool didn’t adequately capture th
+        e dependencies between the conflicting suggestions, and accepting some changes would voi
+        d or conflict with other suggested changes. I saw this occur with the tool trying to add
+         multiple performance criteria or conditions to the requirement statement that would ult
+        imately make it a bad requirement. The tool needs some feature to track which choices ar
+        e made within the ruleset for each requirement evaluation. It may be an opportunity for 
+        the tool to ‘regenerate’ suggests on the fly as specific choices are made. The tool coul
+        d have a usability feature for mass selection of accept, modify, reject so users don’t n
+        eed to click each box individually. I reviewed roughly 10 of the 35 requirements and cli
+        cked reject on the rest. 
+
+  --- Keith Rivenbark ---
+    What capabilities would you be interested in 
+        Ability to analyze multiple levels of requirements simultaneously.
+    What did you like about the assistant?
+        Breaking the analysis down by INCOSE criteria
+
+  --- n/a 2026-07-24* ---
+    What capabilities would you be interested in 
+        The concept is a solid and beneficial one. The user interface and compiled requirement r
+        e-write presentation is a bit difficult/clunky and there is overlap in some of the sugge
+        sted rewords, not making it clear what the updated final proposed wording would be.
+    What did you not like about the prototype?
+        Mostly the user interface wasn't intuitively obvious or easy to use.
+    What did you like about the assistant?
+        The alignment of the errors to the INCOSE criteria. This could be done in summary fashio
+        n versus stepping through each with a re-write for each.
+
+  --- n/a 2026-08-01* ---
+    What capabilities would you be interested in 
+        Reconciliation of clashing recommendations (example provided in notes in point mass requ
+        irement feedback)
+    What did you not like about the prototype?
+        Clearer view of final reworded requirement would help. 
+    What did you like about the assistant?
+        Easy and intuitive to use. Good breakdown of requirements criteria evaluation. 
+    Any further comments for the research team?
+        I am no requirements expert, but this looks like great work so far. I'd enjoy using this
+         in my work or in the classroom. One thing that stood out - the lack of detailed context
+         of stakeholder needs seemed to impact the work quite significantly. A common issue was 
+        the lack of traceability from the requirement to a stakeholder need. It was difficult to
+         know whether this was intentional or not - i.e., is this an issue with the requirement,
+         or just based on the limited context provided? With a different context file, the quali
+        ty of the exact same set of requirements could have been evaluated to completely differe
+        nt. This made it difficult to evaluate some of the suggestions.

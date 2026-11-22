@@ -148,12 +148,36 @@ def cancel(run_id: str):
 
 
 @app.get("/api/runs/{run_id}/rules.json")
-def download_rules(run_id: str):
+def download_rules(run_id: str, scope: str = "constitution"):
+    """Download a run's rules.
+
+    scope=constitution (default) is the published constitution — what the
+    pipeline recommends, after the stability and top-N cuts.
+
+    scope=all is every principle the SAME run already produced: `all_ranked`,
+    which run_pipeline computes and returns regardless. Nothing about the
+    extraction changes to serve it — no extra passes, no extra API calls — it is
+    the run's own ranked pool, before `stability_min` and `n_constitution` cut it
+    down. Rules the thresholds rejected appear with the net/relevance/accuracy
+    that rejected them, so the cut is inspectable rather than implicit.
+    """
     run = jobs.get_run(run_id)
     if not run or not run.result:
         raise HTTPException(404, "no completed run with that id")
-    body = json.dumps(run.result["rules"], indent=2, ensure_ascii=False)
-    name = f"rules_group_{run.params['tag']}.json"
+    if scope not in ("constitution", "all"):
+        raise HTTPException(422, "scope must be 'constitution' or 'all'")
+
+    if scope == "all":
+        from dataclasses import asdict
+        from icai_v2.pipeline.icai_v2 import to_rules
+        # Same shape as `rules`, so either file drops into load_sme_rules.
+        payload = [asdict(r) for r in to_rules(run.result.get("all_ranked", []))]
+        name = f"rules_group_{run.params['tag']}_all.json"
+    else:
+        payload = run.result["rules"]
+        name = f"rules_group_{run.params['tag']}.json"
+
+    body = json.dumps(payload, indent=2, ensure_ascii=False)
     return Response(
         content=body, media_type="application/json",
         headers={"Content-Disposition": f'attachment; filename="{name}"'})

@@ -68,6 +68,28 @@ RECIPES: Dict[str, Dict] = {
         "doc": "The original A/B: verbatim n8n prompt against the same prompt "
                "carrying the five lenient-threshold ICAI rules.",
     },
+    # Induced in the ICAIv2 Studio from the six-session PM corpus (the five
+    # original reviewers plus d566d756), then injected here. Four of the five
+    # rules land under A10 and one under A5, so any movement should show up in
+    # those criteria rather than uniformly.
+    "icaiv2_top5": {
+        "kind": "grouped",
+        "dataset": "PM",
+        "configs": ["n8nbatch", "n8nicaiv2top5"],
+        "labels": ["Baseline (0 rules)", "Studio top 5 (4x A10, 1x A5)"],
+        "out": "PM_icaiv2_top5_box.png",
+        "doc": "The five principles the ICAIv2 Studio induced from the six-session "
+               "corpus, against the same verbatim n8n baseline every other "
+               "rule-injection figure uses.",
+    },
+    "icaiv2_top5_panels": {
+        "kind": "panels",
+        "dataset": "PM",
+        "configs": ["n8nbatch", "n8nicaiv2top5"],
+        "labels": ["Baseline (0 rules)", "Studio top 5 (4x A10, 1x A5)"],
+        "out": "PM_icaiv2_top5_panels.png",
+        "doc": "Small-multiples reading of the same two arms, one panel per metric.",
+    },
 }
 
 

@@ -1,0 +1,574 @@
+==============================================================================
+ADJUDICATED `modify` DECISIONS - SME reviewer reliability (Point Mass v5)
+==============================================================================
+
+Figure:       docs/figures/PM_reviewer_rates_adjudicated.png
+Scorecard:    docs/figures/PM_reviewer_scorecard.png
+Code:         reviewer_reliability/reviewer_rates.py -> ADJUDICATED
+Command:      python -m reviewer_reliability.adjudication_doc
+Ground truth: data/ground_truth/Point_Mass_v5_GroundTruth.xlsx ('x' = real issue)
+
+METHOD
+  A `modify` is neither an accept nor a reject, but scoring the reviewer as a
+  binary classifier needs one. All 19 modifies were labelled by hand against
+  the criterion the AI invoked, the AI's suggested text, the SME's final text
+  and the SME's note. The test: does the edit accept the premise of the flag
+  as categorised? Adopting the AI's words for a different reason than the AI
+  gave is not an endorsement.
+
+WHAT 'AUTO-CHECK' MEANS
+  Every hand label in the tables below is shown next to the answer a simple
+  automatic rule would have given, purely as a sanity check on the hand
+  labelling. The automatic rule is: look at the words the AI ADDED to the
+  requirement, then see how many of them the reviewer kept in their final
+  text. Kept most of them -> guess ENDORSE. Dropped most -> guess REJECT. It
+  counts words, so it cannot tell why a reviewer kept a word, and it is fooled
+  when two people reach the same wording for different reasons, or when a
+  reviewer rewrites the same fix in their own words. It is NOT used in any
+  published number - the hand labels are. It agrees with them on 9 of 19; the
+  disagreements are listed so you can see where word-counting and reading
+  diverge.
+
+TALLY
+  19 modifies: 12 endorse, 7 reject. The auto-check agrees on 9 of 19. SME 2 =
+  2, SME 3 = 4, SME 5 = 3, SME 6 = 10; the remaining reviewers logged none.
+
+  12 of the 19 sit on cells the ground truth calls clean, so the policy mostly
+  moves items between FP and TN, shifting TNR/FPR more than TPR/FNR. The 7 on
+  GT-violation cells move TP against FN and so bear directly on TPR.
+
+  PROVENANCE CAVEAT. The nine decisions for SME 2, SME 3 and SME 5 were
+  adjudicated without reference to ground truth. The ten for SME 6 were
+  adjudicated with each item's GT status visible, and came out perfectly
+  aligned with it - all five GT-violation modifies endorsed, all five GT-clean
+  modifies rejected. That is also the pattern anchoring would produce. The
+  earlier nine show no such alignment: five of their seven GT-clean modifies
+  were endorsed, producing false positives. SME 6's TNR and TPR should be
+  treated as provisional until the block is re-labelled blind.
+
+HOW TO READ EACH DECISION
+  Each decision shows: the decision and a short reason; the original
+  requirement, the AI's proposed phrase and the SME's final text; what the SME
+  did with the AI's phrase; and the SME's note. Reasons for the 7 decisions
+  marked in the ADJUDICATED comment block in reviewer_rates.py were written
+  when the labels were set; the other 12 were added later to explain the
+  existing labels.
+
+------------------------------------------------------------------------------
+#   reviewer  session   id     req   crit  GT         verdict  cell  auto-check
+------------------------------------------------------------------------------
+1   SME 2     aee204f7  9-A4   PR.7  A4    clean      endorse  FP    endorse
+2   SME 2     aee204f7  10-A2  ER.1  A2    clean      endorse  FP    endorse
+3   SME 3     6e1e38fc  1-A10  FR.1  A10   violation  endorse  TP    endorse
+4   SME 3     6e1e38fc  2-A10  FR.2  A10   violation  endorse  TP    endorse
+5   SME 3     6e1e38fc  10-A2  ER.1  A2    clean      reject   TN    endorse
+6   SME 3     6e1e38fc  12-A5  ER.3  A5    clean      endorse  FP    endorse
+7   SME 5     ffd92981  6-A2   PR.4  A2    clean      endorse  FP    endorse
+8   SME 5     ffd92981  9-A5   PR.7  A5    clean      endorse  FP    reject
+9   SME 5     ffd92981  12-A5  ER.3  A5    clean      reject   TN    reject
+10  SME 6     d566d756  3-A2   PR.1  A2    clean      reject   TN    endorse
+11  SME 6     d566d756  4-A2   PR.2  A2    clean      reject   TN    endorse
+12  SME 6     d566d756  4-A5   PR.2  A5    clean      reject   TN    endorse
+13  SME 6     d566d756  5-A10  PR.3  A10   violation  endorse  TP    reject
+14  SME 6     d566d756  6-A10  PR.4  A10   violation  endorse  TP    endorse
+15  SME 6     d566d756  7-A10  PR.5  A10   violation  endorse  TP    reject
+16  SME 6     d566d756  8-A2   PR.6  A2    clean      reject   TN    endorse
+17  SME 6     d566d756  8-A10  PR.6  A10   violation  endorse  TP    reject
+18  SME 6     d566d756  10-A2  ER.1  A2    clean      reject   TN    endorse
+19  SME 6     d566d756  11-A4  ER.2  A4    violation  endorse  TP    endorse
+
+  GT         = does v5 ground truth mark this requirement x criterion
+               cell as a real issue?
+  verdict    = the HAND label. This is what the published rates use.
+  cell       = resulting confusion-matrix cell (TP / FP / FN / TN).
+  auto-check = what the word-counting rule would have guessed. Not used
+               in any published number; shown only as a cross-check.
+
+WHERE THE HAND LABEL AND THE AUTO-CHECK DISAGREE  (10 of 19)
+  The hand label wins in every case; these are listed so the divergence is
+  visible rather than hidden.
+  SME 3  10-A2   hand=reject   auto-check=endorse  (carried 100% of the AI's additions)
+  SME 5  9-A5    hand=endorse  auto-check=reject   (carried 43% of the AI's additions)
+  SME 6  3-A2    hand=reject   auto-check=endorse  (carried 80% of the AI's additions)
+  SME 6  4-A2    hand=reject   auto-check=endorse  (carried 100% of the AI's additions)
+  SME 6  4-A5    hand=reject   auto-check=endorse  (carried 56% of the AI's additions)
+  SME 6  5-A10   hand=endorse  auto-check=reject   (carried 0% of the AI's additions)
+  SME 6  7-A10   hand=endorse  auto-check=reject   (carried 0% of the AI's additions)
+  SME 6  8-A2    hand=reject   auto-check=endorse  (carried 100% of the AI's additions)
+  SME 6  8-A10   hand=endorse  auto-check=reject   (carried 0% of the AI's additions)
+  SME 6  10-A2   hand=reject   auto-check=endorse  (carried 100% of the AI's additions)
+
+==============================================================================
+THE 19 DECISIONS
+==============================================================================
+
+[1] SME 2  9-A4  PR.7 x A4 (Unambiguous)
+------------------------------------------------------------------------------
+
+  My decision: ENDORSE - Used AI's ambiguity fix word for word.
+
+  Original requirement
+    The system shall be able to move a point mass of 3.6 kg perpendicularly to
+    normal gravity (9.81 m/s2).
+  AI's proposed phrase
+    in any direction within the ISS microgravity environment
+  SME's final text
+    in any direction within the ISS microgravity environment
+
+  What the SME did with the AI's phrase
+    Used it word for word.
+
+  SME note
+    I don't know the correct wording, either way you have to test on Earth.
+
+[2] SME 2  10-A2  ER.1 x A2 (Necessary)
+------------------------------------------------------------------------------
+
+  My decision: ENDORSE - Adopted AI rewrite; note raises separate issue.
+
+  Original requirement
+    The System shall operate in an atmosphere comparable to that of Earth.
+    Assume 21 degrees centigrade [70 degrees Fahrenheit], with low humidity,
+    and pressurized to 100 kPA [750 mm Hg, 14.5 psi].
+  AI's proposed phrase
+    The System shall operate in the ISS cabin environment as specified in
+    [reference to ISS environmental specifications].
+  SME's final text
+    The System shall operate in the ISS cabin environment as specified in
+    [reference to ISS environmental specifications].
+
+  What the SME did with the AI's phrase
+    Used it word for word.
+
+  SME note
+    The test environment may be more severe than the employed environment,
+    there may need to be two verification tests for full coverage.
+
+[3] SME 3  1-A10  FR.1 x A10 (Conforming)
+------------------------------------------------------------------------------
+
+  My decision: ENDORSE - Kept the 'shall move' fix.
+
+  Original requirement
+    The System shall be able to move a point mass from an origin point to a
+    fixed destination point. Note 1: The path is notional; the actual path is
+    to be determined. Note 2: Assume that a link between the system output and
+    the point mass will be designed separately (by someone else) and will
+    match the needs of your design. Note 3: The origin point is (X, Y, Z) = (0
+    mm, 0 mm, 101.6 mm) or [0”, 0”, 4”]. Note 4: The destination point is (X,
+    Y, Z) = (71.84 mm, 0 mm, -71.84 mm) or [2.82”, 0”, -2.82”].
+  AI's proposed phrase
+    shall move
+  SME's final text
+    The System ⟪shall move⟫ a point mass from an origin point to a fixed
+    destination point. Note 1: The path is notional; the actual path is to be
+    determined in subsequent design activity. Note 2: Assume that a link
+    between the system output and the point mass will be designed separately
+    (by someone else) and will match the needs of your design. Note 3: The
+    origin point is (X, Y, Z) = (0 mm, 0 mm, 101.6 mm) or [0”, 0”, 4”]. Note
+    4: The destination point is (X, Y, Z) = (71.84 mm, 0 mm, -71.84 mm) or
+    [2.82”, 0”, -2.82”].
+
+  What the SME did with the AI's phrase
+    Kept it unchanged, inside a longer rewrite.
+
+  SME note
+    The notes in this requirement are confusing when they should provide
+    clarity. Specifically the first note specifies a "TBD" which is a bad
+    engineering practice. It should specify how the TBD will be resolved.
+
+[4] SME 3  2-A10  FR.2 x A10 (Conforming)
+------------------------------------------------------------------------------
+
+  My decision: ENDORSE - Kept the 'shall move' fix.
+
+  Original requirement
+    The System shall be able to move the point mass from the destination point
+    back to the origin point. Note 1: The path is notional; the actual path is
+    to be determined. Note 2: Assume that a link between the system output and
+    the point mass will be designed separately (by someone else) and will
+    match the needs of your design. Note 3: The origin point is (X, Y, Z) = (0
+    mm, 0 mm, 101.6 mm) or [0”, 0”, 4”]. Note 4: The destination point is (X,
+    Y, Z) = (71.84 mm, 0 mm, -71.84 mm) or [2.82”, 0”, -2.82”].
+  AI's proposed phrase
+    shall move
+  SME's final text
+    The System ⟪shall move⟫ the point mass from the destination point back to
+    the origin point. Note 1: The path is notional; the actual path is to be
+    determined in a subsequent design activity. Note 2: Assume that a link
+    between the system output and the point mass will be designed separately
+    (by someone else) and will match the needs of your design. Note 3: The
+    origin point is (X, Y, Z) = (0 mm, 0 mm, 101.6 mm) or [0”, 0”, 4”]. Note
+    4: The destination point is (X, Y, Z) = (71.84 mm, 0 mm, -71.84 mm) or
+    [2.82”, 0”, -2.82”].
+
+  What the SME did with the AI's phrase
+    Kept it unchanged, inside a longer rewrite.
+
+  SME note
+    Same concern as noted for requirement 1.
+
+[5] SME 3  10-A2  ER.1 x A2 (Necessary)
+------------------------------------------------------------------------------
+
+  My decision: REJECT - Fixed ambiguity (A4), not necessity (A2).
+
+  Original requirement
+    The System shall operate in an atmosphere comparable to that of Earth.
+    Assume 21 degrees centigrade [70 degrees Fahrenheit], with low humidity,
+    and pressurized to 100 kPA [750 mm Hg, 14.5 psi].
+  AI's proposed phrase
+    The System shall operate in the ISS internal atmosphere (nominal
+    conditions: 21 degrees centigrade [70 degrees Fahrenheit], low humidity,
+    100 kPA [750 mm Hg, 14.5 psi]).
+  SME's final text
+    The System shall operate in the ISS internal atmosphere (nominal
+    conditions: 21 degrees centigrade [70 degrees Fahrenheit], less than [x]%
+    relative humidity humidity, 100 kPA [750 mm Hg, 14.5 psi]).
+
+  What the SME did with the AI's phrase
+    Kept most of it (96% of its words).
+    - dropped: "low"
+    - added: "less than [x]% relative humidity"
+
+  SME note
+    "low humidity" is ambiguous
+
+[6] SME 3  12-A5  ER.3 x A5 (Complete)
+------------------------------------------------------------------------------
+
+  My decision: ENDORSE - Kept AI's leak-rate limit.
+
+  Original requirement
+    The System shall enclose all lubricated components to prevent lubricants
+    from leaking into the atmosphere of the ISS.
+  AI's proposed phrase
+    to prevent lubricants from escaping into the ISS atmosphere during all
+    operational and non-operational states with a leak rate not exceeding [X]
+    mg/hour
+  SME's final text
+    to prevent lubricants from leaking into the ISS atmosphere with a leak
+    rate not exceeding [x] mg/hour.
+
+  What the SME did with the AI's phrase
+    Kept part of it (70% of its words).
+    - dropped: "escaping"
+    - dropped: "during all operational and non-operational states"
+    - added: "leaking"
+
+  SME note
+    If no operational state is specified, it is assumed to apply to all
+    states. Otherwise the specify permissible value adds clarity.
+
+[7] SME 5  6-A2  PR.4 x A2 (Necessary)
+------------------------------------------------------------------------------
+
+  My decision: ENDORSE - Kept traceability clause; fixed one word.
+
+  Original requirement
+    The System shall be able to execute FR1 in no less than 5 seconds.
+  AI's proposed phrase
+    within [X] seconds, where X is derived from [source requirement or
+    stakeholder need]
+  SME's final text
+    in no less than [X] seconds, where X is derived from [source requirement
+    or stakeholder need]
+
+  What the SME did with the AI's phrase
+    Kept most of it (92% of its words).
+    - dropped: "within"
+    - added: "in no less than"
+
+  SME note
+    "within" inverts the meaning, and most implementers would interpret it as
+    a maximum time allowance.
+
+[8] SME 5  9-A5  PR.7 x A5 (Complete)
+------------------------------------------------------------------------------
+
+  My decision: ENDORSE - Kept AI's start and end points.
+
+  Original requirement
+    The system shall be able to move a point mass of 3.6 kg perpendicularly to
+    normal gravity (9.81 m/s2).
+  AI's proposed phrase
+    move a point mass of 3.6 kg from the origin point (0, 0, 101.6 mm) to the
+    destination point (71.84, 0, -71.84 mm) and return to origin
+  SME's final text
+    move a point mass of 3.6 kg from the origin point to the destination point
+    and return to origin
+
+  What the SME did with the AI's phrase
+    Kept most of it (70% of its words).
+    - dropped: "(0, 0, 101.6 mm)"
+    - dropped: "(71.84, 0, -71.84 mm)"
+
+  SME note
+    No note written.
+
+[9] SME 5  12-A5  ER.3 x A5 (Complete)
+------------------------------------------------------------------------------
+
+  My decision: REJECT - Deleted the limit A5 asked for.
+
+  Original requirement
+    The System shall enclose all lubricated components to prevent lubricants
+    from leaking into the atmosphere of the ISS.
+  AI's proposed phrase
+    hermetically seal all components containing lubricants to prevent
+    lubricant leakage exceeding [X] mg/hour during all operational and non-
+    operational conditions
+  SME's final text
+    hermetically seal all components containing lubricants
+
+  What the SME did with the AI's phrase
+    Kept part of it (32% of its words).
+    - dropped: "to prevent lubricant leakage exceeding [X] mg/hour during all
+    operational and non-operational conditions"
+
+  SME note
+    "to prevent" is a rationale statement that is inappropriate to include.
+
+[10] SME 6  3-A2  PR.1 x A2 (Necessary)
+------------------------------------------------------------------------------
+
+  My decision: REJECT - Style edit for concision, not necessity.
+
+  Original requirement
+    The system shall execute FR1 accurately with +/- 2.5mm [0.1â] accuracy in
+    every Cartesian direction.
+  AI's proposed phrase
+    the displacement of the center of mass from origin to destination
+  SME's final text
+    *remove preceding "execute"* displace the center of mass from origin to
+    destination
+
+  What the SME did with the AI's phrase
+    Kept most of it (73% of its words).
+    - dropped: "the displacement of"
+    - added: "displace"
+    - typed instruction: remove preceding "execute"
+
+  SME note
+    removal of the word "execute" and adoption of this modified change would
+    produce a more concise requirement
+
+[11] SME 6  4-A2  PR.2 x A2 (Necessary)
+------------------------------------------------------------------------------
+
+  My decision: REJECT - Style edit for concision, not necessity.
+
+  Original requirement
+    The system shall execute FR2 accurately with +/- 2.5mm [0.1â] accuracy in
+    every Cartesian direction.
+  AI's proposed phrase
+    the return of the center of mass from the destination point back to the
+    origin point
+  SME's final text
+    *remove preceding "execute"* return the center of mass from the
+    destination point back to the origin point
+
+  What the SME did with the AI's phrase
+    Kept most of it (88% of its words).
+    - dropped: "the"
+    - dropped: "of"
+    - typed instruction: remove preceding "execute"
+
+  SME note
+    Again, removing the word "execute" and inserting the suggested
+    modification would result in a more concise requirement
+
+[12] SME 6  4-A5  PR.2 x A5 (Complete)
+------------------------------------------------------------------------------
+
+  My decision: REJECT - Did not adopt AI's ending condition.
+
+  Original requirement
+    The system shall execute FR2 accurately with +/- 2.5mm [0.1â] accuracy in
+    every Cartesian direction.
+  AI's proposed phrase
+    position the center of mass at the origin point upon completion of the
+    return operation
+  SME's final text
+    return the center of mass from the destination point back to the origin
+    point
+
+  What the SME did with the AI's phrase
+    Kept part of it (47% of its words).
+    - dropped: "position"
+    - dropped: "at"
+    - dropped: "upon completion of the return operation"
+    - added: "return"
+    - added: "from the destination point back to"
+
+  SME note
+    remove the word "accurately" due to redundancy.... Interesting that the
+    tool suggested removal for the previous requirement but not this one
+
+[13] SME 6  5-A10  PR.3 x A10 (Conforming)
+------------------------------------------------------------------------------
+
+  My decision: ENDORSE - Removed 'no more than' in own words.
+
+  Original requirement
+    The System shall be able to execute FR1 in no more than 30 seconds.
+  AI's proposed phrase
+    shall complete FR1 within 30 seconds
+  SME's final text
+    shall displace the center of mass from origin to destination a maximum of
+    [value traceable to stakeholder need] seconds from [initialization
+    condition]
+
+  What the SME did with the AI's phrase
+    Kept part of it (33% of its words).
+    - dropped: "complete FR1 within 30"
+    - added: "displace the center of mass from origin to destination a maximum
+    of [value traceable to stakeholder need]"
+    - added: "from [initialization condition]"
+
+  SME note
+    No note written.
+
+[14] SME 6  6-A10  PR.4 x A10 (Conforming)
+------------------------------------------------------------------------------
+
+  My decision: ENDORSE - Kept AI's 'minimum of' fix.
+
+  Original requirement
+    The System shall be able to execute FR1 in no less than 5 seconds.
+  AI's proposed phrase
+    shall execute the displacement of the center of mass from the origin point
+    to the destination point in a minimum of 5 seconds
+  SME's final text
+    shall displace the center of mass from the origin point to the destination
+    point in a minimum of [value traceable to stakeholder need] seconds
+
+  What the SME did with the AI's phrase
+    Kept most of it (78% of its words).
+    - dropped: "execute the displacement of"
+    - dropped: "5"
+    - added: "displace"
+    - added: "[value traceable to stakeholder need]"
+
+  SME note
+    No note written.
+
+[15] SME 6  7-A10  PR.5 x A10 (Conforming)
+------------------------------------------------------------------------------
+
+  My decision: ENDORSE - Replaced 'no more than'; note agrees.
+
+  Original requirement
+    The System shall be able to execute FR2 in no more than 30 seconds.
+  AI's proposed phrase
+    execute FR2 within
+  SME's final text
+    return the center of mass from the destination point back to the origin
+    point in a maximum of [value defined by stakeholder need, etc.] seconds
+    *remove the subsequent "30 seconds"*
+
+  What the SME did with the AI's phrase
+    Wrote their own (0% of its words kept).
+    - dropped: "execute FR2 within"
+    - added: "return the center of mass from the destination point back to the
+    origin point in a maximum of [value defined by stakeholder need, etc.]
+    ..."
+    - typed instruction: remove the subsequent "30 seconds"
+
+  SME note
+    Interesting that the "no more than" discouragement is only captured in
+    this requirement's suggestion, as preceding requirements had the same
+    issue that the tool did not suggest correcting.
+
+[16] SME 6  8-A2  PR.6 x A2 (Necessary)
+------------------------------------------------------------------------------
+
+  My decision: REJECT - Style edit ('be able to'), not necessity.
+
+  Original requirement
+    The System shall be able to execute FR2 in no less than 5 seconds.
+  AI's proposed phrase
+    return the center of mass from the destination point back to the origin
+    point
+  SME's final text
+    *remove preceding "be able to"* return the center of mass from the
+    destination point back to the origin point
+
+  What the SME did with the AI's phrase
+    Used it word for word.
+    - typed instruction: remove preceding "be able to"
+
+  SME note
+    No note written.
+
+[17] SME 6  8-A10  PR.6 x A10 (Conforming)
+------------------------------------------------------------------------------
+
+  My decision: ENDORSE - Removed 'no less than' in own words.
+
+  Original requirement
+    The System shall be able to execute FR2 in no less than 5 seconds.
+  AI's proposed phrase
+    in at least 5 seconds
+  SME's final text
+    in a minimum of [value traceable to stakeholder need or mission
+    requirement]
+
+  What the SME did with the AI's phrase
+    Wrote their own (20% of its words kept).
+    - dropped: "at least 5 seconds"
+    - added: "a minimum of [value traceable to stakeholder need or mission
+    requirement]"
+
+  SME note
+    No note written.
+
+[18] SME 6  10-A2  ER.1 x A2 (Necessary)
+------------------------------------------------------------------------------
+
+  My decision: REJECT - Fixed ambiguity (A4), not necessity (A2).
+
+  Original requirement
+    The System shall operate in an atmosphere comparable to that of Earth.
+    Assume 21 degrees centigrade [70 degrees Fahrenheit], with low humidity,
+    and pressurized to 100 kPA [750 mm Hg, 14.5 psi].
+  AI's proposed phrase
+    The System shall operate in the ISS internal atmosphere (21 degrees
+    centigrade [70 degrees Fahrenheit], low humidity, pressurized to 100 kPA
+    [750 mm Hg, 14.5 psi]).
+  SME's final text
+    The System shall operate in the ISS internal atmosphere (21 degrees
+    centigrade [70 degrees Fahrenheit], relative humidity between 30% and 70%,
+    pressurized to 100 kPA [750 mm Hg, 14.5 psi]).
+
+  What the SME did with the AI's phrase
+    Kept most of it (96% of its words).
+    - dropped: "low"
+    - added: "relative"
+    - added: "between 30% and 70%,"
+
+  SME note
+    No note written.
+
+[19] SME 6  11-A4  ER.2 x A4 (Unambiguous)
+------------------------------------------------------------------------------
+
+  My decision: ENDORSE - Used AI's measurable limit word for word.
+
+  Original requirement
+    The System shall not contribute any particulates (e.g. dust) to the ISS
+    atmosphere.
+  AI's proposed phrase
+    generate or release particulates greater than [X] particles per [time
+    period] of size [Y] micrometers or larger
+  SME's final text
+    generate or release particulates greater than [X] particles per [time
+    period] of size [Y] micrometers or larger
+
+  What the SME did with the AI's phrase
+    Used it word for word.
+
+  SME note
+    No note written.
+
+==============================================================================

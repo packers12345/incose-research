@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { publishRules, rulesUrl, errorText } from '../api'
+import { publishRules, rulesUrl, allRulesUrl, errorText } from '../api'
 
 /* Two things every rule needs to be read honestly, and which a bare list hides:
    how many seeds independently found it (the Rashomon check the paper asks for),
@@ -132,7 +132,10 @@ export default function RulesStage({ run, onRestart }) {
 
       <div className="row">
         <a className="btn-primary" href={rulesUrl(run.run_id)} download>
-          Download rules_group_{run.params.tag}.json
+          Download constitution ({run.result.rules.length})
+        </a>
+        <a className="btn-secondary" href={allRulesUrl(run.run_id)} download>
+          Download all rules ({(run.result.all_ranked || []).length})
         </a>
         <button className="btn-secondary" onClick={publish} disabled={run.params.dry_run}>
           Publish to rule_sets/

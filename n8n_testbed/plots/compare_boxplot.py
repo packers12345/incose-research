@@ -45,7 +45,18 @@ INK = "#1a1a1a"
 MUTED = "#6b7280"
 
 
+_NB104_KEY = {"recall": "TPR", "specificity": "TNR", "fpr": "FPR", "fnr": "FNR",
+              "accuracy": "Accuracy", "precision": "Precision", "f1": "F1"}
+
+
 def _pooled(dataset: str, config: str) -> dict:
+    # AI4RE_CELLS=104 scores the notebook's way (A1 included, 8 x 13 = 104 cells,
+    # see n8n_testbed.nb104). Default stays the 91-cell testbed scoring.
+    import os
+    if os.getenv("AI4RE_CELLS", "").strip() == "104":
+        from n8n_testbed import nb104
+        df = nb104.score(config)
+        return {m: df[_NB104_KEY[m]].dropna().values for m in METRICS}
     df = metrics.score(dataset, config)
     p = df[df["rule"] == "POOLED"]
     return {m: p[m].dropna().values for m in METRICS}
@@ -65,38 +76,52 @@ def _style(bp, color: str) -> None:
 
 
 def generate(dataset: str, configs: List[str], labels: List[str],
-             out_name: str | None = None) -> Path:
+             out_name: str | None = None, figsize=None, span: float = None,
+             colors: List[str] | None = None) -> Path:
+    """`figsize` and `span` override the defaults, which were tuned for two
+    series. At three or four the group has to share the same 0.52 row, so each
+    box thins to ~0.10 and the medians crowd; pass a taller figure and a wider
+    span to keep them readable. Defaults are unchanged so existing figures
+    regenerate identically.
+
+    `colors` overrides the default palette so an arm keeps the colour it has in
+    companion figures (e.g. criterion_figures.ARM_STYLE)."""
+    palette = list(colors) if colors else SERIES
     series = [_pooled(dataset, c) for c in configs]
     n_runs = [len(s[METRICS[0]]) for s in series]
 
     n_series = len(series)
-    if n_series > len(SERIES):
-        raise ValueError(f"palette has {len(SERIES)} validated slots, "
+    if n_series > len(palette):
+        raise ValueError(f"palette has {len(palette)} validated slots, "
                          f"got {n_series} configs")
-    fig, ax = plt.subplots(figsize=(9.5, 7.5 + 0.7 * max(0, n_series - 2)))
+    if figsize is None:
+        figsize = (9.5, 7.5 + 0.7 * max(0, n_series - 2))
+    fig, ax = plt.subplots(figsize=figsize)
     # Spread the group evenly about each metric row.
-    span = 0.52
+    if span is None:
+        span = 0.52
     offsets = ([0.0] if n_series == 1
                else [-span / 2 + i * span / (n_series - 1) for i in range(n_series)])
     width = span / n_series * 0.78
 
-    for si, (data, color) in enumerate(zip(series, SERIES)):
+    for si, (data, color) in enumerate(zip(series, palette)):
         positions = [i + 1 + offsets[si] for i in range(len(METRICS))]
         bp = ax.boxplot([data[m] for m in METRICS], positions=positions,
                         widths=width, vert=False, patch_artist=True,
                         showfliers=True, manage_ticks=False)
         _style(bp, color)
-        # One label per box — the median — placed just outside the box so the
-        # two series' numbers never sit on top of each other.
-        # Direct labels only while they fit. Past three series the rows are too
-        # tight and the numbers land on neighbouring boxes — the printed table
-        # below carries every value, so the chart shows shape instead.
-        if n_series <= 3:
+        # One label per box — the median — placed just above its own box.
+        # Whether they fit is a question of ROW SPACING, not series count: the
+        # old `n_series <= 3` guard was written when span was fixed at 0.52, and
+        # it silently dropped every label once --span opened the rows up. Gate on
+        # the gap actually available between adjacent series instead.
+        gap = span / max(1, n_series - 1) if n_series > 1 else 1.0
+        if gap >= 0.20:
             for pos, m in zip(positions, METRICS):
                 med = float(np.median(data[m]))
-                dy = -0.20 if si == 0 else 0.20
-                ax.text(med, pos + dy, f"{med:.2f}",
-                        va="center", ha="center", color=color, fontsize=10.5)
+                ax.text(med, pos - width * 0.62, f"{med:.2f}",
+                        va="bottom", ha="center", color=color,
+                        fontsize=10.5 if n_series <= 2 else 9.5)
 
     ax.set_yticks(range(1, len(METRICS) + 1))
     ax.set_yticklabels(LABELS, fontsize=13, color=INK)
@@ -125,7 +150,7 @@ def generate(dataset: str, configs: List[str], labels: List[str],
     # that any in-plot corner collides with a box.
     ax.legend(handles=[Line2D([0], [0], color=c, lw=2.4,
                               label=f"{l}  (n={n})")
-                       for c, l, n in zip(SERIES, labels, n_runs)],
+                       for c, l, n in zip(palette, labels, n_runs)],
               loc="lower center", bbox_to_anchor=(0.5, 1.005), ncol=min(4, n_series),
               frameon=False, fontsize=12, labelcolor=INK,
               handlelength=1.6, columnspacing=2.4)
@@ -159,8 +184,15 @@ def main() -> None:
     ap.add_argument("--labels", nargs="+",
                     default=["Baseline", "Baseline + 5 ICAI rules"])
     ap.add_argument("--out")
+    ap.add_argument("--figsize", nargs=2, type=float, default=None,
+                    metavar=("W", "H"),
+                    help="figure size in inches; widen/heighten for 3-4 series")
+    ap.add_argument("--span", type=float, default=None,
+                    help="vertical span shared by the group on each metric row "
+                         "(default 0.52; raise toward 0.8 for 3-4 series)")
     a = ap.parse_args()
-    path = generate(a.dataset, a.configs, a.labels, a.out)
+    path = generate(a.dataset, a.configs, a.labels, a.out,
+                    figsize=tuple(a.figsize) if a.figsize else None, span=a.span)
     print(f"\nwrote {path}")
 
 

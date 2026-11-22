@@ -1,0 +1,6 @@
+The task is to design a system that should be able to receive an electrical control signal and move the center of mass of the system from an origin point to a destination point and back again to the origin point on board the International Space Station (ISS).
+The system must be capable of performing two high-level operations:
+1. Displace the center of mass of the system from its origin to a set destination.
+2. Return that point mass back to its origin. 
+
+Note 1: The path is notional; the actual path is to be determined. Note 2: Assume that a link between the system output and the point mass will be designed separately (by someone else) and will match the needs of your design. Note 3: The origin point is (X, Y, Z) = (0 mm, 0 mm, 101.6 mm) or [0”, 0”, 4”]. Note 4: The destination point is (X, Y, Z) = (71.84 mm, 0 mm, -71.84 mm) or [2.82”, 0”, -2.82”].

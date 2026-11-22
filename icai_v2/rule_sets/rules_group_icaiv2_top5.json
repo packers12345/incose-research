@@ -1,0 +1,115 @@
+[
+  {
+    "criterion": "A10",
+    "criterion_name": "",
+    "rule_text": "Prefer quantified limits over qualitative language for objective compliance assessment.",
+    "method": "icai_v2",
+    "evidence": [],
+    "support_count": 26,
+    "direction": "",
+    "sub_rule_id": "",
+    "extra": {
+      "net": 17,
+      "relevance": 0.549,
+      "accuracy": 0.627,
+      "correct": 42,
+      "incorrect": 25,
+      "seeds_found": 4,
+      "variants": [
+        "Prefer measurable leak rate limits over absolute prevention claims.",
+        "Prefer measurable parameters over vague terms; 'any particulates' is unverifiable.",
+        "Prefer quantified limits over qualitative language for objective compliance assessment.",
+        "Prefer quantified limits over vague exclusions; enables verification and acceptance criteria."
+      ]
+    }
+  },
+  {
+    "criterion": "A10",
+    "criterion_name": "",
+    "rule_text": "Prefer active voice 'shall move' over passive 'shall be able to move' construction.",
+    "method": "icai_v2",
+    "evidence": [],
+    "support_count": 16,
+    "direction": "",
+    "sub_rule_id": "",
+    "extra": {
+      "net": 18,
+      "relevance": 0.459,
+      "accuracy": 0.661,
+      "correct": 37,
+      "incorrect": 19,
+      "seeds_found": 3,
+      "variants": [
+        "Prefer active voice 'shall move' over passive 'shall be able to move' construction.",
+        "Prefer active voice 'shall move' over passive construction 'shall be able to move'."
+      ]
+    }
+  },
+  {
+    "criterion": "A10",
+    "criterion_name": "",
+    "rule_text": "Prefer quantified limits over vague negatives like 'not contribute any'.",
+    "method": "icai_v2",
+    "evidence": [],
+    "support_count": 32,
+    "direction": "",
+    "sub_rule_id": "",
+    "extra": {
+      "net": 16,
+      "relevance": 0.148,
+      "accuracy": 0.944,
+      "correct": 17,
+      "incorrect": 1,
+      "seeds_found": 3,
+      "variants": [
+        "Flag vague absolutes: 'not contribute any' lacks measurable thresholds or units.",
+        "Flag vague terms like 'prevent' and 'leaking' without quantified acceptance criteria.",
+        "Prefer quantified limits over vague negatives like 'not contribute any'."
+      ]
+    }
+  },
+  {
+    "criterion": "A5",
+    "criterion_name": "",
+    "rule_text": "Do not replace concise language with longer, more complex alternative phrasings.",
+    "method": "icai_v2",
+    "evidence": [],
+    "support_count": 56,
+    "direction": "",
+    "sub_rule_id": "",
+    "extra": {
+      "net": 30,
+      "relevance": 0.918,
+      "accuracy": 0.634,
+      "correct": 71,
+      "incorrect": 41,
+      "seeds_found": 2,
+      "variants": [
+        "Do not introduce unnecessary complexity when simpler wording suffices.",
+        "Do not replace concise language with longer, more complex alternative phrasings."
+      ]
+    }
+  },
+  {
+    "criterion": "A10",
+    "criterion_name": "",
+    "rule_text": "Flag modal weakness allowing non-performance; prefer direct obligation without capability hedging",
+    "method": "icai_v2",
+    "evidence": [],
+    "support_count": 12,
+    "direction": "",
+    "sub_rule_id": "",
+    "extra": {
+      "net": 19,
+      "relevance": 0.516,
+      "accuracy": 0.651,
+      "correct": 41,
+      "incorrect": 22,
+      "seeds_found": 2,
+      "variants": [
+        "Flag modal weakness allowing non-performance; prefer direct obligation without capability hedging",
+        "Flag modal weakness; 'able to' expresses capability, not requirement; use 'shall' instead."
+      ]
+    }
+  }
+]
